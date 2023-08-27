@@ -7,7 +7,7 @@ enum HTTPError: LocalizedError {
     case notFound
     case serverError
     case unknown
-
+    
     var errorCode: Int {
         switch self {
         case .badRequest: return 400
@@ -18,7 +18,7 @@ enum HTTPError: LocalizedError {
         case .unknown: return 0
         }
     }
-
+    
     var errorDescription: String? {
         switch self {
         case .badRequest: return "Bad Request"
@@ -29,7 +29,7 @@ enum HTTPError: LocalizedError {
         case .unknown: return "Unknown Error"
         }
     }
-
+    
     static func error(from statusCode: Int) -> HTTPError {
         switch statusCode {
         case 400: return .badRequest
@@ -43,13 +43,12 @@ enum HTTPError: LocalizedError {
     
     static func map(_ error: Error) -> Self {
         switch error {
-        case let _ as URLError:
+        case _ as URLError:
             return HTTPError.badRequest
             
-        case let _ as DecodingError:
+        case _ as DecodingError:
             return HTTPError.unknown
             
-     //   case as Error
         default:
             return HTTPError.badRequest
         }
