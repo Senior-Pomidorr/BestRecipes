@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @EnvironmentObject var tabbarRouter: TabbarRouter
+    
     var body: some View {
-        Text("HomeView")
+        VStack {
+            Text("HomeView")
+            Button {
+                tabbarRouter.currentPage = .favourites
+            } label: {
+                Text("to favorites")
+            }
+
+        }
+        
     }
 }
 

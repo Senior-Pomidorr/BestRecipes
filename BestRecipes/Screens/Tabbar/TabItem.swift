@@ -9,24 +9,29 @@ import SwiftUI
 
 struct TabItem: View {
     
+    let width, height: CGFloat
+    let systemIconName, tabName: String
     
+    @ObservedObject var tabbarRouter: TabbarRouter
+    let assignedPage: Page
     
     var body: some View {
         VStack {
-//            Image(systemName: "house")
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: geometry.size.width / 5, height: geometry.size.height / 28)
-//                .padding(.top, 10)
-//            Text("Home")
-//                .font(.footnote)
-//            Spacer()
+            Image(systemName: tabbarRouter.currentPage == assignedPage ? systemIconName + ".fill" : systemIconName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: width, height: height)
+                .padding(.top, 10)
+            Text(tabName)
+                .font(.footnote)
+            Spacer()
         }
-    }
-}
-
-struct TabItem_Previews: PreviewProvider {
-    static var previews: some View {
-        TabItem()
+        .padding(.horizontal, -4)
+        .foregroundColor(tabbarRouter.currentPage == assignedPage ? Color.theme.customPink : Color.theme.customBlack)
+        .onTapGesture {
+            print("нажали", assignedPage)
+            print("текущая", tabbarRouter.currentPage)
+            tabbarRouter.currentPage = assignedPage
+        }
     }
 }

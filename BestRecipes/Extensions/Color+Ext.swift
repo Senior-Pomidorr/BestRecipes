@@ -1,10 +1,3 @@
-//
-//  Color+Ext.swift
-//  PartyShacker
-//
-//  Created by Alexey Opexov on 16.05.2023.
-//
-
 import SwiftUI
 
 extension Color {
@@ -13,4 +6,7 @@ extension Color {
 
 struct Theme {
     let сustomWhite = Color("CustomWhite")
+    let customPink = Color("CustomPink")
+    let customBlack = Color("CustomBlack")
+    let customGray = Color("CustomGray")
 }
