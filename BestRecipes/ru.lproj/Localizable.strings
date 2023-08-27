@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  BestRecipes
+
+  Created by Alexandr Rodionov on 27.08.23.
+  
+*/
+
+//TestScreen
+"testScreen.startrequest" = "Проверка запроса";

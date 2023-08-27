@@ -15,8 +15,9 @@
 		758652622A9B2CB60015C547 /* SavedRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652612A9B2CB60015C547 /* SavedRecipesView.swift */; };
 		758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652632A9B2F5E0015C547 /* TrendingNowView.swift */; };
 		758652672A9B306E0015C547 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652662A9B306E0015C547 /* AddRecipeView.swift */; };
-		A12928112A9B54EE00DCE389 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A12928102A9B54EE00DCE389 /* RswiftLibrary */; };
-		A12928132A9B54EE00DCE389 /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = A12928122A9B54EE00DCE389 /* rswift */; };
+		A10CD65B2A9BCA2000FF2954 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10CD65A2A9BCA2000FF2954 /* Color+Ext.swift */; };
+		A12319B52A9BBFF800E2AA57 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12319B42A9BBFF800E2AA57 /* Tabbar.swift */; };
+		A12319B72A9BC49F00E2AA57 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12319B62A9BC49F00E2AA57 /* TabItem.swift */; };
 		A129281D2A9B777F00DCE389 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928192A9B777E00DCE389 /* Endpoint.swift */; };
 		A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281A2A9B777F00DCE389 /* HTTPClient.swift */; };
 		A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281B2A9B777F00DCE389 /* RequestMethod.swift */; };
@@ -29,6 +30,7 @@
 		A12928352A9B8E5100DCE389 /* TestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928342A9B8E5100DCE389 /* TestScreen.swift */; };
 		A12928382A9B904800DCE389 /* ListOfRecipeShortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928372A9B904800DCE389 /* ListOfRecipeShortModel.swift */; };
 		A129283A2A9B940A00DCE389 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928392A9B940A00DCE389 /* AlertModel.swift */; };
+		A129283D2A9BB01D00DCE389 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A129283F2A9BB01D00DCE389 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,9 @@
 		758652612A9B2CB60015C547 /* SavedRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesView.swift; sourceTree = "<group>"; };
 		758652632A9B2F5E0015C547 /* TrendingNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingNowView.swift; sourceTree = "<group>"; };
 		758652662A9B306E0015C547 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		A10CD65A2A9BCA2000FF2954 /* Color+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		A12319B42A9BBFF800E2AA57 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		A12319B62A9BC49F00E2AA57 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		A12928192A9B777E00DCE389 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A129281A2A9B777F00DCE389 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		A129281B2A9B777F00DCE389 /* RequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -52,6 +57,8 @@
 		A12928342A9B8E5100DCE389 /* TestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreen.swift; sourceTree = "<group>"; };
 		A12928372A9B904800DCE389 /* ListOfRecipeShortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRecipeShortModel.swift; sourceTree = "<group>"; };
 		A12928392A9B940A00DCE389 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		A129283E2A9BB01D00DCE389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A12928402A9BB02000DCE389 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +67,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A129282C2A9B7A7A00DCE389 /* Kingfisher in Frameworks */,
-				A12928112A9B54EE00DCE389 /* RswiftLibrary in Frameworks */,
-				A12928132A9B54EE00DCE389 /* rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +100,7 @@
 				A12928262A9B77D000DCE389 /* Extensions */,
 				A129280C2A9B431900DCE389 /* Resources */,
 				758652572A9B29D20015C547 /* Preview Content */,
+				A129283F2A9BB01D00DCE389 /* Localizable.strings */,
 			);
 			path = BestRecipes;
 			sourceTree = "<group>";
@@ -110,6 +116,7 @@
 		758652652A9B2FED0015C547 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A12319B22A9BBE9800E2AA57 /* Tabbar */,
 				758652532A9B29D10015C547 /* ContentView.swift */,
 				7586525F2A9B2C6A0015C547 /* HomeView.swift */,
 				758652612A9B2CB60015C547 /* SavedRecipesView.swift */,
@@ -118,6 +125,15 @@
 				A12928342A9B8E5100DCE389 /* TestScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		A12319B22A9BBE9800E2AA57 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				A12319B42A9BBFF800E2AA57 /* Tabbar.swift */,
+				A12319B62A9BC49F00E2AA57 /* TabItem.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		A129280B2A9B431400DCE389 /* Application */ = {
@@ -184,6 +200,7 @@
 			children = (
 				A12928272A9B77E800DCE389 /* Constants.swift */,
 				A129282F2A9B8BC200DCE389 /* URLResponse+Ext.swift */,
+				A10CD65A2A9BCA2000FF2954 /* Color+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,8 +248,6 @@
 			);
 			name = BestRecipes;
 			packageProductDependencies = (
-				A12928102A9B54EE00DCE389 /* RswiftLibrary */,
-				A12928122A9B54EE00DCE389 /* rswift */,
 				A129282B2A9B7A7A00DCE389 /* Kingfisher */,
 			);
 			productName = BestRecipes;
@@ -260,11 +275,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 758652452A9B29D10015C547;
 			packageReferences = (
-				A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */,
 				A129282A2A9B7A7A00DCE389 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7586524F2A9B29D10015C547 /* Products */;
@@ -282,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				758652592A9B29D20015C547 /* Preview Assets.xcassets in Resources */,
+				A129283D2A9BB01D00DCE389 /* Localizable.strings in Resources */,
 				758652562A9B29D20015C547 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,14 +311,17 @@
 				A129281D2A9B777F00DCE389 /* Endpoint.swift in Sources */,
 				A12928382A9B904800DCE389 /* ListOfRecipeShortModel.swift in Sources */,
 				A12928302A9B8BC200DCE389 /* URLResponse+Ext.swift in Sources */,
+				A12319B52A9BBFF800E2AA57 /* Tabbar.swift in Sources */,
 				758652602A9B2C6A0015C547 /* HomeView.swift in Sources */,
 				A12928352A9B8E5100DCE389 /* TestScreen.swift in Sources */,
 				A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */,
 				758652542A9B29D10015C547 /* ContentView.swift in Sources */,
 				758652672A9B306E0015C547 /* AddRecipeView.swift in Sources */,
+				A10CD65B2A9BCA2000FF2954 /* Color+Ext.swift in Sources */,
 				758652622A9B2CB60015C547 /* SavedRecipesView.swift in Sources */,
 				A129282E2A9B86B500DCE389 /* RecipeEndpoint.swift in Sources */,
 				A12928332A9B8DA800DCE389 /* NetworkAggregateModel.swift in Sources */,
+				A12319B72A9BC49F00E2AA57 /* TabItem.swift in Sources */,
 				758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */,
 				A129283A2A9B940A00DCE389 /* AlertModel.swift in Sources */,
 				A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */,
@@ -314,6 +332,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A129283F2A9BB01D00DCE389 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A129283E2A9BB01D00DCE389 /* en */,
+				A12928402A9BB02000DCE389 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7586525A2A9B29D20015C547 /* Debug */ = {
@@ -366,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,6 +463,7 @@
 		7586525D2A9B29D20015C547 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +485,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tacarlen.BestRecipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -468,6 +500,7 @@
 		7586525E2A9B29D20015C547 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -489,6 +522,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tacarlen.BestRecipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -524,14 +558,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		A129282A2A9B7A7A00DCE389 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -543,16 +569,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A12928102A9B54EE00DCE389 /* RswiftLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = RswiftLibrary;
-		};
-		A12928122A9B54EE00DCE389 /* rswift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = rswift;
-		};
 		A129282B2A9B7A7A00DCE389 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A129282A2A9B7A7A00DCE389 /* XCRemoteSwiftPackageReference "Kingfisher" */;

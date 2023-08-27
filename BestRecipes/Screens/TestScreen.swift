@@ -1,10 +1,3 @@
-//
-//  TestScreen.swift
-//  BestRecipes
-//
-//  Created by Alexandr Rodionov on 27.08.23.
-//
-
 import SwiftUI
 
 struct TestScreen: View {
@@ -18,7 +11,8 @@ struct TestScreen: View {
                 print("--- Запускаем тестовый запрос ---")
                 networkAggregateModel.searchRecipeShort()
             } label: {
-                Text("Start request")
+                //Text(R.string.localizable.testScreenStartrequest)
+                Text("testScreen.startrequest")
             }
             
             List(networkAggregateModel.shortRecipeList1) { recipe in
