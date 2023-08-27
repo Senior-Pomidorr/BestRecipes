@@ -2,8 +2,8 @@ import Foundation
 import Combine
 
 class NetworkService {
-    private let session: URLSession
     
+    private let session: URLSession
     init(session: URLSession = .shared) {
         self.session = session
     }
@@ -51,10 +51,12 @@ class NetworkService {
     }
     
     private func createQueryParameters(from endpoint: Endpoint) -> [URLQueryItem] {
+        
         var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem(name: "apiKey", value: Constants.apiToken))
         
         guard let parameters = endpoint.parameters else {
-            return []
+            return queryItems
         }
         
         print("параметры запроса", parameters)
@@ -81,14 +83,5 @@ class NetworkService {
             }
         }
         return queryItems
-    }
-}
-
-extension URLResponse {
-    func isValid() -> Bool {
-        if let httpResponse = self as? HTTPURLResponse {
-            return 200..<300 ~= httpResponse.statusCode
-        }
-        return false
     }
 }

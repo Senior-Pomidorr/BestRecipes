@@ -1,7 +1,6 @@
 import Foundation
 
 struct Constants {
-    static let baseURL = "partyshaker.online"
-    //static let baseURL = "partyshaker.ru"
-    static let fakeToken = ""
+    static let baseURL = "api.spoonacular.com"
+    static let apiToken = "57e9889fdeb44db88a3ceadbbcb6fdcb"
 }

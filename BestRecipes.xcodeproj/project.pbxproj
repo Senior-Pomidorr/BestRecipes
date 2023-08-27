@@ -21,9 +21,14 @@
 		A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281A2A9B777F00DCE389 /* HTTPClient.swift */; };
 		A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281B2A9B777F00DCE389 /* RequestMethod.swift */; };
 		A12928202A9B777F00DCE389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281C2A9B777F00DCE389 /* HTTPError.swift */; };
-		A12928252A9B77B600DCE389 /* CocktailEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928242A9B77B600DCE389 /* CocktailEndpoint.swift */; };
 		A12928282A9B77E800DCE389 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928272A9B77E800DCE389 /* Constants.swift */; };
 		A129282C2A9B7A7A00DCE389 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A129282B2A9B7A7A00DCE389 /* Kingfisher */; };
+		A129282E2A9B86B500DCE389 /* RecipeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129282D2A9B86B500DCE389 /* RecipeEndpoint.swift */; };
+		A12928302A9B8BC200DCE389 /* URLResponse+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129282F2A9B8BC200DCE389 /* URLResponse+Ext.swift */; };
+		A12928332A9B8DA800DCE389 /* NetworkAggregateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928322A9B8DA800DCE389 /* NetworkAggregateModel.swift */; };
+		A12928352A9B8E5100DCE389 /* TestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928342A9B8E5100DCE389 /* TestScreen.swift */; };
+		A12928382A9B904800DCE389 /* ListOfRecipeShortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928372A9B904800DCE389 /* ListOfRecipeShortModel.swift */; };
+		A129283A2A9B940A00DCE389 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928392A9B940A00DCE389 /* AlertModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +45,13 @@
 		A129281A2A9B777F00DCE389 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		A129281B2A9B777F00DCE389 /* RequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		A129281C2A9B777F00DCE389 /* HTTPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
-		A12928242A9B77B600DCE389 /* CocktailEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailEndpoint.swift; sourceTree = "<group>"; };
 		A12928272A9B77E800DCE389 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A129282D2A9B86B500DCE389 /* RecipeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEndpoint.swift; sourceTree = "<group>"; };
+		A129282F2A9B8BC200DCE389 /* URLResponse+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Ext.swift"; sourceTree = "<group>"; };
+		A12928322A9B8DA800DCE389 /* NetworkAggregateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAggregateModel.swift; sourceTree = "<group>"; };
+		A12928342A9B8E5100DCE389 /* TestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreen.swift; sourceTree = "<group>"; };
+		A12928372A9B904800DCE389 /* ListOfRecipeShortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRecipeShortModel.swift; sourceTree = "<group>"; };
+		A12928392A9B940A00DCE389 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,7 @@
 				758652612A9B2CB60015C547 /* SavedRecipesView.swift */,
 				758652632A9B2F5E0015C547 /* TrendingNowView.swift */,
 				758652662A9B306E0015C547 /* AddRecipeView.swift */,
+				A12928342A9B8E5100DCE389 /* TestScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -153,9 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				A12928192A9B777E00DCE389 /* Endpoint.swift */,
-				A129281A2A9B777F00DCE389 /* HTTPClient.swift */,
-				A129281C2A9B777F00DCE389 /* HTTPError.swift */,
 				A129281B2A9B777F00DCE389 /* RequestMethod.swift */,
+				A129281C2A9B777F00DCE389 /* HTTPError.swift */,
+				A129281A2A9B777F00DCE389 /* HTTPClient.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -163,7 +174,7 @@
 		A12928232A9B77A700DCE389 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				A12928242A9B77B600DCE389 /* CocktailEndpoint.swift */,
+				A129282D2A9B86B500DCE389 /* RecipeEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -172,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				A12928272A9B77E800DCE389 /* Constants.swift */,
+				A129282F2A9B8BC200DCE389 /* URLResponse+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,8 +191,27 @@
 		A12928292A9B785800DCE389 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A12928312A9B8CB800DCE389 /* AggregateModels */,
+				A12928362A9B8FA300DCE389 /* StandartModels */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A12928312A9B8CB800DCE389 /* AggregateModels */ = {
+			isa = PBXGroup;
+			children = (
+				A12928322A9B8DA800DCE389 /* NetworkAggregateModel.swift */,
+			);
+			path = AggregateModels;
+			sourceTree = "<group>";
+		};
+		A12928362A9B8FA300DCE389 /* StandartModels */ = {
+			isa = PBXGroup;
+			children = (
+				A12928372A9B904800DCE389 /* ListOfRecipeShortModel.swift */,
+				A12928392A9B940A00DCE389 /* AlertModel.swift */,
+			);
+			path = StandartModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,14 +293,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A12928252A9B77B600DCE389 /* CocktailEndpoint.swift in Sources */,
 				A129281D2A9B777F00DCE389 /* Endpoint.swift in Sources */,
+				A12928382A9B904800DCE389 /* ListOfRecipeShortModel.swift in Sources */,
+				A12928302A9B8BC200DCE389 /* URLResponse+Ext.swift in Sources */,
 				758652602A9B2C6A0015C547 /* HomeView.swift in Sources */,
+				A12928352A9B8E5100DCE389 /* TestScreen.swift in Sources */,
 				A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */,
 				758652542A9B29D10015C547 /* ContentView.swift in Sources */,
 				758652672A9B306E0015C547 /* AddRecipeView.swift in Sources */,
 				758652622A9B2CB60015C547 /* SavedRecipesView.swift in Sources */,
+				A129282E2A9B86B500DCE389 /* RecipeEndpoint.swift in Sources */,
+				A12928332A9B8DA800DCE389 /* NetworkAggregateModel.swift in Sources */,
 				758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */,
+				A129283A2A9B940A00DCE389 /* AlertModel.swift in Sources */,
 				A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */,
 				A12928202A9B777F00DCE389 /* HTTPError.swift in Sources */,
 				758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */,
