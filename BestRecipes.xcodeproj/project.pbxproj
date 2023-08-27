@@ -15,6 +15,15 @@
 		758652622A9B2CB60015C547 /* SavedRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652612A9B2CB60015C547 /* SavedRecipesView.swift */; };
 		758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652632A9B2F5E0015C547 /* TrendingNowView.swift */; };
 		758652672A9B306E0015C547 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652662A9B306E0015C547 /* AddRecipeView.swift */; };
+		A12928112A9B54EE00DCE389 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = A12928102A9B54EE00DCE389 /* RswiftLibrary */; };
+		A12928132A9B54EE00DCE389 /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = A12928122A9B54EE00DCE389 /* rswift */; };
+		A129281D2A9B777F00DCE389 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928192A9B777E00DCE389 /* Endpoint.swift */; };
+		A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281A2A9B777F00DCE389 /* HTTPClient.swift */; };
+		A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281B2A9B777F00DCE389 /* RequestMethod.swift */; };
+		A12928202A9B777F00DCE389 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129281C2A9B777F00DCE389 /* HTTPError.swift */; };
+		A12928252A9B77B600DCE389 /* CocktailEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928242A9B77B600DCE389 /* CocktailEndpoint.swift */; };
+		A12928282A9B77E800DCE389 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12928272A9B77E800DCE389 /* Constants.swift */; };
+		A129282C2A9B7A7A00DCE389 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A129282B2A9B7A7A00DCE389 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +36,12 @@
 		758652612A9B2CB60015C547 /* SavedRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesView.swift; sourceTree = "<group>"; };
 		758652632A9B2F5E0015C547 /* TrendingNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingNowView.swift; sourceTree = "<group>"; };
 		758652662A9B306E0015C547 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		A12928192A9B777E00DCE389 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A129281A2A9B777F00DCE389 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		A129281B2A9B777F00DCE389 /* RequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		A129281C2A9B777F00DCE389 /* HTTPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		A12928242A9B77B600DCE389 /* CocktailEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailEndpoint.swift; sourceTree = "<group>"; };
+		A12928272A9B77E800DCE389 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A129282C2A9B7A7A00DCE389 /* Kingfisher in Frameworks */,
+				A12928112A9B54EE00DCE389 /* RswiftLibrary in Frameworks */,
+				A12928132A9B54EE00DCE389 /* rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				A129280B2A9B431400DCE389 /* Application */,
-				758652652A9B2FED0015C547 /* Views */,
+				758652652A9B2FED0015C547 /* Screens */,
+				A12928292A9B785800DCE389 /* Models */,
+				A12928172A9B770800DCE389 /* Services */,
 				A129280E2A9B51C600DCE389 /* Components */,
+				A12928262A9B77D000DCE389 /* Extensions */,
 				A129280C2A9B431900DCE389 /* Resources */,
 				758652572A9B29D20015C547 /* Preview Content */,
 			);
@@ -76,17 +97,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		758652652A9B2FED0015C547 /* Views */ = {
+		758652652A9B2FED0015C547 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A129280D2A9B51A700DCE389 /* Tabbar */,
 				758652532A9B29D10015C547 /* ContentView.swift */,
 				7586525F2A9B2C6A0015C547 /* HomeView.swift */,
 				758652612A9B2CB60015C547 /* SavedRecipesView.swift */,
 				758652632A9B2F5E0015C547 /* TrendingNowView.swift */,
 				758652662A9B306E0015C547 /* AddRecipeView.swift */,
 			);
-			path = Views;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		A129280B2A9B431400DCE389 /* Application */ = {
@@ -105,18 +125,62 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A129280D2A9B51A700DCE389 /* Tabbar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tabbar;
-			sourceTree = "<group>";
-		};
 		A129280E2A9B51C600DCE389 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A12928142A9B76D400DCE389 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				A12928182A9B776100DCE389 /* Base */,
+				A12928232A9B77A700DCE389 /* Endpoints */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		A12928172A9B770800DCE389 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A12928142A9B76D400DCE389 /* NetworkLayer */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A12928182A9B776100DCE389 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A12928192A9B777E00DCE389 /* Endpoint.swift */,
+				A129281A2A9B777F00DCE389 /* HTTPClient.swift */,
+				A129281C2A9B777F00DCE389 /* HTTPError.swift */,
+				A129281B2A9B777F00DCE389 /* RequestMethod.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A12928232A9B77A700DCE389 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				A12928242A9B77B600DCE389 /* CocktailEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		A12928262A9B77D000DCE389 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A12928272A9B77E800DCE389 /* Constants.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A12928292A9B785800DCE389 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +199,11 @@
 			dependencies = (
 			);
 			name = BestRecipes;
+			packageProductDependencies = (
+				A12928102A9B54EE00DCE389 /* RswiftLibrary */,
+				A12928122A9B54EE00DCE389 /* rswift */,
+				A129282B2A9B7A7A00DCE389 /* Kingfisher */,
+			);
 			productName = BestRecipes;
 			productReference = 7586524E2A9B29D10015C547 /* BestRecipes.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +232,10 @@
 				Base,
 			);
 			mainGroup = 758652452A9B29D10015C547;
+			packageReferences = (
+				A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */,
+				A129282A2A9B7A7A00DCE389 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7586524F2A9B29D10015C547 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -189,12 +262,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12928252A9B77B600DCE389 /* CocktailEndpoint.swift in Sources */,
+				A129281D2A9B777F00DCE389 /* Endpoint.swift in Sources */,
 				758652602A9B2C6A0015C547 /* HomeView.swift in Sources */,
+				A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */,
 				758652542A9B29D10015C547 /* ContentView.swift in Sources */,
 				758652672A9B306E0015C547 /* AddRecipeView.swift in Sources */,
 				758652622A9B2CB60015C547 /* SavedRecipesView.swift in Sources */,
 				758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */,
+				A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */,
+				A12928202A9B777F00DCE389 /* HTTPError.swift in Sources */,
 				758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */,
+				A12928282A9B77E800DCE389 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +486,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		A129282A2A9B7A7A00DCE389 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A12928102A9B54EE00DCE389 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = RswiftLibrary;
+		};
+		A12928122A9B54EE00DCE389 /* rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A129280F2A9B54EE00DCE389 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = rswift;
+		};
+		A129282B2A9B7A7A00DCE389 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A129282A2A9B7A7A00DCE389 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 758652462A9B29D10015C547 /* Project object */;
 }
