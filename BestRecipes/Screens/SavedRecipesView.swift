@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct SavedRecipesView: View {
+    
+    @EnvironmentObject var tabbarRouter: TabbarRouter
+    
     var body: some View {
+        VStack {
+            Text("SavedRecipesView")
+            Button {
+                tabbarRouter.currentPage = .home
+            } label: {
+                Text("to home")
         NavigationView {
             VStack(spacing: 30) {
                 BookmarksCell()

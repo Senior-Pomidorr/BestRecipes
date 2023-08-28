@@ -1,17 +1,16 @@
-//
-//  BestRecipesApp.swift
-//  BestRecipes
-//
-//  Created by Лилия Феодотова on 27.08.2023.
-//
-
 import SwiftUI
 
 @main
 struct BestRecipesApp: App {
+    
+    @StateObject private var networkAggregateModel = NetworkAggregateModel(networkService: NetworkService())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Tabbar()
+            //TestScreen()
+            //ContentView()
+                .environmentObject(networkAggregateModel)
         }
     }
 }
