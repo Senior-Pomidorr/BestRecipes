@@ -54,8 +54,8 @@ struct Tabbar: View {
                     
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height / 8)
-                .background(Color.theme.сustomWhite)
-                .shadow(radius: 2)
+                .background(TabbarCurvedShape(radius: geometry.size.width / 12, height: geometry.size.height / 8))
+                //  .shadow(radius: 2)
             }
             .edgesIgnoringSafeArea(.bottom)
         }
