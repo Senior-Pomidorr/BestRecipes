@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DF3ECC92A9B859C006DC73D /* BookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */; };
 		758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652512A9B29D10015C547 /* BestRecipesApp.swift */; };
 		758652542A9B29D10015C547 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652532A9B29D10015C547 /* ContentView.swift */; };
 		758652562A9B29D20015C547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 758652552A9B29D20015C547 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCell.swift; sourceTree = "<group>"; };
 		7586524E2A9B29D10015C547 /* BestRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758652512A9B29D10015C547 /* BestRecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestRecipesApp.swift; sourceTree = "<group>"; };
 		758652532A9B29D10015C547 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DF3ECCA2A9B85AA006DC73D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		758652452A9B29D10015C547 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 				758652652A9B2FED0015C547 /* Screens */,
 				A12928292A9B785800DCE389 /* Models */,
 				A12928172A9B770800DCE389 /* Services */,
+				0DF3ECCA2A9B85AA006DC73D /* Views */,
 				A129280E2A9B51C600DCE389 /* Components */,
 				A12928262A9B77D000DCE389 /* Extensions */,
 				A129280C2A9B431900DCE389 /* Resources */,
@@ -272,6 +283,7 @@
 				758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */,
 				A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */,
 				A12928202A9B777F00DCE389 /* HTTPError.swift in Sources */,
+				0DF3ECC92A9B859C006DC73D /* BookmarksCell.swift in Sources */,
 				758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */,
 				A12928282A9B77E800DCE389 /* Constants.swift in Sources */,
 			);
