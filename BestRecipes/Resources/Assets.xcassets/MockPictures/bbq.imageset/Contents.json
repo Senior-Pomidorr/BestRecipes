@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "oven-bbq-pork-chops.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

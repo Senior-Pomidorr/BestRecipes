@@ -20,21 +20,25 @@ struct BookmarksCell: View {
         VStack(alignment: .center) {
             ZStack(alignment: .top) {
                 Image(image)
-                    .frame(width: 343, height: 180)
-                    .scaledToFit()
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 363, height: 220)
+                    .cornerRadius(20)
                 HStack {
                     Button {
                     } label: {
                         Image(systemName: "star.fill")
                             .foregroundColor(.black)
+                            .offset(x: 2, y: -0.5)
                         Text(String(scoreNumber))
                             .font(.system(.headline).bold())
                             .foregroundColor(.white)
+                            .offset(x: -2)
                     }
-                    .frame(width: 58, height: 27.6)
+                    .frame(width: 62, height: 28)
                     .background(.ultraThinMaterial)
                     .background(.black)
-                    .clipShape(Capsule())
+                    .cornerRadius(8)
                     Spacer()
                     
                     Button {
@@ -48,7 +52,7 @@ struct BookmarksCell: View {
                     .background(.white)
                     .clipShape(Circle())
                 }
-                .cornerRadius(140)
+                .padding(.top, 10)
                 .padding([.leading, .trailing], 33)
             }
             
@@ -56,7 +60,6 @@ struct BookmarksCell: View {
                 HStack{
                     Text(title)
                         .font(.headline)
-                        .padding(.top, 2)
                     Spacer()
                     Button {
                         tapShare()
@@ -65,8 +68,9 @@ struct BookmarksCell: View {
                             .foregroundColor(.black)
                     }
                 }
-                .padding(.top, 10)
+                .padding(.top, 6)
                 .padding([.leading, .trailing], 30)
+                
                 HStack() {
                     Image(autorImage)
                     Text("By \(autorName)")
@@ -92,7 +96,7 @@ struct BookmarksCell_Previews: PreviewProvider {
     static var previews: some View {
         BookmarksCell(title: "How to sharwama at home",
                       subtitle: "Subtitle",
-                      image: "Food Thumbnail",
+                      image: "receptes",
                       autorImage: "author",
                       autorName: "Zeelicious foods",
                       scoreNumber: 5.0)
