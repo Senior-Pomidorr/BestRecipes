@@ -12,13 +12,24 @@ struct SavedRecipesView: View {
     @EnvironmentObject var tabbarRouter: TabbarRouter
     
     var body: some View {
-        VStack {
-            Text("SavedRecipesView")
-            Button {
-                tabbarRouter.currentPage = .home
-            } label: {
-                Text("to home")
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 20) {
+                    BookmarksCell(title: "How to sharwama at home",
+                                  subtitle: "Subtitle",
+                                  image: "Food Thumbnail",
+                                  autorImage: "author",
+                                  autorName: "Zeelicious foods",
+                                  scoreNumber: 5.0)
+                    BookmarksCell(title: "How to sharwama at home",
+                                  subtitle: "Subtitle",
+                                  image: "Food Thumbnail",
+                                  autorImage: "author",
+                                  autorName: "Zeelicious foods",
+                                  scoreNumber: 5.0)
+                }
             }
+            .navigationTitle("Saved recipes")
         }
     }
 }
