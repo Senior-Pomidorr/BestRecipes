@@ -60,14 +60,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0DF3ECCA2A9B85AA006DC73D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		758652452A9B29D10015C547 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +83,6 @@
 				758652652A9B2FED0015C547 /* Screens */,
 				A12928292A9B785800DCE389 /* Models */,
 				A12928172A9B770800DCE389 /* Services */,
-				0DF3ECCA2A9B85AA006DC73D /* Views */,
 				A129280E2A9B51C600DCE389 /* Components */,
 				A12928262A9B77D000DCE389 /* Extensions */,
 				A129280C2A9B431900DCE389 /* Resources */,
@@ -139,6 +130,7 @@
 		A129280E2A9B51C600DCE389 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
