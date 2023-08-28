@@ -1,10 +1,3 @@
-//
-//  Tabbar.swift
-//  BestRecipes
-//
-//  Created by Alexandr Rodionov on 27.08.23.
-//
-
 import SwiftUI
 
 struct Tabbar: View {
@@ -45,12 +38,12 @@ struct Tabbar: View {
                 // Tabbar
                 HStack {
                     //Tabbar items
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "house", tabName: "Home", tabbarRouter: tabbarRouter, assignedPage: .home)
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "heart", tabName: "Favourites", tabbarRouter: tabbarRouter, assignedPage: .favourites)
+                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "house", tabName: "tabbar.home".localized, tabbarRouter: tabbarRouter, assignedPage: .home)
+                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "heart", tabName: "tabbar.favourites".localized, tabbarRouter: tabbarRouter, assignedPage: .favourites)
                     TabPlusButton(width: geometry.size.width / 7, height: geometry.size.width / 7, systemIconName: "plus", tabName: "Add", acttion: showPopUp)
                         .offset(y: -geometry.size.height / 8/2)
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "bell", tabName: "News", tabbarRouter: tabbarRouter, assignedPage: .news)
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "person", tabName: "Profile", tabbarRouter: tabbarRouter, assignedPage: .profile)
+                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "bell", tabName: "tabbar.news".localized, tabbarRouter: tabbarRouter, assignedPage: .news)
+                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "person", tabName: "tabbar.profile".localized, tabbarRouter: tabbarRouter, assignedPage: .profile)
                     
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height / 8)

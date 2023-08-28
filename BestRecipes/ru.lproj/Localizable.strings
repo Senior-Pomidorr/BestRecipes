@@ -8,3 +8,9 @@
 
 //TestScreen
 "testScreen.startrequest" = "Проверка запроса";
+
+//Tabbar
+"tabbar.home" = "Главная";
+"tabbar.favourites" = "Избранное";
+"tabbar.news" = "Новости";
+"tabbar.profile" = "Профиль";

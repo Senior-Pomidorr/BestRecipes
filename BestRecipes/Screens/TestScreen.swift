@@ -9,15 +9,16 @@ struct TestScreen: View {
         VStack {
             Button {
                 print("--- Запускаем тестовый запрос ---")
-                networkAggregateModel.searchRecipeShort()
+                //networkAggregateModel.searchRecipeShort(requestTag: .general)
+                networkAggregateModel.getRecipeById(id: "716300")
             } label: {
-                //Text(R.string.localizable.testScreenStartrequest)
                 Text("testScreen.startrequest")
             }
             
-            List(networkAggregateModel.shortRecipeList1) { recipe in
-                Text(recipe.title ?? "Не пришло название рецепта")
-            }
+//            List(networkAggregateModel.shortRecipeListGeneral) { recipe in
+//                Text(recipe.title ?? "Не пришло название рецепта")
+//            }
+            Text(networkAggregateModel.recipeInformation?.sourceName ?? "Не пришли данные")
             
         }
         .alert(isPresented: $networkAggregateModel.showAlertInView, error: networkAggregateModel.alert) { _ in

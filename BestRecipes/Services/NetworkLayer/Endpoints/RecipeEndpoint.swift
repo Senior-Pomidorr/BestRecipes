@@ -2,6 +2,7 @@ import Foundation
 
 enum RecipeEndpoint {
     case searchRecipe([String: Any]?)
+    case getRecipeByID(id: String)
 }
 
 extension RecipeEndpoint: Endpoint {
@@ -24,6 +25,8 @@ extension RecipeEndpoint: Endpoint {
         switch self {
         case .searchRecipe:
             return "/recipes/complexSearch"
+        case .getRecipeByID(id: let id):
+            return "/recipes/\(id)/information"
         }
     }
     
@@ -31,6 +34,8 @@ extension RecipeEndpoint: Endpoint {
         switch self {
         case .searchRecipe(let params):
             return params
+        case .getRecipeByID:
+            return nil
         }
     }
     
@@ -44,6 +49,10 @@ extension RecipeEndpoint: Endpoint {
     var header: [String : String]? {
         switch self {
         case .searchRecipe:
+            return [
+                "Content-Type": "application/json"
+            ]
+        case .getRecipeByID:
             return [
                 "Content-Type": "application/json"
             ]

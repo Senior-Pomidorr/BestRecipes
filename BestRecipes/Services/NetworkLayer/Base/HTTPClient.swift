@@ -78,6 +78,8 @@ class NetworkService {
                         queryItems.append(URLQueryItem(name: key, value: $0))
                     }
                 }
+            } else if let boolArrayValue = value as? Bool {
+                queryItems.append(URLQueryItem(name: key, value: String(boolArrayValue)))
             } else {
                 continue
             }
