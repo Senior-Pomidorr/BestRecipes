@@ -14,16 +14,22 @@ struct SavedRecipesView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 20) {
+                LazyVStack(spacing: 0) {
                     BookmarksCell(title: "How to sharwama at home",
                                   subtitle: "Subtitle",
-                                  image: "Food Thumbnail",
+                                  image: "bbq2",
                                   autorImage: "author",
                                   autorName: "Zeelicious foods",
                                   scoreNumber: 5.0)
                     BookmarksCell(title: "How to sharwama at home",
                                   subtitle: "Subtitle",
-                                  image: "Food Thumbnail",
+                                  image: "fetasiers",
+                                  autorImage: "author",
+                                  autorName: "Zeelicious foods",
+                                  scoreNumber: 5.0)
+                    BookmarksCell(title: "How to sharwama at home",
+                                  subtitle: "Subtitle",
+                                  image: "bbq",
                                   autorImage: "author",
                                   autorName: "Zeelicious foods",
                                   scoreNumber: 5.0)

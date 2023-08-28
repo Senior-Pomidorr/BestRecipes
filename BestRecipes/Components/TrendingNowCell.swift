@@ -28,16 +28,18 @@ struct TrendingNowCell: View {
                     } label: {
                         Image(systemName: "star.fill")
                             .foregroundColor(.black)
+                            .offset(x: 2, y: -0.5)
                         Text(String(scoreNumber))
                             .font(.system(.headline).bold())
                             .foregroundColor(.white)
+                            .offset(x: -2)
                     }
-                    .frame(width: 58, height: 27.6)
+                    .frame(width: 62, height: 28)
                     .background(.ultraThinMaterial)
                     .background(.black)
                     .cornerRadius(8)
                 }
-                .offset(y: -30)
+                .offset(y: -40)
                 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(title)
@@ -51,6 +53,7 @@ struct TrendingNowCell: View {
                 .foregroundColor(.white)
                 .offset(y: 30)
             }
+            .offset(x: -10)
             .padding([.leading, .trailing], 10)
         }
     }
