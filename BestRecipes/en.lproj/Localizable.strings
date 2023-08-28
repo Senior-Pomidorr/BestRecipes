@@ -8,3 +8,9 @@
 
 //TestScreen
 "testScreen.startrequest" = "Start request";
+
+//Tabbar
+"tabbar.home" = "Home";
+"tabbar.favourites" = "Favourites";
+"tabbar.news" = "News";
+"tabbar.profile" = "Profile";

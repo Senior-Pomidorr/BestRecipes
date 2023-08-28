@@ -1,10 +1,3 @@
-//
-//  TabbarCurvedShape.swift
-//  BestRecipes
-//
-//  Created by Alexandr Rodionov on 28.08.23.
-//
-
 import SwiftUI
 
 struct TabbarCurvedShape: View {

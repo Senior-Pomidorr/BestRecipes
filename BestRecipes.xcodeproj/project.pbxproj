@@ -35,6 +35,8 @@
 		A1C35C512A9BDDDC0062E7F6 /* TabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C502A9BDDDC0062E7F6 /* TabbarRouter.swift */; };
 		A1C35C532A9BE3E40062E7F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C522A9BE3E40062E7F6 /* ProfileView.swift */; };
 		A1C35C552A9BF1130062E7F6 /* TabbarCurvedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C542A9BF1130062E7F6 /* TabbarCurvedShape.swift */; };
+		A1C35C572A9D34D40062E7F6 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C562A9D34D40062E7F6 /* String+Ext.swift */; };
+		A1C35C592A9D37FB0062E7F6 /* RecipeFullModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C582A9D37FB0062E7F6 /* RecipeFullModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		A1C35C502A9BDDDC0062E7F6 /* TabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarRouter.swift; sourceTree = "<group>"; };
 		A1C35C522A9BE3E40062E7F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A1C35C542A9BF1130062E7F6 /* TabbarCurvedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCurvedShape.swift; sourceTree = "<group>"; };
+		A1C35C562A9D34D40062E7F6 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		A1C35C582A9D37FB0062E7F6 /* RecipeFullModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFullModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				A12928272A9B77E800DCE389 /* Constants.swift */,
 				A129282F2A9B8BC200DCE389 /* URLResponse+Ext.swift */,
 				A10CD65A2A9BCA2000FF2954 /* Color+Ext.swift */,
+				A1C35C562A9D34D40062E7F6 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				A12928372A9B904800DCE389 /* ListOfRecipeShortModel.swift */,
+				A1C35C582A9D37FB0062E7F6 /* RecipeFullModel.swift */,
 				A12928392A9B940A00DCE389 /* AlertModel.swift */,
 			);
 			path = StandartModels;
@@ -338,11 +344,13 @@
 				A12319B72A9BC49F00E2AA57 /* TabItem.swift in Sources */,
 				758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */,
 				A1C35C4E2A9BD0D00062E7F6 /* TabPlusButton.swift in Sources */,
+				A1C35C572A9D34D40062E7F6 /* String+Ext.swift in Sources */,
 				A1C35C532A9BE3E40062E7F6 /* ProfileView.swift in Sources */,
 				A129283A2A9B940A00DCE389 /* AlertModel.swift in Sources */,
 				A129281F2A9B777F00DCE389 /* RequestMethod.swift in Sources */,
 				A12928202A9B777F00DCE389 /* HTTPError.swift in Sources */,
 				758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */,
+				A1C35C592A9D37FB0062E7F6 /* RecipeFullModel.swift in Sources */,
 				A12928282A9B77E800DCE389 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
