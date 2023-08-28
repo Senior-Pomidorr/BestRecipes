@@ -1,10 +1,3 @@
-//
-//  URLResponse+Ext.swift
-//  BestRecipes
-//
-//  Created by Alexandr Rodionov on 27.08.23.
-//
-
 import Foundation
 
 extension URLResponse {

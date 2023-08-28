@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct AddRecipeView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        Text("AddRecipeView")
+        VStack {
+            Text("AddRecipeView")
+            Button {
+                dismiss()
+            } label: {
+                Text("Back")
+            }
+
+        }
     }
 }
 
