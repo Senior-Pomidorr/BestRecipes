@@ -24,7 +24,6 @@ struct BookmarksCell: View {
                 Image(image)
                     .frame(width: 343, height: 180)
                     .scaledToFit()
-                
                 HStack {
                     Button {
                     } label: {
@@ -79,6 +78,7 @@ struct BookmarksCell: View {
                 .padding(.leading, 30)
             }
         }
+        .padding(.top, 20)
     }
     private func tapShare() {
         print("Share button tap!")

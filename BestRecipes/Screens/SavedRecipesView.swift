@@ -12,16 +12,12 @@ struct SavedRecipesView: View {
     @EnvironmentObject var tabbarRouter: TabbarRouter
     
     var body: some View {
-        VStack {
-            Text("SavedRecipesView")
-            Button {
-                tabbarRouter.currentPage = .home
-            } label: {
-                Text("to home")
         NavigationView {
-            VStack(spacing: 30) {
-                BookmarksCell()
-                BookmarksCell()
+            ScrollView {
+                VStack(spacing: 20) {
+                    BookmarksCell()
+                    BookmarksCell()
+                }
             }
             .navigationTitle("Saved recipes")
         }
