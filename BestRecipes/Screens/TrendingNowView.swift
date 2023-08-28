@@ -9,7 +9,28 @@ import SwiftUI
 
 struct TrendingNowView: View {
     var body: some View {
-        Text("TrendingNowView")
+        ScrollView {
+            VStack {
+                TrendingNowCell(title: "How to make yam & vegetable sauce at home",
+                                subtitle: "Subtitle",
+                                image: "fetasiers",
+                                scoreNumber: 5.0,
+                                ingredintsCount: 9,
+                                receptMinutes: 25)
+                TrendingNowCell(title: "How to make yam & vegetable sauce at home",
+                                subtitle: "Subtitle",
+                                image: "fetasiers",
+                                scoreNumber: 5.0,
+                                ingredintsCount: 9,
+                                receptMinutes: 25)
+                TrendingNowCell(title: "How to make yam & vegetable sauce at home",
+                                subtitle: "Subtitle",
+                                image: "fetasiers",
+                                scoreNumber: 5.0,
+                                ingredintsCount: 9,
+                                receptMinutes: 25)
+            }
+        }
     }
 }
 
