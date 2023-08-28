@@ -27,7 +27,7 @@ struct TabItem: View {
             Spacer()
         }
         .padding(.horizontal, -4)
-        .foregroundColor(tabbarRouter.currentPage == assignedPage ? Color.theme.customPink : Color.theme.customBlack)
+        .foregroundColor(tabbarRouter.currentPage == assignedPage ? Color.theme.customPink : Color.theme.customGray.opacity(0.9))
         .onTapGesture {
             print("нажали", assignedPage)
             print("текущая", tabbarRouter.currentPage)

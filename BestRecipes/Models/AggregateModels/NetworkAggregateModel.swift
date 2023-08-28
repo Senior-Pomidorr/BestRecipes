@@ -21,16 +21,16 @@ class NetworkAggregateModel: ObservableObject {
     func searchRecipeShort(params: [String: Any]? = nil) {
         networkService.request(RecipeEndpoint.searchRecipe(params))
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [self] completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    alert = error
-                    showAlertInView = true
+                    self?.alert = error
+                    self?.showAlertInView = true
                 }
-            }, receiveValue: { (shortRecipeList: ListOfRecipeShort) in
-                self.shortRecipeList1 = shortRecipeList.results ?? []
+            }, receiveValue: { [weak self] (shortRecipeList: ListOfRecipeShort) in
+                self?.shortRecipeList1 = shortRecipeList.results ?? []
             })
             .store(in: &cancellables)
     }

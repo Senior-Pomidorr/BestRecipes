@@ -34,6 +34,7 @@
 		A1C35C4E2A9BD0D00062E7F6 /* TabPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C4D2A9BD0D00062E7F6 /* TabPlusButton.swift */; };
 		A1C35C512A9BDDDC0062E7F6 /* TabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C502A9BDDDC0062E7F6 /* TabbarRouter.swift */; };
 		A1C35C532A9BE3E40062E7F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C522A9BE3E40062E7F6 /* ProfileView.swift */; };
+		A1C35C552A9BF1130062E7F6 /* TabbarCurvedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35C542A9BF1130062E7F6 /* TabbarCurvedShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		A1C35C4D2A9BD0D00062E7F6 /* TabPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPlusButton.swift; sourceTree = "<group>"; };
 		A1C35C502A9BDDDC0062E7F6 /* TabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarRouter.swift; sourceTree = "<group>"; };
 		A1C35C522A9BE3E40062E7F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A1C35C542A9BF1130062E7F6 /* TabbarCurvedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCurvedShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				A12319B62A9BC49F00E2AA57 /* TabItem.swift */,
 				A1C35C4D2A9BD0D00062E7F6 /* TabPlusButton.swift */,
 				A1C35C502A9BDDDC0062E7F6 /* TabbarRouter.swift */,
+				A1C35C542A9BF1130062E7F6 /* TabbarCurvedShape.swift */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C35C552A9BF1130062E7F6 /* TabbarCurvedShape.swift in Sources */,
 				A1C35C512A9BDDDC0062E7F6 /* TabbarRouter.swift in Sources */,
 				A129281D2A9B777F00DCE389 /* Endpoint.swift in Sources */,
 				A12928382A9B904800DCE389 /* ListOfRecipeShortModel.swift in Sources */,
