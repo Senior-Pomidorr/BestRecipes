@@ -15,8 +15,18 @@ struct SavedRecipesView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                    BookmarksCell()
-                    BookmarksCell()
+                    BookmarksCell(title: "How to sharwama at home",
+                                  subtitle: "Subtitle",
+                                  image: "Food Thumbnail",
+                                  autorImage: "author",
+                                  autorName: "Zeelicious foods",
+                                  scoreNumber: 5.0)
+                    BookmarksCell(title: "How to sharwama at home",
+                                  subtitle: "Subtitle",
+                                  image: "Food Thumbnail",
+                                  autorImage: "author",
+                                  autorName: "Zeelicious foods",
+                                  scoreNumber: 5.0)
                 }
             }
             .navigationTitle("Saved recipes")

@@ -9,14 +9,12 @@ import SwiftUI
 
 struct BookmarksCell: View {
     @State private var isBookmarked = false
-    var title: String = "How to sharwama at home"
-    var subtitle: String = "Subtitle"
-    var image = "Food Thumbnail"
-    var autorImage = "author"
-    var autorName = "Zeelicious foods"
-    var bookmarkAdd = "bookmark"
-    var bookmarkDone = "bookmark.fill"
-    var scoreNumber: Double = 5.0
+    let title: String
+    let subtitle: String
+    let image: String
+    let autorImage: String
+    let autorName: String
+    let scoreNumber: Double
     
     var body: some View {
         VStack(alignment: .center) {
@@ -92,7 +90,12 @@ struct BookmarksCell: View {
 
 struct BookmarksCell_Previews: PreviewProvider {
     static var previews: some View {
-        BookmarksCell()
+        BookmarksCell(title: "How to sharwama at home",
+                      subtitle: "Subtitle",
+                      image: "Food Thumbnail",
+                      autorImage: "author",
+                      autorName: "Zeelicious foods",
+                      scoreNumber: 5.0)
     }
 }
 
