@@ -18,7 +18,7 @@ struct AutorCell: View {
                 .scaledToFit()
                 .clipShape(Circle())
             Text(authorName)
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.semibold)
         }
     }
