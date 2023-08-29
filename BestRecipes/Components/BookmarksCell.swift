@@ -27,13 +27,13 @@ struct BookmarksCell: View {
                 HStack {
                     Button {
                     } label: {
-                        Image(systemName: "star.fill")
+                        Image("Star")
                             .foregroundColor(.black)
-                            .offset(x: 2, y: -0.5)
+                            .offset(x: 1, y: -0.5)
                         Text(String(scoreNumber))
                             .font(.custom(Poppins.Bold, size: 14))
                             .foregroundColor(.white)
-                            .offset(x: -2)
+                            .offset(x: -1)
                     }
                     .frame(width: 62, height: 28)
                     .background(.ultraThinMaterial)
@@ -44,7 +44,7 @@ struct BookmarksCell: View {
                     Button {
                         addBookmark()
                     } label: {
-                        Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
+                        Image(isBookmarked ? "Bookmark" : "BookmarkCancel")
                             .frame(width: 32, height: 32)
                             .foregroundColor(.red)
                     }
@@ -59,25 +59,26 @@ struct BookmarksCell: View {
             VStack(alignment: .leading) {
                 HStack{
                     Text(title)
-                        .font(.headline)
+                        .font(.custom(Poppins.SemiBold, size: 16))
                     Spacer()
                     Button {
                         tapShare()
                     } label: {
-                        Image(systemName: "ellipsis")
+                        Image("Settings")
                             .foregroundColor(.black)
                     }
                 }
                 .padding(.top, 6)
-                .padding([.leading, .trailing], 30)
+                .padding([.leading, .trailing], 20)
                 
                 HStack() {
                     Image(autorImage)
                     Text("By \(autorName)")
+                        .font(.custom(Poppins.Light, size: 14))
                         .padding(.leading, 5)
                         .foregroundColor(.gray)
                 }
-                .padding(.leading, 30)
+                .padding(.leading, 20)
             }
         }
         .padding(.top, 20)
