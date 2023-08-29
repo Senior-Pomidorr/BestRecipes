@@ -31,7 +31,7 @@ struct BookmarksCell: View {
                             .foregroundColor(.black)
                             .offset(x: 2, y: -0.5)
                         Text(String(scoreNumber))
-                            .font(.system(.headline).bold())
+                            .font(.custom(Poppins.Bold, size: 14))
                             .foregroundColor(.white)
                             .offset(x: -2)
                     }
