@@ -36,6 +36,7 @@ struct SavedRecipesView: View {
                 }
             }
             .navigationTitle("Saved recipes")
+            .font(.custom(Poppins.SemiBold, size: 24))
         }
     }
 }

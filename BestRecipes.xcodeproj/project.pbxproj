@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0FFE2B2A9DF3460051AC4C /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE192A9DF3460051AC4C /* Poppins-Black.ttf */; };
+		0D0FFE2D2A9DF3470051AC4C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE1B2A9DF3460051AC4C /* Poppins-Regular.ttf */; };
+		0D0FFE2E2A9DF3470051AC4C /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE1C2A9DF3460051AC4C /* Poppins-ExtraBold.ttf */; };
+		0D0FFE312A9DF3470051AC4C /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE1F2A9DF3460051AC4C /* Poppins-SemiBold.ttf */; };
+		0D0FFE372A9DF3470051AC4C /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE252A9DF3460051AC4C /* Poppins-Light.ttf */; };
+		0D0FFE3B2A9DF3470051AC4C /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE292A9DF3460051AC4C /* Poppins-Medium.ttf */; };
+		0D0FFE3C2A9DF3470051AC4C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE2A2A9DF3460051AC4C /* Poppins-Bold.ttf */; };
+		0D0FFE3F2A9DF7500051AC4C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FFE3E2A9DF7500051AC4C /* Fonts.swift */; };
 		0DA5A4D32A9CDD9A00356C87 /* TrendingNowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */; };
 		0DF3ECC92A9B859C006DC73D /* BookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */; };
 		758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652512A9B29D10015C547 /* BestRecipesApp.swift */; };
@@ -47,6 +55,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0FFE192A9DF3460051AC4C /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
+		0D0FFE1B2A9DF3460051AC4C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		0D0FFE1C2A9DF3460051AC4C /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		0D0FFE1F2A9DF3460051AC4C /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		0D0FFE252A9DF3460051AC4C /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		0D0FFE292A9DF3460051AC4C /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		0D0FFE2A2A9DF3460051AC4C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		0D0FFE3D2A9DF3D60051AC4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0D0FFE3E2A9DF7500051AC4C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingNowCell.swift; sourceTree = "<group>"; };
 		0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCell.swift; sourceTree = "<group>"; };
 		7586524E2A9B29D10015C547 /* BestRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +116,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D0FFE182A9DF3110051AC4C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0D0FFE192A9DF3460051AC4C /* Poppins-Black.ttf */,
+				0D0FFE2A2A9DF3460051AC4C /* Poppins-Bold.ttf */,
+				0D0FFE1C2A9DF3460051AC4C /* Poppins-ExtraBold.ttf */,
+				0D0FFE252A9DF3460051AC4C /* Poppins-Light.ttf */,
+				0D0FFE292A9DF3460051AC4C /* Poppins-Medium.ttf */,
+				0D0FFE1B2A9DF3460051AC4C /* Poppins-Regular.ttf */,
+				0D0FFE1F2A9DF3460051AC4C /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		758652452A9B29D10015C547 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +149,7 @@
 		758652502A9B29D10015C547 /* BestRecipes */ = {
 			isa = PBXGroup;
 			children = (
+				0D0FFE3D2A9DF3D60051AC4C /* Info.plist */,
 				A129280B2A9B431400DCE389 /* Application */,
 				758652652A9B2FED0015C547 /* Screens */,
 				A12928292A9B785800DCE389 /* Models */,
@@ -239,6 +271,8 @@
 				A10CD65A2A9BCA2000FF2954 /* Color+Ext.swift */,
 				A1C35C562A9D34D40062E7F6 /* String+Ext.swift */,
 				ACF1BCFF2A9E077000DB23C8 /* UIApplication.swift */,
+				0D0FFE3E2A9DF7500051AC4C /* Fonts.swift */,
+				0D0FFE182A9DF3110051AC4C /* Fonts */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,8 +368,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D0FFE2B2A9DF3460051AC4C /* Poppins-Black.ttf in Resources */,
 				758652592A9B29D20015C547 /* Preview Assets.xcassets in Resources */,
 				A129283D2A9BB01D00DCE389 /* Localizable.strings in Resources */,
+				0D0FFE2E2A9DF3470051AC4C /* Poppins-ExtraBold.ttf in Resources */,
+				0D0FFE3B2A9DF3470051AC4C /* Poppins-Medium.ttf in Resources */,
+				0D0FFE2D2A9DF3470051AC4C /* Poppins-Regular.ttf in Resources */,
+				0D0FFE312A9DF3470051AC4C /* Poppins-SemiBold.ttf in Resources */,
+				0D0FFE372A9DF3470051AC4C /* Poppins-Light.ttf in Resources */,
+				0D0FFE3C2A9DF3470051AC4C /* Poppins-Bold.ttf in Resources */,
 				758652562A9B29D20015C547 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +406,7 @@
 				A10CD65B2A9BCA2000FF2954 /* Color+Ext.swift in Sources */,
 				758652622A9B2CB60015C547 /* SavedRecipesView.swift in Sources */,
 				A129282E2A9B86B500DCE389 /* RecipeEndpoint.swift in Sources */,
+				0D0FFE3F2A9DF7500051AC4C /* Fonts.swift in Sources */,
 				A12928332A9B8DA800DCE389 /* NetworkAggregateModel.swift in Sources */,
 				A12319B72A9BC49F00E2AA57 /* TabItem.swift in Sources */,
 				758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */,
@@ -524,6 +566,7 @@
 				DEVELOPMENT_TEAM = M87C32M9C3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestRecipes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BestRecipes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -561,6 +604,7 @@
 				DEVELOPMENT_TEAM = M87C32M9C3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BestRecipes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BestRecipes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

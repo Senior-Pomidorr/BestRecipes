@@ -26,13 +26,14 @@ struct TrendingNowCell: View {
                 HStack {
                     Button {
                     } label: {
-                        Image(systemName: "star.fill")
+                        Image("Star")
                             .foregroundColor(.black)
-                            .offset(x: 2, y: -0.5)
+                            .offset(x: 1, y: -0.5)
+                            .scaledToFit()
                         Text(String(scoreNumber))
-                            .font(.system(.headline).bold())
+                            .font(.custom(Poppins.Bold, size: 14))
                             .foregroundColor(.white)
-                            .offset(x: -2)
+                            .offset(x: -1)
                     }
                     .frame(width: 62, height: 28)
                     .background(.ultraThinMaterial)
@@ -43,15 +44,16 @@ struct TrendingNowCell: View {
                 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(title)
-                        .font(.system(.title2).bold())
+                        .font(.custom(Poppins.Bold, size: 16))
+                        
                     HStack {
                         Text("\(ingredintsCount) Ingredients")
                         Text("| \(receptMinutes) minutes")
                     }
-                    .font(.system(.headline))
+                    .font(.custom(Poppins.Medium, size: 14))
                 }
                 .foregroundColor(.white)
-                .offset(y: 30)
+                .offset(y: 40)
             }
             .offset(x: -10)
             .padding([.leading, .trailing], 10)

@@ -13,17 +13,17 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 VStack {
                     HStack {
-                        Text("My Profile")
-                            .font(.system(.title).bold())
+                        Text("My profile")
+                            .font(.custom(Poppins.SemiBold, size: 24))
                             .padding(.leading, 30)
                         Spacer()
                         Button {
                             print("Tap Settings")
                         } label: {
-                            Image(systemName: "ellipsis")
+                            Image("SettingsFlat")
                                 .foregroundColor(.black)
                         }
-                        .padding(.trailing, 16)
+                        .padding([.trailing,], 24)
                     }
                     .padding(.top, 20)
                     HStack {
@@ -34,7 +34,7 @@ struct ProfileView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .clipShape(Circle())
-                                .frame(width: 120, height: 120)
+                                .frame(width: 100, height: 100)
                                 .overlay(Circle().stroke(.white, lineWidth: 3))
                         }
                         .padding(.leading, 30)
@@ -42,7 +42,7 @@ struct ProfileView: View {
                     }
                     HStack {
                         Text("My recipes")
-                            .font(.system(.title).bold())
+                            .font(.custom(Poppins.SemiBold, size: 24))
                             .padding(.top, 20)
                             .padding(.leading, 40)
                         Spacer()
