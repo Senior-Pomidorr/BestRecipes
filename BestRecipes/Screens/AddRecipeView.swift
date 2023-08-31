@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+struct Ingredient: Identifiable {
+    var id = UUID()
+    var itemName = ""
+    var quantity = ""
+}
+
 struct AddRecipeView: View {
-    
+    @State private var ingredients: [Ingredient] = [Ingredient()]
     @State private var recipeName = ""
     @State private var recipeTimers = ""
     @State private var numberOfPeople = 1
@@ -20,7 +26,7 @@ struct AddRecipeView: View {
         ScrollView {
             VStack(spacing: 16) {
                 HStack(alignment: .top) {
-                    Text("Greate recipe")
+                    Text("Сreate recipe")
                         .font(.custom(Poppins.SemiBold, size: 24))
                         .padding(.leading, 26)
                         .padding(.top, 20)
@@ -56,7 +62,7 @@ struct AddRecipeView: View {
                     text: $recipeName
                 )
                 .font(.custom(Poppins.Regular, size: 14))
-                .frame(height: 44)
+                .frame(height: 43)
                 .textInputAutocapitalization(.words)
                 .padding([.leading, .trailing], 14)
                 .overlay(
@@ -123,40 +129,42 @@ struct AddRecipeView: View {
                     Spacer()
                 }
                 
-                HStack {
-                    TextField(
-                        "Item name",
-                        text: $itemName
-                    )
-                    .font(.custom(Poppins.Regular, size: 14))
-                    .frame(width: 164,height: 44)
-                    .textInputAutocapitalization(.words)
-                    .padding([.leading, .trailing], 14)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.theme.customGray, lineWidth: 1)
-                    )
-                    .padding(.leading, 16)
-                    
-                    TextField(
-                        "Quanity",
-                        text: $quanity
-                    )
-                    .font(.custom(Poppins.Regular, size: 14))
-                    .frame(height: 44)
-                    .textInputAutocapitalization(.words)
-                    .padding([.leading, .trailing], 14)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.theme.customGray, lineWidth: 1)
-                    )
-                    
-                    Button {
+                ForEach(ingredients.indices, id: \.self) { index in
+                    HStack {
+                        TextField(
+                            "Item name",
+                            text: $ingredients[index].itemName
+                        )
+                        .font(.custom(Poppins.Regular, size: 14))
+                        .frame(width: 164,height: 43)
+                        .textInputAutocapitalization(.words)
+                        .padding([.leading, .trailing], 14)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.theme.customGray, lineWidth: 1)
+                        )
+                        .padding(.leading, 16)
                         
-                    } label: {
-                        Image("PlusButton")
+                        TextField(
+                            "Quanity",
+                            text: $ingredients[index].quantity
+                        )
+                        .font(.custom(Poppins.Regular, size: 14))
+                        .frame(height: 43)
+                        .textInputAutocapitalization(.words)
+                        .padding([.leading, .trailing], 14)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.theme.customGray, lineWidth: 1)
+                        )
+                        
+                        Button {
+                            ingredients.append(Ingredient())
+                        } label: {
+                            Image("PlusButton")
+                        }
+                        .padding(.trailing, 18)
                     }
-                    .padding(.trailing, 18)
                 }
                 
                 HStack {
@@ -165,7 +173,7 @@ struct AddRecipeView: View {
                         text: $itemName
                     )
                     .font(.custom(Poppins.Regular, size: 14))
-                    .frame(width: 164,height: 44)
+                    .frame(width: 164,height: 43)
                     .textInputAutocapitalization(.words)
                     .padding([.leading, .trailing], 14)
                     .overlay(
@@ -179,7 +187,7 @@ struct AddRecipeView: View {
                         text: $quanity
                     )
                     .font(.custom(Poppins.Regular, size: 14))
-                    .frame(height: 44)
+                    .frame(height: 43)
                     .textInputAutocapitalization(.words)
                     .padding([.leading, .trailing], 14)
                     .overlay(
@@ -187,7 +195,7 @@ struct AddRecipeView: View {
                             .stroke(Color.theme.customGray, lineWidth: 1)
                     )
                     Button {
-                        
+                        ingredients.removeLast()
                     } label: {
                         Image("Minus")
                     }
@@ -196,7 +204,7 @@ struct AddRecipeView: View {
                 
                 HStack {
                     Button {
-                        
+                        ingredients.append(Ingredient())
                     } label: {
                         Image("Plus")
                     }
