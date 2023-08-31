@@ -15,7 +15,7 @@ struct Tabbar: View {
             SavedRecipesView()
                 .environmentObject(tabbarRouter)
         case .news:
-           TrendingNowView()
+            TrendingNowView()
                 .environmentObject(tabbarRouter)
         case .profile:
             ProfileView()
@@ -26,39 +26,31 @@ struct Tabbar: View {
         }
     }
     
-    
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                Spacer()
-                // Content View
+            ZStack {
                 contentView
-               // Text("Home")
-                Spacer()
-                // Tabbar
-                HStack {
-                    //Tabbar items
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "house", tabName: "tabbar.home".localized, tabbarRouter: tabbarRouter, assignedPage: .home)
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "heart", tabName: "tabbar.favourites".localized, tabbarRouter: tabbarRouter, assignedPage: .favourites)
-                    TabPlusButton(width: geometry.size.width / 7, height: geometry.size.width / 7, systemIconName: "plus", tabName: "Add", acttion: showPopUp)
-                        .offset(y: -geometry.size.height / 8/2)
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "bell", tabName: "tabbar.news".localized, tabbarRouter: tabbarRouter, assignedPage: .news)
-                    TabItem(width: geometry.size.width / 5, height: geometry.size.height / 28, systemIconName: "person", tabName: "tabbar.profile".localized, tabbarRouter: tabbarRouter, assignedPage: .profile)
-                    
+                VStack {
+                    Spacer()
+                    HStack {
+                        TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "home", tabbarRouter: tabbarRouter, assignedPage: .home)
+                        TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "save", tabbarRouter: tabbarRouter, assignedPage: .favourites)
+                        TabPlusButton(width: geometry.size.width / 7, height: geometry.size.width / 7, acttion: showPopUp)
+                            .offset(y: -geometry.size.height / 8/2)
+                        TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "call", tabbarRouter: tabbarRouter, assignedPage: .news)
+                        TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "user", tabbarRouter: tabbarRouter, assignedPage: .profile)
+                    }
+                    .frame(width: geometry.size.width, height: geometry.size.height / 8)
+                    .background(TabbarCurvedShape(radius: geometry.size.width / 12, height: geometry.size.height / 8))
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height / 8)
-                .background(TabbarCurvedShape(radius: geometry.size.width / 12, height: geometry.size.height / 8))
-                //  .shadow(radius: 2)
             }
             .edgesIgnoringSafeArea(.bottom)
         }
         .sheet(isPresented: $isShowPopUp) {
-            
+            // action on dismiss
         } content: {
             AddRecipeView()
         }
-
-
     }
     
     func showPopUp() {
