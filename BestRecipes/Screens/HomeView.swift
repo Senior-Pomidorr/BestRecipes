@@ -16,7 +16,7 @@ struct HomeView: View {
             VStack {
                 Text("Home View")
                 NavigationLink {
-                    DetailRecipeView()
+                    DetailRecipeView(recipeID: "716300")
                 } label: {
                     Text("Recipe detail")
                 }
