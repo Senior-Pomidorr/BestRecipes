@@ -3,25 +3,18 @@ import SwiftUI
 struct TabPlusButton: View {
     
     let width, height: CGFloat
-    let systemIconName, tabName: String
-    
     var acttion: () -> Void
     
     var body: some View {
-        ZStack {
-            Circle()
-                .foregroundColor(Color.theme.customPink)
-                .frame(width: width, height: height)
-                .shadow(radius: 4)
-            Image(systemName: systemIconName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: width / 2, height: height / 2)
-                .foregroundColor(Color.theme.customBlack)
-        }
-        .onTapGesture {
-            acttion()
-        }
-        .padding(.horizontal, -4)
+        Image("add")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: width, height: height)
+            .foregroundColor(Color.theme.customBlack)
+            .shadow(color: Color.theme.customGray.opacity(0.6), radius: 3, x: 0, y: -2)
+            .onTapGesture {
+                acttion()
+            }
+            .padding(.horizontal, -4)
     }
 }

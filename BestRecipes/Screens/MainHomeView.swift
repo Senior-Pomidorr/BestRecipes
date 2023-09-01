@@ -32,7 +32,7 @@ struct MainHomeView: View {
                     Button {
                             print("All tranding items")
                         } label: {
-                            seeAllButton()
+                            SeeAllButton()
                         }
                 }
                 
@@ -77,7 +77,7 @@ struct MainHomeView: View {
                         Button {
                                 print("All recipes")
                             } label: {
-                              seeAllButton()
+                              SeeAllButton()
                             }
                     }
                     .padding(.top, 16)
@@ -101,7 +101,7 @@ struct MainHomeView: View {
                         Button {
                                 print("All authors")
                             } label: {
-                              seeAllButton()
+                              SeeAllButton()
                             }
                     }
                     .padding(.top, 16)

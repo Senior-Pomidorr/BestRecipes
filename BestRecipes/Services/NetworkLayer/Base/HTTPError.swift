@@ -47,7 +47,7 @@ enum HTTPError: LocalizedError {
             return HTTPError.badRequest
             
         case _ as DecodingError:
-            return HTTPError.unknown
+            return HTTPError.serverError
             
         default:
             return HTTPError.badRequest

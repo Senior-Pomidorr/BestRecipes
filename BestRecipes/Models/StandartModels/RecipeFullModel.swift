@@ -38,7 +38,7 @@ struct AnalyzedInstruction: Codable {
 }
 
 // MARK: - Step
-struct Step: Codable {
+struct Step: Codable, Hashable {
     let number: Int?
     let step: String?
     let ingredients, equipment: [Ent]?
@@ -46,20 +46,20 @@ struct Step: Codable {
 }
 
 // MARK: - Ent
-struct Ent: Codable {
+struct Ent: Codable, Hashable {
     let id: Int?
     let name, localizedName, image: String?
     let temperature: Length?
 }
 
 // MARK: - Length
-struct Length: Codable {
+struct Length: Codable, Hashable {
     let number: Int?
     let unit: String?
 }
 
 // MARK: - ExtendedIngredient
-struct ExtendedIngredient: Codable {
+struct ExtendedIngredient: Codable, Identifiable {
     let id: Int?
     let aisle, image: String?
     let consistency: Consistency?
