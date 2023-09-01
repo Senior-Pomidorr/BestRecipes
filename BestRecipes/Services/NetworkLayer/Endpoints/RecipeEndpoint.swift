@@ -3,6 +3,7 @@ import Foundation
 enum RecipeEndpoint {
     case searchRecipe([String: Any]?)
     case getRecipeByID(id: String)
+    case getMultipleRecipes([String: Any])
 }
 
 extension RecipeEndpoint: Endpoint {
@@ -27,6 +28,8 @@ extension RecipeEndpoint: Endpoint {
             return "/recipes/complexSearch"
         case .getRecipeByID(id: let id):
             return "/recipes/\(id)/information"
+        case .getMultipleRecipes:
+            return "/recipes/informationBulk"
         }
     }
     
@@ -36,6 +39,8 @@ extension RecipeEndpoint: Endpoint {
             return params
         case .getRecipeByID:
             return nil
+        case .getMultipleRecipes(let params):
+            return params
         }
     }
     
@@ -53,6 +58,10 @@ extension RecipeEndpoint: Endpoint {
                 "Content-Type": "application/json"
             ]
         case .getRecipeByID:
+            return [
+                "Content-Type": "application/json"
+            ]
+        case .getMultipleRecipes:
             return [
                 "Content-Type": "application/json"
             ]

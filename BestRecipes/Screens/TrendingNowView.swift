@@ -13,16 +13,16 @@ struct TrendingNowView: View {
     var body: some View {
         ScrollView {
             ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
-            LazyVStack {
-                TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
-                                subtitle: "Subtitle",
-                                image: recipe.image ?? "",
-                                scoreNumber: 5.0,
-                                ingredintsCount: 9,
-                                receptMinutes: 25)
+                LazyVStack {
+                    TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
+                                    subtitle: "Subtitle",
+                                    image: recipe.image ?? "",
+                                    scoreNumber: 5.0,
+                                    ingredintsCount: 9,
+                                    receptMinutes: 25)
+                }
             }
         }
-    }
         .task {
             networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
             print(networkAggregateModel.shortRecipeListTrendingNow)

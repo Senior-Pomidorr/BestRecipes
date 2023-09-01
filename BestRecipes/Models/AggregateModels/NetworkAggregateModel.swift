@@ -18,6 +18,7 @@ class NetworkAggregateModel: ObservableObject {
     @Published var shortRecipeListTrendingNow: [RecipeShort] = []
     @Published var shortRecipeListPopularCategory: [RecipeShort] = []
     @Published var shortRecipeListGeneral: [RecipeShort] = []
+    @Published var fullRecipeList: [RecipeFull] = []
     
     var cancellables: Set<AnyCancellable> = []
     
@@ -35,7 +36,9 @@ class NetworkAggregateModel: ObservableObject {
             }, receiveValue: { [weak self] (shortRecipeList: ListOfRecipeShort) in
                 switch requestTag {
                 case .trendingNow:
+                    //print(shortRecipeList.results?.count)
                     self?.shortRecipeListTrendingNow = shortRecipeList.results ?? []
+                    //print(self?.shortRecipeListTrendingNow.count)
                 case .popularCategory:
                     self?.shortRecipeListPopularCategory = shortRecipeList.results ?? []
                 case .general:
@@ -58,6 +61,23 @@ class NetworkAggregateModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] (recipeDetail: RecipeFull) in
                 self?.recipeInformation = recipeDetail
+            })
+            .store(in: &cancellables)
+    }
+    
+    func getMultipleRecipes(params: [String: Any]) {
+        networkService.request(RecipeEndpoint.getMultipleRecipes(params))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.alert = error
+                    self?.showAlertInView = true
+                }
+            }, receiveValue: { [weak self] (recipeDetailFull: [RecipeFull]) in
+                self?.fullRecipeList = recipeDetailFull
             })
             .store(in: &cancellables)
     }
