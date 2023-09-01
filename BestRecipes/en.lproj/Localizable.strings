@@ -14,3 +14,12 @@
 "tabbar.favourites" = "Favourites";
 "tabbar.news" = "News";
 "tabbar.profile" = "Profile";
+
+//DetailRecipe
+"detailRecipe.instructions" = "Instructions";
+"detailRecipe.noinstructions" = "No instructions";
+"detailRecipe.norating" = "No rating";
+"detailRecipe.nonameofrecipe" = "No name of recipe";
+"detailRecipe.ingredients" = "Ingredients";
+"detailRecipe.items" = "items";
+"detailRecipe.reviews" = "Reviews";

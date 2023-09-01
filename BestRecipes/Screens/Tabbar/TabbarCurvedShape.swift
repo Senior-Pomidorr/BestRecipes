@@ -9,11 +9,9 @@ struct TabbarCurvedShape: View {
             path.move(to: CGPoint(x: 0, y: 0))
             path.addLine(to: CGPoint(x: UIScreen.main.bounds.width, y: 0))
             path.addLine(to: CGPoint(x: UIScreen.main.bounds.width, y: height))
-            
             path.addArc(center: CGPoint(x: UIScreen.main.bounds.width / 2, y: height),
                         radius: radius, startAngle: .zero, endAngle: .init(degrees: 180),
                         clockwise: true)
-            
             path.addLine(to: CGPoint(x: 0, y: height))
         }
         .fill(Color.theme.сustomWhite)

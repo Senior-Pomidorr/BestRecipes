@@ -12,16 +12,17 @@ struct HomeView: View {
     @EnvironmentObject var tabbarRouter: TabbarRouter
     
     var body: some View {
-        VStack {
-            Text("HomeView")
-            Button {
-                tabbarRouter.currentPage = .favourites
-            } label: {
-                Text("to favorites")
+        NavigationView {
+            VStack {
+                Text("Home View")
+                NavigationLink {
+                    DetailRecipeView(recipeID: "716300")
+                } label: {
+                    Text("Recipe detail")
+                }
+                .buttonStyle(.bordered)
             }
-
         }
-        
     }
 }
 

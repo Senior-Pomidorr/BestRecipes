@@ -14,3 +14,12 @@
 "tabbar.favourites" = "Избранное";
 "tabbar.news" = "Новости";
 "tabbar.profile" = "Профиль";
+
+//DetailRecipe
+"detailRecipe.instructions" = "Инструкция";
+"detailRecipe.noinstructions" = "Инструкции отсутствуют";
+"detailRecipe.norating" = "Нет рейтинга";
+"detailRecipe.nonameofrecipe" = "Нет названия рецепта";
+"detailRecipe.ingredients" = "Ингредиенты";
+"detailRecipe.items" = "шт.";
+"detailRecipe.reviews" = "Оценок";
