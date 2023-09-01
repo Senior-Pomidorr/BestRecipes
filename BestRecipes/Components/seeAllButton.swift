@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct seeAllButton: View {
+struct SeeAllButton: View {
     var body: some View {
         HStack {
             Text("See all")
@@ -20,8 +20,8 @@ struct seeAllButton: View {
     }
 }
 
-struct seeAllButton_Previews: PreviewProvider {
+struct SeeAllButton_Previews: PreviewProvider {
     static var previews: some View {
-        seeAllButton()
+        SeeAllButton()
     }
 }
