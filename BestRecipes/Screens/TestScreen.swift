@@ -10,7 +10,8 @@ struct TestScreen: View {
             Button {
                 print("--- Запускаем тестовый запрос ---")
                 //networkAggregateModel.searchRecipeShort(requestTag: .general)
-                networkAggregateModel.getRecipeById(id: "716300")
+               // networkAggregateModel.getRecipeById(id: "716300")
+                networkAggregateModel.getMultipleRecipes(params: ["ids": "715538,716429"])
             } label: {
                 Text("testScreen.startrequest")
             }
@@ -18,7 +19,8 @@ struct TestScreen: View {
 //            List(networkAggregateModel.shortRecipeListGeneral) { recipe in
 //                Text(recipe.title ?? "Не пришло название рецепта")
 //            }
-            Text(networkAggregateModel.recipeInformation?.sourceName ?? "Не пришли данные")
+          //  Text(networkAggregateModel.recipeInformation?.sourceName ?? "Не пришли данные")
+            Text(String(networkAggregateModel.fullRecipeList.count))
             
         }
         .alert(isPresented: $networkAggregateModel.showAlertInView, error: networkAggregateModel.alert) { _ in
