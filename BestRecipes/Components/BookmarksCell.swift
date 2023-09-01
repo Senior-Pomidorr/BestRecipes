@@ -27,9 +27,8 @@ struct BookmarksCell: View {
                 HStack {
                     Button {
                     } label: {
-                        Image("Star")
-                            .foregroundColor(.black)
-                            .offset(x: 1, y: -0.5)
+                        RatingView(scoreNumber: scoreNumber)
+                        
                         Text(String(scoreNumber))
                             .font(.custom(Poppins.Bold, size: 14))
                             .foregroundColor(.white)
@@ -100,7 +99,7 @@ struct BookmarksCell_Previews: PreviewProvider {
                       image: "receptes",
                       autorImage: "author",
                       autorName: "Zeelicious foods",
-                      scoreNumber: 5.0)
+                      scoreNumber: 3.0)
     }
 }
 
