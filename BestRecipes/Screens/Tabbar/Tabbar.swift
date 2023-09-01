@@ -9,7 +9,7 @@ struct Tabbar: View {
     var contentView: some View {
         switch tabbarRouter.currentPage {
         case .home:
-            HomeView()
+            MainHomeView()
                 .environmentObject(tabbarRouter)
         case .favourites:
             SavedRecipesView()
