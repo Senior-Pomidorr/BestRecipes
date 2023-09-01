@@ -15,7 +15,7 @@ struct Tabbar: View {
             SavedRecipesView()
                 .environmentObject(tabbarRouter)
         case .news:
-           TrendingNowView()
+            TrendingNowView()
                 .environmentObject(tabbarRouter)
         case .profile:
             ProfileView()

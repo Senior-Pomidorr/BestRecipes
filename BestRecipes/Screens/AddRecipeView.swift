@@ -7,18 +7,13 @@
 
 import SwiftUI
 
-struct Ingredient: Identifiable {
-    var id = UUID()
-    var itemName = ""
-    var quantity = ""
-}
 
 struct AddRecipeView: View {
     @State private var ingredients: [Ingredient] = [Ingredient()]
     @State private var recipeName = ""
-    @State private var recipeTimers = ""
-    @State private var numberOfPeople = 1
-    @State private var itemName = ""
+    @State private var serves = 3
+    @State private var cookTime = 20
+    @State private var ingredientName = ""
     @State private var quanity = ""
     @Environment(\.dismiss) var dismiss
     
@@ -77,7 +72,7 @@ struct AddRecipeView: View {
                     Text("Serves")
                         .font(.custom(Poppins.Medium, size: 16))
                     Spacer()
-                    Text("3")
+                    Text("\(serves)")
                         .foregroundColor(.theme.customGray)
                         .font(.custom(Poppins.Medium, size: 14))
                     
@@ -98,12 +93,12 @@ struct AddRecipeView: View {
                 .padding([.leading, .trailing], 16)
                 
                 HStack {
-                    Image("Peoples")
+                    Image("Timer")
                         .padding([.leading, .trailing], 14)
                     Text("Cook time")
                         .font(.custom(Poppins.Medium, size: 16))
                     Spacer()
-                    Text("20 min")
+                    Text("\(cookTime) min")
                         .foregroundColor(.theme.customGray)
                         .font(.custom(Poppins.Medium, size: 14))
                     Button {
@@ -170,7 +165,7 @@ struct AddRecipeView: View {
                 HStack {
                     TextField(
                         "Item name",
-                        text: $itemName
+                        text: $ingredientName
                     )
                     .font(.custom(Poppins.Regular, size: 14))
                     .frame(width: 164,height: 43)
@@ -213,7 +208,7 @@ struct AddRecipeView: View {
                         .font(.custom(Poppins.SemiBold, size: 16))
                     Spacer()
                 }
-                .padding(.leading, 16)
+                .padding(.leading, 20)
                 
                 GeometryReader { geometry in
                     Button(action: {

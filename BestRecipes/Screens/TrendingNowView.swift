@@ -8,28 +8,24 @@
 import SwiftUI
 
 struct TrendingNowView: View {
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
+    
     var body: some View {
         ScrollView {
+            ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
             LazyVStack {
-                TrendingNowCell(title: "How to make yam & vegetable sauce at home",
+                TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
                                 subtitle: "Subtitle",
-                                image: "fetasiers",
-                                scoreNumber: 5.0,
-                                ingredintsCount: 9,
-                                receptMinutes: 25)
-                TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                subtitle: "Subtitle",
-                                image: "receptes",
-                                scoreNumber: 5.0,
-                                ingredintsCount: 9,
-                                receptMinutes: 25)
-                TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                subtitle: "Subtitle",
-                                image: "bbq",
+                                image: recipe.image ?? "",
                                 scoreNumber: 5.0,
                                 ingredintsCount: 9,
                                 receptMinutes: 25)
             }
+        }
+    }
+        .task {
+            networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+            print(networkAggregateModel.shortRecipeListTrendingNow)
         }
     }
 }
@@ -37,5 +33,6 @@ struct TrendingNowView: View {
 struct TrendingNowView_Previews: PreviewProvider {
     static var previews: some View {
         TrendingNowView()
+            .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TrendingNowCell: View {
     let title: String
@@ -17,9 +18,10 @@ struct TrendingNowCell: View {
     
     var body: some View {
         ZStack {
-            Image(image)
+            KFImage(URL(string: image))
                 .resizable()
                 .scaledToFill()
+                .background(.red)
                 .frame(width: 363, height: 220)
                 .cornerRadius(20)
             VStack(alignment: .leading) {
@@ -39,12 +41,17 @@ struct TrendingNowCell: View {
                     .background(.ultraThinMaterial)
                     .background(.black)
                     .cornerRadius(8)
+                    .offset(y: -24)
                 }
-                .offset(y: -40)
-                
-                VStack(alignment: .leading, spacing: 6) {
+                Spacer().frame(height: 50)
+                VStack(alignment: .leading, spacing: 4) {
                     Text(title)
                         .font(.custom(Poppins.Bold, size: 16))
+                        .background(.thinMaterial)
+                        .background(.black)
+                        .cornerRadius(8)
+                        .saturation(10)
+                        .frame(width: 320, height: 50, alignment: .bottomLeading)
                         
                     HStack {
                         Text("\(ingredintsCount) Ingredients")
@@ -53,7 +60,7 @@ struct TrendingNowCell: View {
                     .font(.custom(Poppins.Medium, size: 14))
                 }
                 .foregroundColor(.white)
-                .offset(y: 40)
+                .offset(y: 20)
             }
             .offset(x: -10)
             .padding([.leading, .trailing], 10)
@@ -63,7 +70,7 @@ struct TrendingNowCell: View {
 
 struct TrendingNowCell_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingNowCell(title: "How to make yam & vegetable sauce at home",
+        TrendingNowCell(title: "How to make yam sdad ",
                         subtitle: "Subtitle",
                         image: "fetasiers",
                         scoreNumber: 5.0,
