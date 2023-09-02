@@ -4,6 +4,7 @@ enum RecipeEndpoint {
     case searchRecipe([String: Any]?)
     case getRecipeByID(id: String)
     case getMultipleRecipes([String: Any])
+    case getRandomRecipes([String: Any]?)
 }
 
 extension RecipeEndpoint: Endpoint {
@@ -30,6 +31,8 @@ extension RecipeEndpoint: Endpoint {
             return "/recipes/\(id)/information"
         case .getMultipleRecipes:
             return "/recipes/informationBulk"
+        case .getRandomRecipes:
+            return "/recipes/random"
         }
     }
     
@@ -40,6 +43,8 @@ extension RecipeEndpoint: Endpoint {
         case .getRecipeByID:
             return nil
         case .getMultipleRecipes(let params):
+            return params
+        case .getRandomRecipes(let params):
             return params
         }
     }
@@ -62,6 +67,10 @@ extension RecipeEndpoint: Endpoint {
                 "Content-Type": "application/json"
             ]
         case .getMultipleRecipes:
+            return [
+                "Content-Type": "application/json"
+            ]
+        case .getRandomRecipes(_):
             return [
                 "Content-Type": "application/json"
             ]
