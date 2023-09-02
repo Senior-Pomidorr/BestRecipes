@@ -62,6 +62,7 @@ struct BookmarksCell: View {
                 HStack{
                     Text(title)
                         .font(.custom(Poppins.SemiBold, size: 16))
+                        .frame(width: 308, height: 22, alignment: .leading)
                     Spacer()
                     Button {
                         tapShare()
@@ -70,7 +71,6 @@ struct BookmarksCell: View {
                             .foregroundColor(.black)
                     }
                 }
-                .padding(.top, 6)
                 .padding([.leading, .trailing], 20)
                 
                 HStack() {
@@ -105,7 +105,7 @@ struct BookmarksCell: View {
 
 struct BookmarksCell_Previews: PreviewProvider {
     static var previews: some View {
-        BookmarksCell(title: "How to sharwama at home",
+        BookmarksCell(title: "How to sharwama at homed ",
                       subtitle: "Subtitle",
                       image: "receptes",
                       autorImage: "author",

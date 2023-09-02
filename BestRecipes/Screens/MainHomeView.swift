@@ -39,7 +39,7 @@ struct MainHomeView: View {
                 
                 LazyVStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack {
+                        LazyHStack(spacing: 16) {
                                 ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
                                     BookmarksCell(title: recipe.title ?? "How to sharwama at home",
                                               subtitle: "Subtitle",
@@ -51,8 +51,9 @@ struct MainHomeView: View {
                                             )
                             }
                                 
-                            .frame(height: 320)
+//                            .frame(height: 320)
                         }
+                        .padding([.leading, .trailing], 16)
                     }
                     Text("Popular Category")
                         .font(.title2)
