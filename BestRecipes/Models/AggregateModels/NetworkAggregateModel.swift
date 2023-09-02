@@ -14,6 +14,7 @@ class NetworkAggregateModel: ObservableObject {
     @Published var showAlertInView: Bool = false
     
     @Published var recipeInformation: RecipeFull?
+    @Published var randomRecipesList: [RecipeFull]?
     
     @Published var shortRecipeListTrendingNow: [RecipeShort] = []
     @Published var shortRecipeListPopularCategory: [RecipeShort] = []
@@ -78,6 +79,23 @@ class NetworkAggregateModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] (recipeDetailFull: [RecipeFull]) in
                 self?.fullRecipeList = recipeDetailFull
+            })
+            .store(in: &cancellables)
+    }
+    
+    func getRandomRecipes(params: [String: Any]?) {
+        networkService.request(RecipeEndpoint.getRandomRecipes(params))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.alert = error
+                    self?.showAlertInView = true
+                }
+            }, receiveValue: { [weak self] (randomRecipes: RandomRecipeModel) in
+                self?.randomRecipesList = randomRecipes.recipes
             })
             .store(in: &cancellables)
     }
