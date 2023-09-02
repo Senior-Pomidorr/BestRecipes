@@ -6,20 +6,23 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct BookmarksCell: View {
     @State private var isBookmarked = false
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     let title: String
     let subtitle: String
     let image: String
     let autorImage: String
     let autorName: String
     let scoreNumber: Double
+    let recipe: BookmarkRecipe
     
     var body: some View {
         VStack(alignment: .center) {
             ZStack(alignment: .top) {
-                Image(image)
+                KFImage(URL(string: image))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 363, height: 220)
@@ -51,8 +54,8 @@ struct BookmarksCell: View {
                     .background(.white)
                     .clipShape(Circle())
                 }
-                .padding(.top, 10)
-                .padding([.leading, .trailing], 33)
+                .padding(.top, 8)
+                .padding([.leading, .trailing], 26)
             }
             
             VStack(alignment: .leading) {
@@ -86,9 +89,17 @@ struct BookmarksCell: View {
         print("Share button tap!")
     }
     private func addBookmark() {
+       if isBookmarked {
+            if let index = networkAggregateModel.bookmarkedRecipes.firstIndex(where: { $0.id == recipe.id }) {
+                networkAggregateModel.bookmarkedRecipes.remove(at: index)
+            }
+        } else {
+            let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image)
+            networkAggregateModel.bookmarkedRecipes.append(bookmark)
+        }
         isBookmarked.toggle()
-        isBookmarked ?
-        print("Add bookmark") : print("Cancel bookmark")
+        isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
+        print(networkAggregateModel.bookmarkedRecipes)
     }
 }
 
@@ -99,7 +110,8 @@ struct BookmarksCell_Previews: PreviewProvider {
                       image: "receptes",
                       autorImage: "author",
                       autorName: "Zeelicious foods",
-                      scoreNumber: 3.0)
+                      scoreNumber: 3.0,
+                      recipe: BookmarkRecipe.init(id: 0, title: "", image: ""))
     }
 }
 

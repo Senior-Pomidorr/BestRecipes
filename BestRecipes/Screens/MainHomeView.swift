@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainHomeView: View {
     
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     @State var searchFieldText: String = ""
     
     var body: some View {
@@ -38,22 +39,20 @@ struct MainHomeView: View {
                 
                 LazyVStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack {
-                            BookmarksCell(title: "How to sharwama at home",
-                                          subtitle: "Subtitle",
-                                          image: "receptes",
-                                          autorImage: "author",
-                                          autorName: "Zeelicious foods",
-                                          scoreNumber: 5.0)
-                            BookmarksCell(title: "How to sharwama at home",
-                                          subtitle: "Subtitle",
-                                          image: "receptes",
-                                          autorImage: "author",
-                                          autorName: "Zeelicious foods",
-                                          scoreNumber: 5.0)
-                         
+                            LazyHStack {
+                                ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
+                                    BookmarksCell(title: recipe.title ?? "How to sharwama at home",
+                                              subtitle: "Subtitle",
+                                              image: recipe.image ?? "",
+                                              autorImage: "author",
+                                              autorName: "Zeelicious foods",
+                                              scoreNumber: 5.0,
+                                                  recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq")
+                                            )
+                            }
+                                
+                            .frame(height: 320)
                         }
-                        .frame(height: 320)
                     }
                     Text("Popular Category")
                         .font(.title2)
@@ -120,11 +119,16 @@ struct MainHomeView: View {
                 }
             }
         }
+        .task {
+            networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+            print(networkAggregateModel.shortRecipeListTrendingNow)
+        }
     }
 }
 
 struct HomeCustomView_Previews: PreviewProvider {
     static var previews: some View {
         MainHomeView()
+            .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
     }
 }

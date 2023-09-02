@@ -14,7 +14,7 @@ class NetworkAggregateModel: ObservableObject {
     @Published var showAlertInView: Bool = false
     
     @Published var recipeInformation: RecipeFull?
-    
+    @Published var bookmarkedRecipes: [BookmarkRecipe] = []
     @Published var shortRecipeListTrendingNow: [RecipeShort] = []
     @Published var shortRecipeListPopularCategory: [RecipeShort] = []
     @Published var shortRecipeListGeneral: [RecipeShort] = []
