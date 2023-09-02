@@ -17,6 +17,15 @@ struct TestScreen: View {
                 Text("testScreen.startrequest")
             }
             
+            Button {
+                print("--- Запускаем что-то тестовое ---")
+                UserDefaultService.shared.saveStructs(structs: ["1111", "2222"], forKey: "test")
+                let testData: [String] = UserDefaultService.shared.getStructs(forKey: "test") ?? []
+                print(testData)
+            } label: {
+                Text("Test something")
+            }
+            
 //            List(networkAggregateModel.shortRecipeListGeneral) { recipe in
 //                Text(recipe.title ?? "Не пришло название рецепта")
 //            }
