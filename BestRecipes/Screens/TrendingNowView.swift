@@ -21,18 +21,20 @@ struct TrendingNowView: View {
                                     ingredintsCount: 9,
                                     receptMinutes: 25)
                 }
+                .padding(.bottom, 16)
             }
-        }
-        .task {
-            networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
-            print(networkAggregateModel.shortRecipeListTrendingNow)
+            .task {
+                networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+                print(networkAggregateModel.shortRecipeListTrendingNow)
+            }
+            .navigationTitle("Trending Now")
         }
     }
-}
-
-struct TrendingNowView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrendingNowView()
-            .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
+    
+    struct TrendingNowView_Previews: PreviewProvider {
+        static var previews: some View {
+            TrendingNowView()
+                .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
+        }
     }
 }

@@ -60,7 +60,7 @@ struct TrendingNowCell: View {
                     .font(.custom(Poppins.Medium, size: 14))
                 }
                 .foregroundColor(.white)
-                .offset(y: 20)
+                .offset(x: 4, y: 20)
             }
             .offset(x: -10)
             .padding([.leading, .trailing], 10)

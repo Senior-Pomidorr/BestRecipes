@@ -16,6 +16,7 @@
 		0D0FFE3C2A9DF3470051AC4C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FFE2A2A9DF3460051AC4C /* Poppins-Bold.ttf */; };
 		0D0FFE3F2A9DF7500051AC4C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FFE3E2A9DF7500051AC4C /* Fonts.swift */; };
 		0D0FFE442AA0A52E0051AC4C /* AddRecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FFE432AA0A52E0051AC4C /* AddRecipeModel.swift */; };
+		0D0FFE462AA3337E0051AC4C /* BookmarkRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FFE452AA3337E0051AC4C /* BookmarkRModel.swift */; };
 		0DA5A4D32A9CDD9A00356C87 /* TrendingNowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */; };
 		0DF3ECC92A9B859C006DC73D /* BookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */; };
 		758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652512A9B29D10015C547 /* BestRecipesApp.swift */; };
@@ -75,6 +76,7 @@
 		0D0FFE3D2A9DF3D60051AC4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D0FFE3E2A9DF7500051AC4C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		0D0FFE432AA0A52E0051AC4C /* AddRecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeModel.swift; sourceTree = "<group>"; };
+		0D0FFE452AA3337E0051AC4C /* BookmarkRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkRModel.swift; sourceTree = "<group>"; };
 		0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingNowCell.swift; sourceTree = "<group>"; };
 		0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCell.swift; sourceTree = "<group>"; };
 		7586524E2A9B29D10015C547 /* BestRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,6 +332,7 @@
 				0D0FFE432AA0A52E0051AC4C /* AddRecipeModel.swift */,
 				A1FC9D8F2AA353C00050218E /* RandomRecipeModel.swift */,
 				ACBC92C12AA480CA00D4A9CE /* CategoryModel.swift */,
+				0D0FFE452AA3337E0051AC4C /* BookmarkRModel.swift */,
 			);
 			path = StandartModels;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */,
 				ACBC92C42AA489D700D4A9CE /* Categories.swift in Sources */,
 				0D0FFE442AA0A52E0051AC4C /* AddRecipeModel.swift in Sources */,
+				0D0FFE462AA3337E0051AC4C /* BookmarkRModel.swift in Sources */,
 				758652672A9B306E0015C547 /* AddRecipeView.swift in Sources */,
 				A10CD65B2A9BCA2000FF2954 /* Color+Ext.swift in Sources */,
 				758652622A9B2CB60015C547 /* SavedRecipesView.swift in Sources */,

@@ -8,6 +8,7 @@ class NetworkAggregateModel: ObservableObject {
     
     init(networkService: NetworkService) {
         self.networkService = networkService
+        self.bookmarkedRecipes = UserDefaultService.shared.getStructs(forKey: "Bookmarks")
     }
     
     @Published var alert: HTTPError = .unknown
@@ -15,7 +16,9 @@ class NetworkAggregateModel: ObservableObject {
     
     @Published var recipeInformation: RecipeFull?
     @Published var randomRecipesList: [RecipeFull]?
-    
+
+//    @Published var bookmarkedRecipes: [BookmarkRecipe]? = (UserDefaultService.shared.getStructs(forKey: "Bookmarks"))
+    @Published var bookmarkedRecipes: [BookmarkRecipe]? = []
     @Published var shortRecipeListTrendingNow: [RecipeShort] = []
     @Published var shortRecipeListPopularCategory: [RecipeShort] = []
     @Published var shortRecipeListGeneral: [RecipeShort] = []

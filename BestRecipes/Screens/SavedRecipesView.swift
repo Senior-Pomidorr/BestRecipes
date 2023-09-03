@@ -8,35 +8,32 @@
 import SwiftUI
 
 struct SavedRecipesView: View {
-    
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     @EnvironmentObject var tabbarRouter: TabbarRouter
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVStack(spacing: 0) {
-                    BookmarksCell(title: "How to sharwama at home",
-                                  subtitle: "Subtitle",
-                                  image: "bbq2",
-                                  autorImage: "author",
-                                  autorName: "Zeelicious foods",
-                                  scoreNumber: 5.0)
-                    BookmarksCell(title: "How to sharwama at home",
-                                  subtitle: "Subtitle",
-                                  image: "fetasiers",
-                                  autorImage: "author",
-                                  autorName: "Zeelicious foods",
-                                  scoreNumber: 5.0)
-                    BookmarksCell(title: "How to sharwama at home",
-                                  subtitle: "Subtitle",
-                                  image: "bbq",
-                                  autorImage: "author",
-                                  autorName: "Zeelicious foods",
-                                  scoreNumber: 5.0)
+                ForEach(networkAggregateModel.bookmarkedRecipes ?? [], id: \.id) { recipe in
+                    LazyVStack(spacing: 0) {
+                        BookmarksCell(title: recipe.title ,
+                                      subtitle: "Subtitle",
+                                      image: recipe.image,
+                                      autorImage: "author",
+                                      autorName: "Zeelicious foods",
+                                      scoreNumber: 5.0,
+                                      recipe: BookmarkRecipe(id: recipe.id,  title: recipe.title, image: recipe.image)
+                        )
+                    }
                 }
             }
             .navigationTitle("Saved recipes")
             .font(.custom(Poppins.SemiBold, size: 24))
+//            .onAppear {
+//                if let bookmarks: [BookmarkRecipe] = UserDefaultService.shared.getStructs(forKey: "Bookmarks") {
+//                    networkAggregateModel.bookmarkedRecipes = bookmarks
+//                }
+//            }
         }
     }
 }
