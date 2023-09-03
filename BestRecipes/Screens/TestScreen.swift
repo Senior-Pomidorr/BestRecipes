@@ -10,15 +10,28 @@ struct TestScreen: View {
             Button {
                 print("--- Запускаем тестовый запрос ---")
                 //networkAggregateModel.searchRecipeShort(requestTag: .general)
-                networkAggregateModel.getRecipeById(id: "716300")
+               // networkAggregateModel.getRecipeById(id: "716300")
+               // networkAggregateModel.getMultipleRecipes(params: ["ids": "715538,716429"])
+                networkAggregateModel.getRandomRecipes(params: ["number": 3])
             } label: {
                 Text("testScreen.startrequest")
+            }
+            
+            Button {
+                print("--- Запускаем что-то тестовое ---")
+                UserDefaultService.shared.saveStructs(structs: ["1111", "2222"], forKey: "test")
+                let testData: [String] = UserDefaultService.shared.getStructs(forKey: "test") ?? []
+                print(testData)
+            } label: {
+                Text("Test something")
             }
             
 //            List(networkAggregateModel.shortRecipeListGeneral) { recipe in
 //                Text(recipe.title ?? "Не пришло название рецепта")
 //            }
-            Text(networkAggregateModel.recipeInformation?.sourceName ?? "Не пришли данные")
+          //  Text(networkAggregateModel.recipeInformation?.sourceName ?? "Не пришли данные")
+         //   Text(String(networkAggregateModel.fullRecipeList.count))
+            Text(String(networkAggregateModel.randomRecipesList?.count ?? 0))
             
         }
         .alert(isPresented: $networkAggregateModel.showAlertInView, error: networkAggregateModel.alert) { _ in

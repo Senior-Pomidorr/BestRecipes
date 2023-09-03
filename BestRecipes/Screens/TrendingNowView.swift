@@ -23,7 +23,6 @@ struct TrendingNowView: View {
             }
                 .padding(.bottom, 16)
         }
-    }
         .task {
             networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
             print(networkAggregateModel.shortRecipeListTrendingNow)
