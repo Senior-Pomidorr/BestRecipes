@@ -59,6 +59,8 @@ struct MainHomeView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                         .padding([.leading,.top])
+                    CategoryMenu()
+                        .padding(.vertical,8)
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
