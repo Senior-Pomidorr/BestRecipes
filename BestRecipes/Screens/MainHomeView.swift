@@ -50,8 +50,6 @@ struct MainHomeView: View {
                                                   recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq")
                                             )
                             }
-                                
-//                            .frame(height: 320)
                         }
                         .padding([.leading, .trailing], 16)
                     }

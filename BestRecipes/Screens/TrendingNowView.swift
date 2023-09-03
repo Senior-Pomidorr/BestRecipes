@@ -14,26 +14,27 @@ struct TrendingNowView: View {
         ScrollView {
             ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
                 LazyVStack {
-                TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
-                                subtitle: "Subtitle",
-                                image: recipe.image ?? "",
-                                scoreNumber: 5.0,
-                                ingredintsCount: 9,
-                                receptMinutes: 25)
-            }
+                    TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
+                                    subtitle: "Subtitle",
+                                    image: recipe.image ?? "",
+                                    scoreNumber: 5.0,
+                                    ingredintsCount: 9,
+                                    receptMinutes: 25)
+                }
                 .padding(.bottom, 16)
+            }
+            .task {
+                networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+                print(networkAggregateModel.shortRecipeListTrendingNow)
+            }
+            .navigationTitle("Trending Now")
         }
-        .task {
-            networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
-            print(networkAggregateModel.shortRecipeListTrendingNow)
-        }
-        .navigationTitle("Trending Now")
     }
-}
-
-struct TrendingNowView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrendingNowView()
-            .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
+    
+    struct TrendingNowView_Previews: PreviewProvider {
+        static var previews: some View {
+            TrendingNowView()
+                .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
+        }
     }
 }

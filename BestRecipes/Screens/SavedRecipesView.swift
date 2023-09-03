@@ -14,7 +14,7 @@ struct SavedRecipesView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(networkAggregateModel.bookmarkedRecipes, id: \.id) { recipe in
+                ForEach(networkAggregateModel.bookmarkedRecipes ?? [], id: \.id) { recipe in
                     LazyVStack(spacing: 0) {
                         BookmarksCell(title: recipe.title ,
                                       subtitle: "Subtitle",
@@ -23,12 +23,17 @@ struct SavedRecipesView: View {
                                       autorName: "Zeelicious foods",
                                       scoreNumber: 5.0,
                                       recipe: BookmarkRecipe(id: recipe.id,  title: recipe.title, image: recipe.image)
-                                    )
+                        )
                     }
                 }
             }
             .navigationTitle("Saved recipes")
             .font(.custom(Poppins.SemiBold, size: 24))
+//            .onAppear {
+//                if let bookmarks: [BookmarkRecipe] = UserDefaultService.shared.getStructs(forKey: "Bookmarks") {
+//                    networkAggregateModel.bookmarkedRecipes = bookmarks
+//                }
+//            }
         }
     }
 }

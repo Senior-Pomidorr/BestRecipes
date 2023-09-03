@@ -90,12 +90,13 @@ struct BookmarksCell: View {
     }
     private func addBookmark() {
        if isBookmarked {
-            if let index = networkAggregateModel.bookmarkedRecipes.firstIndex(where: { $0.id == recipe.id }) {
-                networkAggregateModel.bookmarkedRecipes.remove(at: index)
+            if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
+                networkAggregateModel.bookmarkedRecipes?.remove(at: index)
             }
         } else {
             let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image)
-            networkAggregateModel.bookmarkedRecipes.append(bookmark)
+            networkAggregateModel.bookmarkedRecipes?.append(bookmark)
+            UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
         }
         isBookmarked.toggle()
         isBookmarked ? print("Add bookmark") : print("Cancel bookmark")

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookmarkRecipe {
+struct BookmarkRecipe: Codable {
     var id: Int?
     let title: String
     let image: String
