@@ -18,6 +18,8 @@ struct BookmarksCell: View {
     let autorName: String
     let scoreNumber: Double
     let recipe: BookmarkRecipe
+    var widthBackground: CGFloat
+    var heightBackground: CGFloat
     
     var body: some View {
         VStack(alignment: .center) {
@@ -25,7 +27,8 @@ struct BookmarksCell: View {
                 KFImage(URL(string: image))
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 363, height: 220)
+                    .frame(width: widthBackground, height: heightBackground)
+                    .background(.red)
                     .cornerRadius(20)
                 HStack {
                     Button {
@@ -39,7 +42,6 @@ struct BookmarksCell: View {
                     }
                     .frame(width: 62, height: 28)
                     .background(.ultraThinMaterial)
-                    .background(.black)
                     .cornerRadius(8)
                     Spacer()
                     
@@ -55,14 +57,13 @@ struct BookmarksCell: View {
                     .clipShape(Circle())
                 }
                 .padding(.top, 8)
-                .padding([.leading, .trailing], 26)
+                .padding(.horizontal, 12)
             }
             
             VStack(alignment: .leading) {
                 HStack{
                     Text(title)
                         .font(.custom(Poppins.SemiBold, size: 16))
-                        .frame(width: 308, height: 22, alignment: .leading)
                     Spacer()
                     Button {
                         tapShare()
@@ -71,6 +72,7 @@ struct BookmarksCell: View {
                             .foregroundColor(.black)
                     }
                 }
+                .frame(width: widthBackground - 12, height: 22, alignment: .leading)
                 .padding([.leading, .trailing], 20)
                 
                 HStack() {
@@ -83,13 +85,13 @@ struct BookmarksCell: View {
                 .padding(.leading, 20)
             }
         }
-        .padding(.top, 20)
+        .frame(width: widthBackground)
     }
     private func tapShare() {
         print("Share button tap!")
     }
     private func addBookmark() {
-       if isBookmarked {
+        if isBookmarked {
             if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
                 networkAggregateModel.bookmarkedRecipes?.remove(at: index)
             }
@@ -100,7 +102,6 @@ struct BookmarksCell: View {
         }
         isBookmarked.toggle()
         isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
-        print(networkAggregateModel.bookmarkedRecipes)
     }
 }
 
@@ -112,7 +113,9 @@ struct BookmarksCell_Previews: PreviewProvider {
                       autorImage: "author",
                       autorName: "Zeelicious foods",
                       scoreNumber: 3.0,
-                      recipe: BookmarkRecipe.init(id: 0, title: "", image: ""))
+                      recipe: BookmarkRecipe.init(id: 0, title: "", image: ""),
+                      widthBackground: 384,
+                      heightBackground: 220)
     }
 }
 
