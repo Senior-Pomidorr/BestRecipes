@@ -212,9 +212,9 @@ struct AddRecipeView: View {
                 
                 GeometryReader { geometry in
                     Button(action: {
-                        
+                        // Сделать сохранение по модели RecipeFull в узер дефаулт
                     }) {
-                        Text("Greate recipe")
+                        Text("Create recipe")
                             .font(.custom(Poppins.SemiBold, size: 16))
                             .foregroundColor(.white)
                         
