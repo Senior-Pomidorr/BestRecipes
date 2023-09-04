@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct OnboardingFirstScreen: View {
-    let mainText =
+struct OnboardingMain: View {
+    let primaryText =
     """
-    Best
+      Best
     Recipe
     """
-    let subText = "Find best recipes for cooking"
+    let secondaryText = "Find best recipes for cooking"
     let buttonText = "Get started"
     let topLabelText = "100k+ Premium recipes"
     
     var body: some View {
         ZStack(alignment: .top) {
-            OnboardingBackground(imageName: "Onboarding1")
+            OnboardingBackground(imageName: "OnboardingMain")
             Label {
                 Text(topLabelText)
                     .font(.custom(Poppins.Regular, size: 16))
@@ -29,15 +29,23 @@ struct OnboardingFirstScreen: View {
             }
             VStack(alignment: .center, spacing: 20) {
                 Spacer()
-                Text(mainText)
+                Text(primaryText)
                     .font(.custom(Poppins.SemiBold, size: 56))
                     .foregroundColor(Color.theme.сustomWhite)
-                Text(subText)
+                Text(secondaryText)
                     .foregroundColor(Color.theme.сustomWhite)
                     .font(.custom(Poppins.Regular, size: 16))
-                OnboardingButton(buttonText: buttonText) {
+                Button {
                     getStartedTapped()
+                } label: {
+                    Text(buttonText)
+                        .font(.custom(Poppins.SemiBold, size: 16))
+                        .foregroundColor(Color.theme.сustomWhite)
                 }
+                .padding(.horizontal, 32)
+                .padding(.vertical, 16)
+                .background(Color.theme.customPink)
+                .cornerRadius(8)
             }
             .padding(.bottom, 50)
         }
@@ -50,6 +58,6 @@ struct OnboardingFirstScreen: View {
 
 struct OnboardingFirstScreen_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingFirstScreen()
+        OnboardingMain()
     }
 }

@@ -10,29 +10,26 @@ import SwiftUI
 struct OnboardingButton: View {
     var buttonText: String
     var buttonAction: () -> Void
-    var textSize: CGFloat?
-    var textWight: String?
     
     var body: some View {
-        Button {
-            buttonAction()
-        } label: {
-            Text(buttonText)
+            Button {
+                buttonAction()
+            } label: {
+                Text(buttonText)
+                    .foregroundColor(Color.theme.сustomWhite)
+                    .font(.custom(Poppins.Medium, size: 20))
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.horizontal, 50)
+            .padding(.vertical, 2)
+            .background(Color.theme.customPink)
+            .cornerRadius(50)
         }
-        .tint(Color.theme.сustomWhite)
-        .font(.custom(textWight ?? Poppins.SemiBold,
-                      size: textSize ?? 16
-                     ))
-        .padding(.horizontal, 32)
-        .padding(.vertical, 16)
-        .background(Color.theme.customPink)
-        .cornerRadius(8)
-    }
 }
 
 struct OnboardingButton_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingButton(buttonText: "Get started", buttonAction: {
+        OnboardingButton(buttonText: "Continue", buttonAction: {
             print("tapped")
         }
         )

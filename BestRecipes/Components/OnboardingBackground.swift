@@ -11,21 +11,28 @@ struct OnboardingBackground: View {
     let imageName: String
 
     var body: some View {
-        Rectangle()
-            .foregroundColor(.clear)
-            .background(
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .clipped()
+        ZStack {
+            Rectangle()
+                .foregroundColor(.clear)
+                .background(
+                    Image(imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                )
+            LinearGradient(
+                gradient: Gradient(colors: [.clear, .black]),
+                startPoint: .top,
+                endPoint: .bottom
             )
-            .edgesIgnoringSafeArea(.all)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .edgesIgnoringSafeArea(.all)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 struct OnboardingBackground_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingBackground(imageName: "Onboarding1")
+        OnboardingBackground(imageName: "OnboardingMain")
     }
 }
