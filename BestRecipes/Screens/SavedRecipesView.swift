@@ -32,11 +32,11 @@ struct SavedRecipesView: View {
             }
             .navigationTitle("Saved recipes")
             .font(.custom(Poppins.SemiBold, size: 24))
-//            .onAppear {
-//                if let bookmarks: [BookmarkRecipe] = UserDefaultService.shared.getStructs(forKey: "Bookmarks") {
-//                    networkAggregateModel.bookmarkedRecipes = bookmarks
-//                }
-//            }
+            //            .onAppear {
+            //                if let bookmarks: [BookmarkRecipe] = UserDefaultService.shared.getStructs(forKey: "Bookmarks") {
+            //                    networkAggregateModel.bookmarkedRecipes = bookmarks
+            //                }
+            //            }
         }
     }
 }

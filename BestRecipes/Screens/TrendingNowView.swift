@@ -38,6 +38,8 @@ struct TrendingNowView: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: CustomBackButton())
         }
     }
     
