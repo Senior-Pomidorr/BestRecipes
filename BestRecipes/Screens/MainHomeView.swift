@@ -32,6 +32,7 @@ struct MainHomeView: View {
                     Spacer()
                     Button {
                         print("All tranding items")
+                       
                     } label: {
                         SeeAllButton()
                     }
