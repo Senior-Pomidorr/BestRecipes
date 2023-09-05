@@ -21,7 +21,7 @@ struct OnboardingBackground: View {
                         .clipped()
                 )
             LinearGradient(
-                gradient: Gradient(colors: [.clear, .black]),
+                gradient: Gradient(colors: [.clear, Color.black.opacity(0.9)]),
                 startPoint: .top,
                 endPoint: .bottom
             )

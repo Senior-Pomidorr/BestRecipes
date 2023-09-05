@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct OnboardingMain: View {
-    let primaryText =
-    """
-      Best
-    Recipe
-    """
+    let firstLineText = "Best"
+    let secondLineText = "Recipe"
     let secondaryText = "Find best recipes for cooking"
     let buttonText = "Get started"
     let topLabelText = "100k+ Premium recipes"
@@ -29,9 +26,14 @@ struct OnboardingMain: View {
             }
             VStack(alignment: .center, spacing: 20) {
                 Spacer()
-                Text(primaryText)
-                    .font(.custom(Poppins.SemiBold, size: 56))
-                    .foregroundColor(Color.theme.сustomWhite)
+                VStack {
+                    Text(firstLineText)
+                        .font(.custom(Poppins.SemiBold, size: 56))
+                        .foregroundColor(Color.theme.сustomWhite)
+                    Text(secondLineText)
+                        .font(.custom(Poppins.SemiBold, size: 56))
+                        .foregroundColor(Color.theme.сustomWhite)
+                }
                 Text(secondaryText)
                     .foregroundColor(Color.theme.сustomWhite)
                     .font(.custom(Poppins.Regular, size: 16))

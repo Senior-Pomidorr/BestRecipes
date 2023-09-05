@@ -30,7 +30,7 @@
 		873222552AA5DE0E0046419B /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222542AA5DE0E0046419B /* OnboardingButton.swift */; };
 		873222572AA5DF380046419B /* OnboardingBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222562AA5DF380046419B /* OnboardingBackground.swift */; };
 		8732225A2AA5E8740046419B /* OnboardingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222592AA5E8740046419B /* OnboardingMain.swift */; };
-		8732225C2AA5F5100046419B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732225B2AA5F5100046419B /* OnboardingView.swift */; };
+		8732225C2AA5F5100046419B /* OnboardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732225B2AA5F5100046419B /* OnboardingTabView.swift */; };
 		873222602AA5F74A0046419B /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732225F2AA5F74A0046419B /* OnboardingData.swift */; };
 		873222622AA5F9A20046419B /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222612AA5F9A20046419B /* OnboardingScreens.swift */; };
 		873222642AA61DDD0046419B /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222632AA61DDD0046419B /* CustomTabBarItem.swift */; };
@@ -98,7 +98,7 @@
 		873222542AA5DE0E0046419B /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		873222562AA5DF380046419B /* OnboardingBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBackground.swift; sourceTree = "<group>"; };
 		873222592AA5E8740046419B /* OnboardingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMain.swift; sourceTree = "<group>"; };
-		8732225B2AA5F5100046419B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8732225B2AA5F5100046419B /* OnboardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTabView.swift; sourceTree = "<group>"; };
 		8732225F2AA5F74A0046419B /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		873222612AA5F9A20046419B /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
 		873222632AA61DDD0046419B /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		8732225D2AA5F7210046419B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8732225B2AA5F5100046419B /* OnboardingView.swift */,
+				8732225B2AA5F5100046419B /* OnboardingTabView.swift */,
 				873222612AA5F9A20046419B /* OnboardingScreens.swift */,
 				873222592AA5E8740046419B /* OnboardingMain.swift */,
 			);
@@ -525,7 +525,7 @@
 				ACF1BD022A9E080100DB23C8 /* AuthorCell.swift in Sources */,
 				ACE5F6E42AA2256B00400804 /* RatingView.swift in Sources */,
 				A12928282A9B77E800DCE389 /* Constants.swift in Sources */,
-				8732225C2AA5F5100046419B /* OnboardingView.swift in Sources */,
+				8732225C2AA5F5100046419B /* OnboardingTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

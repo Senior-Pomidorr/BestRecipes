@@ -21,7 +21,7 @@ struct OnboardingButton: View {
                     .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 50)
-            .padding(.vertical, 2)
+            .padding(.vertical, 5)
             .background(Color.theme.customPink)
             .cornerRadius(50)
         }

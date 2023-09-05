@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OnboardingView: View {
+struct OnboardingTabView: View {
     @State private var currentTab = 0
     
     var body: some View {
@@ -26,6 +26,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingTabView()
     }
 }
