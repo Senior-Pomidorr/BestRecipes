@@ -10,4 +10,5 @@ struct Theme {
     let customBlack = Color("CustomBlack")
     let customGray = Color("CustomGray")
     let neutral = Color("Neutral")
+    let customGold = Color("CustomGold")
 }

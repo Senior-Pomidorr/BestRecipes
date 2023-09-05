@@ -23,3 +23,22 @@
 "detailRecipe.ingredients" = "Ingredients";
 "detailRecipe.items" = "items";
 "detailRecipe.reviews" = "Reviews";
+
+//Onboarding
+"onboardingMain.100k+Premium recipes" = "100k+ Premium recipes";
+"onboardingMain.getstarted" = "Get started";
+"onboardingMain.findbestrecipesforcooking" = "Find best recipes for cooking";
+"onboardingMain.best" = "Best";
+"onboardingMain.recipe" = "Recipe";
+"onboardingData.recipesfromall" = "Recipes from all";
+"onboardingData.overthe" = "over the";
+"onboardingData.world" = "World";
+"onboardingData.continue" = "Continue";
+"onboardingData.recipeswith" = "Recipes with";
+"onboardingData.eachandevery" = "each and every";
+"onboardingData.detail" = "detail";
+"onboardingData.cookitnowor" = "Cook it now or";
+"onboardingData.saveitforlater" = "osave it for later";
+"onboardingData.startCooking" = "Start Cooking";
+"onboardingData.skip" = "Skip";
+
