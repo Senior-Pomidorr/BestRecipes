@@ -23,3 +23,21 @@
 "detailRecipe.ingredients" = "Ингредиенты";
 "detailRecipe.items" = "шт.";
 "detailRecipe.reviews" = "Оценок";
+
+//Onboarding
+"onboardingMain.100k+Premium recipes" = "100k+ Премиум рецептов";
+"onboardingMain.getstarted" = "Начать";
+"onboardingMain.findbestrecipesforcooking" = "Найдите лучшие рецепты для приготовления";
+"onboardingMain.best" = "Лучшие";
+"onboardingMain.recipe" = "Рецепты";
+"onboardingData.recipesfromall" = "Рецепты";
+"onboardingData.overthe" = "co всего";
+"onboardingData.world" = "Мира";
+"onboardingData.continue" = "Продолжить";
+"onboardingData.recipeswith" = "Рецепты со";
+"onboardingData.eachandevery" = "всеми деталями";
+"onboardingData.detail" = "";
+"onboardingData.cookitnowor" = "Приготовьте сейчас или";
+"onboardingData.saveitforlater" = "сохраните на потом";
+"onboardingData.startCooking" = "Начните готовить";
+"onboardingData.skip" = "Пропустить";

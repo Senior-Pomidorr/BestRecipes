@@ -10,11 +10,11 @@ import SwiftUI
 struct OnboardingMain: View {
     @State private var isOnboardingPresented = false
     
-    let firstLineText = "Best"
-    let secondLineText = "Recipe"
-    let secondaryText = "Find best recipes for cooking"
-    let buttonText = "Get started"
-    let topLabelText = "100k+ Premium recipes"
+    let firstLineText = "onboardingMain.best".localized
+    let secondLineText = "onboardingMain.recipe".localized
+    let secondaryText = "onboardingMain.findbestrecipesforcooking".localized
+    let buttonText = "onboardingMain.getstarted".localized
+    let topLabelText = "onboardingMain.100k+Premium recipes".localized
     
     var body: some View {
         ZStack(alignment: .top) {

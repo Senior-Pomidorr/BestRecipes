@@ -21,12 +21,15 @@ struct OnboardingScreens: View {
                     Text(data.firstLineWhiteText)
                         .font(.custom(Poppins.SemiBold, size: 40))
                         .foregroundColor(Color.theme.сustomWhite)
+                        .multilineTextAlignment(.center)
                     Text(data.secondLineGoldText)
                         .font(.custom(Poppins.SemiBold, size: 40))
                         .foregroundColor(Color.theme.customGold)
+                        .multilineTextAlignment(.center)
                     Text(data.thirdLineGoldText)
                         .font(.custom(Poppins.SemiBold, size: 40))
                         .foregroundColor(Color.theme.customGold)
+                        .multilineTextAlignment(.center)
                 }
                 HStack(spacing: 10) {
                     ForEach<[OnboardingData], Int, CustomTabBarItem>(OnboardingData.list, id: \.id) { viewData in
@@ -45,7 +48,7 @@ struct OnboardingScreens: View {
                         Button {
                             skipTapped()
                         } label: {
-                            Text("Skip")
+                            Text("onboardingData.skip".localized)
                                 .font(.custom(Poppins.Medium, size: 10))
                                 .foregroundColor(Color.theme.сustomWhite)
                         }
