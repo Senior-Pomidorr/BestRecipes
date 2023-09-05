@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingMain: View {
+    @State private var isOnboardingPresented = false
+    
     let firstLineText = "Best"
     let secondLineText = "Recipe"
     let secondaryText = "Find best recipes for cooking"
@@ -48,13 +50,16 @@ struct OnboardingMain: View {
                 .padding(.vertical, 16)
                 .background(Color.theme.customPink)
                 .cornerRadius(8)
+                .fullScreenCover(isPresented: $isOnboardingPresented, content: {
+                                   OnboardingTabView()
+                               })
             }
             .padding(.bottom, 50)
         }
     }
     
     private func getStartedTapped() {
-        print("Tapped")
+        isOnboardingPresented = true
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingScreens: View {
     var data: OnboardingData
     @Binding var selectedTab: Int
+    @State private var isTabbarPresented = false
     
     var body: some View {
         ZStack() {
@@ -36,7 +37,10 @@ struct OnboardingScreens: View {
                     OnboardingButton(buttonText: data.buttonText) {
                         buttonTapped()
                     }
-                    // Conditionally show the "Skip" button
+                    .fullScreenCover(isPresented: $isTabbarPresented, content: {
+                                       Tabbar()
+                                   })
+                    // Hide the "Skip" button for the last screen
                     if selectedTab != OnboardingData.list.count - 1 {
                         Button {
                             skipTapped()
@@ -46,9 +50,9 @@ struct OnboardingScreens: View {
                                 .foregroundColor(Color.theme.сustomWhite)
                         }
                     } else {
-                        // Add a Spacer to occupy the space if the "Skip" button is hidden
+                        // Spacer for occupying the space when the "Skip" button is hidden
                         Spacer()
-                            .frame(height: 10)
+                            .frame(height: 15)
                     }
                 }
             }
@@ -56,11 +60,15 @@ struct OnboardingScreens: View {
     }
     
     private func buttonTapped() {
-        print("buttonTapped")
+        if selectedTab == OnboardingData.list.count - 1 {
+            isTabbarPresented = true
+        } else {
+            selectedTab += 1
+        }
     }
     
     private func skipTapped() {
-        print("skipTapped")
+        isTabbarPresented = true
     }
 }
 

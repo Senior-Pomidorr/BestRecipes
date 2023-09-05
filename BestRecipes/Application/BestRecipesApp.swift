@@ -7,7 +7,8 @@ struct BestRecipesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Tabbar()
+            OnboardingMain()
+//            Tabbar()
             //TestScreen()
             //ContentView()
                 .environmentObject(networkAggregateModel)
