@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct OnboardingScreens: View {
+    
+    @AppStorage("onboardingHasShown")
+    var onboardingHasShown = false
+    
     var data: OnboardingData
     @Binding var selectedTab: Int
     @State private var isTabbarPresented = false
+
     
     var body: some View {
         ZStack() {
@@ -65,6 +70,7 @@ struct OnboardingScreens: View {
     private func buttonTapped() {
         if selectedTab == OnboardingData.list.count - 1 {
             isTabbarPresented = true
+            onboardingHasShown = true
         } else {
             selectedTab += 1
         }
@@ -72,6 +78,7 @@ struct OnboardingScreens: View {
     
     private func skipTapped() {
         isTabbarPresented = true
+        onboardingHasShown = true
     }
 }
 
