@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MainHomeView: View {
     
@@ -36,24 +37,29 @@ struct MainHomeView: View {
                         }
                     }
                     
+                    
                     LazyVStack(alignment: .leading) {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 16) {
-                                ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
-                                    BookmarksCell(title: recipe.title ?? "How to sharwama at home",
-                                                  subtitle: "Subtitle",
-                                                  image: recipe.image ?? "",
-                                                  autorImage: "author",
-                                                  autorName: "Zeelicious foods",
-                                                  scoreNumber: 5.0,
-                                                  recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq"),
-                                                  widthBackground: 280,
-                                                  heightBackground: 180
-                                    )
+                                ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
+                                    let recipeID = recipe.id ?? 0
+                                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                                        BookmarksCell(title: recipe.title ?? "How to sharwama at home",
+                                                      subtitle: "Subtitle",
+                                                      image: recipe.image ?? "",
+                                                      autorImage: "author",
+                                                      autorName: "Zeelicious foods",
+                                                      scoreNumber: 5.0,
+                                                      recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq"),
+                                                      widthBackground: 280,
+                                                      heightBackground: 180
+                                        )
+                                    }
                                 }
                             }
                             .padding([.leading, .trailing], 16)
                         }
+                        
                         Text("Popular Category")
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -124,11 +130,11 @@ struct MainHomeView: View {
                             .frame(height: 160)
                         }
                     }
+                    .task {
+                        networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+                        print(networkAggregateModel.shortRecipeListTrendingNow)
+                    }
                 }
-            }
-            .task {
-                networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
-                print(networkAggregateModel.shortRecipeListTrendingNow)
             }
         }
     }

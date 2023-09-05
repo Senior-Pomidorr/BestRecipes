@@ -64,6 +64,7 @@ struct BookmarksCell: View {
                 HStack{
                     Text(title)
                         .font(.custom(Poppins.SemiBold, size: 16))
+                        .foregroundColor(.black)
                     Spacer()
                     Button {
                         tapShare()
