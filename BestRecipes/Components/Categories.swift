@@ -11,7 +11,7 @@ struct Categories: View {
     var recipeIndex: Int
     @Binding var selectedIndex: Int
     var body: some View{
-     
+
             VStack(spacing: 0){
                 Text(categories[recipeIndex])
                     .font(selectedIndex == recipeIndex ?

@@ -23,11 +23,23 @@ struct TrendingNowView: View {
                 }
                 .padding(.bottom, 16)
             }
+            .padding(.vertical, 16)
             .task {
                 networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
                 print(networkAggregateModel.shortRecipeListTrendingNow)
             }
-            .navigationTitle("Trending Now")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack {
+                        Text("Trending Now")
+                            .font(.custom(Poppins.SemiBold, size: 24))
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: CustomBackButton())
         }
     }
     

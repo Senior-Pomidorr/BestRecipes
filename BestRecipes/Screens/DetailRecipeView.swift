@@ -7,10 +7,18 @@ struct DetailRecipeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var showContextMenu = false
     
-    var recipeID: String
+    
+    var recipeID: String?
+    var recipe: RecipeFull?
     
     init(recipeID: String) {
         self.recipeID = recipeID
+        self.recipe = nil
+    }
+    
+    init(recipe: RecipeFull) {
+        self.recipe = recipe
+        self.recipeID = nil
     }
     
     var body: some View {
@@ -109,7 +117,11 @@ struct DetailRecipeView: View {
             Text("Code: \(error.errorCode) - \(error.errorDescription ?? "")")
         }
         .task {
-            networkAggregateModel.getRecipeById(id: recipeID)
+            if recipeID != nil {
+                networkAggregateModel.getRecipeById(id: recipeID ?? "")
+            } else {
+                networkAggregateModel.recipeInformation = recipe
+            }
         }
     }
     

@@ -18,6 +18,7 @@
 		0D0FFE442AA0A52E0051AC4C /* AddRecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FFE432AA0A52E0051AC4C /* AddRecipeModel.swift */; };
 		0D0FFE462AA3337E0051AC4C /* BookmarkRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FFE452AA3337E0051AC4C /* BookmarkRModel.swift */; };
 		0DA5A4D32A9CDD9A00356C87 /* TrendingNowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */; };
+		0DE363F22AA65F1B00D9D615 /* CustobBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE363F12AA65F1B00D9D615 /* CustobBackButton.swift */; };
 		0DF3ECC92A9B859C006DC73D /* BookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */; };
 		758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652512A9B29D10015C547 /* BestRecipesApp.swift */; };
 		758652562A9B29D20015C547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 758652552A9B29D20015C547 /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		0D0FFE432AA0A52E0051AC4C /* AddRecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeModel.swift; sourceTree = "<group>"; };
 		0D0FFE452AA3337E0051AC4C /* BookmarkRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkRModel.swift; sourceTree = "<group>"; };
 		0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingNowCell.swift; sourceTree = "<group>"; };
+		0DE363F12AA65F1B00D9D615 /* CustobBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustobBackButton.swift; sourceTree = "<group>"; };
 		0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCell.swift; sourceTree = "<group>"; };
 		7586524E2A9B29D10015C547 /* BestRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758652512A9B29D10015C547 /* BestRecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestRecipesApp.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				873222632AA61DDD0046419B /* CustomTabBarItem.swift */,
 				873222542AA5DE0E0046419B /* OnboardingButton.swift */,
 				873222562AA5DF380046419B /* OnboardingBackground.swift */,
+				0DE363F12AA65F1B00D9D615 /* CustobBackButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				ACF1BD002A9E077000DB23C8 /* UIApplication.swift in Sources */,
 				A12928352A9B8E5100DCE389 /* TestScreen.swift in Sources */,
 				ACF1BCFE2A9E06A300DB23C8 /* SearchBarView.swift in Sources */,
+				0DE363F22AA65F1B00D9D615 /* CustobBackButton.swift in Sources */,
 				A129281E2A9B777F00DCE389 /* HTTPClient.swift in Sources */,
 				ACBC92C42AA489D700D4A9CE /* Categories.swift in Sources */,
 				0D0FFE442AA0A52E0051AC4C /* AddRecipeModel.swift in Sources */,
