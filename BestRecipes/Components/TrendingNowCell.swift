@@ -39,7 +39,7 @@ struct TrendingNowCell: View {
                     }
                     .frame(width: 62, height: 28)
                     .background(.ultraThinMaterial)
-                    .background(.black)
+//                    .background(.black)
                     .cornerRadius(8)
                     .offset(y: -24)
                 }
