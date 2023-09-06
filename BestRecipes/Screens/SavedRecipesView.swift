@@ -10,6 +10,7 @@ import SwiftUI
 struct SavedRecipesView: View {
     @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     @EnvironmentObject var tabbarRouter: TabbarRouter
+    @State private var savedBookmarks: [BookmarkRecipe] = []
     
     var body: some View {
         NavigationView {
@@ -22,7 +23,7 @@ struct SavedRecipesView: View {
                                       autorImage: "author",
                                       autorName: "Zeelicious foods",
                                       scoreNumber: 5.0,
-                                      recipe: BookmarkRecipe(id: recipe.id,  title: recipe.title, image: recipe.image),
+                                      recipe: BookmarkRecipe(id: recipe.id,  title: recipe.title, image: recipe.image, isBookmarked: true),
                                       widthBackground: 364,
                                       heightBackground: 220
                         )
@@ -32,11 +33,6 @@ struct SavedRecipesView: View {
             }
             .navigationTitle("Saved recipes")
             .font(.custom(Poppins.SemiBold, size: 24))
-            //            .onAppear {
-            //                if let bookmarks: [BookmarkRecipe] = UserDefaultService.shared.getStructs(forKey: "Bookmarks") {
-            //                    networkAggregateModel.bookmarkedRecipes = bookmarks
-            //                }
-            //            }
         }
     }
 }
