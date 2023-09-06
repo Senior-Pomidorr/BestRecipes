@@ -35,6 +35,7 @@
 		873222602AA5F74A0046419B /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8732225F2AA5F74A0046419B /* OnboardingData.swift */; };
 		873222622AA5F9A20046419B /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222612AA5F9A20046419B /* OnboardingScreens.swift */; };
 		873222642AA61DDD0046419B /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222632AA61DDD0046419B /* CustomTabBarItem.swift */; };
+		873222692AA88D190046419B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873222682AA88D190046419B /* ImagePicker.swift */; };
 		A10CD65B2A9BCA2000FF2954 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10CD65A2A9BCA2000FF2954 /* Color+Ext.swift */; };
 		A12319B52A9BBFF800E2AA57 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12319B42A9BBFF800E2AA57 /* Tabbar.swift */; };
 		A12319B72A9BC49F00E2AA57 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12319B62A9BC49F00E2AA57 /* TabItem.swift */; };
@@ -104,6 +105,7 @@
 		8732225F2AA5F74A0046419B /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		873222612AA5F9A20046419B /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
 		873222632AA61DDD0046419B /* CustomTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
+		873222682AA88D190046419B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A10CD65A2A9BCA2000FF2954 /* Color+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		A12319B42A9BBFF800E2AA57 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 		A12319B62A9BC49F00E2AA57 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 				758652662A9B306E0015C547 /* AddRecipeView.swift */,
 				ACF1BD0D2A9E187400DB23C8 /* MainHomeView.swift */,
 				A12928342A9B8E5100DCE389 /* TestScreen.swift */,
-				A1C35C522A9BE3E40062E7F6 /* ProfileView.swift */,
+				873222652AA886E70046419B /* Profile */,
 				A1B7BA712A9FECD300AB2068 /* DetailRecipeView.swift */,
 			);
 			path = Screens;
@@ -251,6 +253,15 @@
 				8732225F2AA5F74A0046419B /* OnboardingData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		873222652AA886E70046419B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A1C35C522A9BE3E40062E7F6 /* ProfileView.swift */,
+				873222682AA88D190046419B /* ImagePicker.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A12319B22A9BBE9800E2AA57 /* Tabbar */ = {
@@ -298,7 +309,6 @@
 				873222632AA61DDD0046419B /* CustomTabBarItem.swift */,
 				873222542AA5DE0E0046419B /* OnboardingButton.swift */,
 				873222562AA5DF380046419B /* OnboardingBackground.swift */,
-				0DE363F12AA65F1B00D9D615 /* CustobBackButton.swift */,
 				0DE363F12AA65F1B00D9D615 /* CustomBackButton.swift */,
 			);
 			path = Components;
@@ -485,6 +495,7 @@
 				ACBC92C02AA4801800D4A9CE /* CategoryMenu.swift in Sources */,
 				0DA5A4D32A9CDD9A00356C87 /* TrendingNowCell.swift in Sources */,
 				A1C35C512A9BDDDC0062E7F6 /* TabbarRouter.swift in Sources */,
+				873222692AA88D190046419B /* ImagePicker.swift in Sources */,
 				A129281D2A9B777F00DCE389 /* Endpoint.swift in Sources */,
 				873222622AA5F9A20046419B /* OnboardingScreens.swift in Sources */,
 				A1B7BA722A9FECD300AB2068 /* DetailRecipeView.swift in Sources */,

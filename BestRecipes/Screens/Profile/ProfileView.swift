@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    //picker
+    @State private var inputImage: UIImage?
+    @State private var showingImagePicker = false
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -28,14 +33,26 @@ struct ProfileView: View {
                     .padding(.top, 20)
                     HStack {
                         Button {
-                            print("Tap avatar")
+                            showingImagePicker = true
                         } label: {
-                            Image("margot")
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(Circle())
-                                .frame(width: 100, height: 100)
-                                .overlay(Circle().stroke(.white, lineWidth: 3))
+                            if let image = inputImage {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipShape(Circle())
+                                    .frame(width: 100, height: 100)
+                                    .overlay(Circle().stroke(.white, lineWidth: 3))
+                            } else {
+                                Image("margot")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipShape(Circle())
+                                    .frame(width: 100, height: 100)
+                                    .overlay(Circle().stroke(.white, lineWidth: 3))
+                            }
+                        }
+                        .sheet(isPresented: $showingImagePicker) {
+                            ImagePicker(image: $inputImage)
                         }
                         .padding(.leading, 30)
                         Spacer()
