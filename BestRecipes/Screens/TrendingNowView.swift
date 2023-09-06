@@ -22,7 +22,7 @@ struct TrendingNowView: View {
                                         ingredintsCount: 9,
                                         receptMinutes: 25)
                     }
-                    }
+                }
                 .padding(.bottom, 16)
             }
             .padding(.vertical, 16)

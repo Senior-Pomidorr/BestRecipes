@@ -21,9 +21,10 @@ struct TrendingNowCell: View {
             KFImage(URL(string: image))
                 .resizable()
                 .scaledToFill()
-                .background(.red)
+                .background(.thinMaterial)
                 .frame(width: 363, height: 220)
                 .cornerRadius(20)
+                .opacity(0.9)
             VStack(alignment: .leading) {
                 HStack {
                     Button {
@@ -45,10 +46,7 @@ struct TrendingNowCell: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
                         .font(.custom(Poppins.Bold, size: 16))
-                        .background(.thinMaterial)
-                        .background(.black)
-                        .cornerRadius(8)
-                        .saturation(10)
+                        .multilineTextAlignment(.leading)
                         .frame(width: 320, height: 50, alignment: .bottomLeading)
                         
                     HStack {
@@ -56,8 +54,10 @@ struct TrendingNowCell: View {
                         Text("| \(receptMinutes) minutes")
                     }
                     .font(.custom(Poppins.Medium, size: 14))
+                    
                 }
                 .foregroundColor(.white)
+                .shadow(color: .black, radius: 3)
                 .offset(x: 4, y: 20)
             }
             .offset(x: -10)
@@ -68,7 +68,7 @@ struct TrendingNowCell: View {
 
 struct TrendingNowCell_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingNowCell(title: "How to make yam sdad ",
+        TrendingNowCell(title: "How to make yam sdad dfherher eeeehte",
                         subtitle: "Subtitle",
                         image: "fetasiers",
                         scoreNumber: 5.0,

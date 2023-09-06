@@ -15,7 +15,12 @@ struct Tabbar: View {
             SavedRecipesView()
                 .environmentObject(tabbarRouter)
         case .news:
-            TrendingNowView()
+            VStack(alignment: .center) {
+                Text("You don't have any new notifications.")
+                    .font(.custom(Poppins.SemiBold, size: 24))
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+            }
                 .environmentObject(tabbarRouter)
         case .profile:
             ProfileView()
@@ -36,7 +41,7 @@ struct Tabbar: View {
                         TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "home", tabbarRouter: tabbarRouter, assignedPage: .home)
                         TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "save", tabbarRouter: tabbarRouter, assignedPage: .favourites)
                         TabPlusButton(width: geometry.size.width / 7, height: geometry.size.width / 7, acttion: showPopUp)
-                            .offset(y: -geometry.size.height / 8/2)
+                            .offset(y: -geometry.size.height / 18)
                         TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "call", tabbarRouter: tabbarRouter, assignedPage: .news)
                         TabItem(width: geometry.size.width / 5, height: geometry.size.height / 18, iconName: "user", tabbarRouter: tabbarRouter, assignedPage: .profile)
                     }
