@@ -77,33 +77,31 @@ struct ProfileView: View {
                             .padding(.leading, 40)
                         Spacer()
                     }
-                        if !myRecipesArray.isEmpty {
-                            ForEach(myRecipesArray, id: \.id) { recipe in
-                                TrendingNowCell(title: recipe.title ?? "Not specified",
-                                                subtitle: "Subtitle",
-                                                image: recipe.image ?? "",
-                                                scoreNumber: 5.0,
-                                                ingredintsCount: recipe.ingredintsCount ?? 0,
-                                                receptMinutes: recipe.receptMinutes ?? 0)
-                            }
-                        } else {
-                            VStack(alignment: .center) {
-                                Text("You have not added recipes yet. Try it now! 🍕🍕🍕")
-                                    .font(.custom(Poppins.SemiBold, size: 24))
-                                    .padding(.top, 50)
-                                    .multilineTextAlignment(.center)
-                                    .frame(maxWidth: .infinity)
-                            }
-                            .padding(.top, 50)
+                    if !myRecipesArray.isEmpty {
+                        ForEach(myRecipesArray, id: \.id) { recipe in
+                            TrendingNowCell(title: recipe.title ?? "Not specified",
+                                            subtitle: "Subtitle",
+                                            image: recipe.image ?? "",
+                                            scoreNumber: 5.0,
+                                            ingredintsCount: recipe.ingredintsCount ?? 0,
+                                            receptMinutes: recipe.receptMinutes ?? 0)
                         }
+                    } else {
+                        Text("You have not added recipes yet. Try it now! 🍕🍕🍕")
+                            .font(.custom(Poppins.SemiBold, size: 24))
+                            .padding(.top, 50)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal, 10)
+                    }
                 }
             }
         }
     }
 }
-    
-    struct ProfileView_Previews: PreviewProvider {
-        static var previews: some View {
-            ProfileView()
-        }
+
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView()
     }
+}

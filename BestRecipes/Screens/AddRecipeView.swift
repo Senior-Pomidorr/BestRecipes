@@ -17,6 +17,10 @@ struct AddRecipeView: View {
     @State private var quanity = ""
     @Environment(\.dismiss) var dismiss
     
+    //picker
+    @State private var inputImage: UIImage?
+    @State private var showingImagePicker = false
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -29,11 +33,20 @@ struct AddRecipeView: View {
                 }
                 VStack() {
                     ZStack(alignment: .top) {
-                        Image("bbq")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 363, height: 220)
-                            .cornerRadius(20)
+                        if inputImage != nil {
+                            Image(uiImage: inputImage!)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 363, height: 220)
+                                .cornerRadius(20)
+                        } else {
+                            Image("bbq")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 363, height: 220)
+                                .cornerRadius(20)
+                        }
+                        
                         HStack {
                             Spacer()
                             Button {
@@ -46,7 +59,9 @@ struct AddRecipeView: View {
                             .background(.ultraThinMaterial)
                             .background(.white)
                             .clipShape(Circle())
-                            
+                            .sheet(isPresented: $showingImagePicker) {
+                                ImagePicker(image: $inputImage)
+                            }
                         }
                         .padding(.top, 8)
                         .padding([.leading, .trailing], 33)
@@ -229,6 +244,7 @@ struct AddRecipeView: View {
     }
     func changeRecipePhoto() {
         print("Tap change photo recipe")
+        showingImagePicker = true
     }
 }
 
