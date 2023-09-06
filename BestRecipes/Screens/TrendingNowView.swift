@@ -12,9 +12,10 @@ struct TrendingNowView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
-                LazyVStack {
-                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipe.id ?? 1))) {
+            ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
+                let recipeID = recipe.id ?? 0
+                NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                    LazyVStack {
                         TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
                                         subtitle: "Subtitle",
                                         image: recipe.image ?? "",
@@ -22,8 +23,8 @@ struct TrendingNowView: View {
                                         ingredintsCount: 9,
                                         receptMinutes: 25)
                     }
+                    .padding(.bottom, 16)
                 }
-                .padding(.bottom, 16)
             }
             .padding(.vertical, 16)
             .task {
