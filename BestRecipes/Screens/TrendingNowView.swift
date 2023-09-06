@@ -14,13 +14,15 @@ struct TrendingNowView: View {
         ScrollView {
             ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.id) { recipe in
                 LazyVStack {
-                    TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
-                                    subtitle: "Subtitle",
-                                    image: recipe.image ?? "",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
-                }
+                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipe.id ?? 1))) {
+                        TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
+                                        subtitle: "Subtitle",
+                                        image: recipe.image ?? "",
+                                        scoreNumber: 5.0,
+                                        ingredintsCount: 9,
+                                        receptMinutes: 25)
+                    }
+                    }
                 .padding(.bottom, 16)
             }
             .padding(.vertical, 16)

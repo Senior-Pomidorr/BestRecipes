@@ -28,10 +28,8 @@ struct TrendingNowCell: View {
                 HStack {
                     Button {
                     } label: {
-                        Image("Star")
-                            .foregroundColor(.black)
-                            .offset(x: 1, y: -0.5)
-                            .scaledToFit()
+                        RatingView(scoreNumber: scoreNumber)
+                        
                         Text(String(scoreNumber))
                             .font(.custom(Poppins.Bold, size: 14))
                             .foregroundColor(.white)
