@@ -43,6 +43,7 @@ struct MainHomeView: View {
                             LazyHStack(spacing: 16) {
                                 ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
                                     let recipeID = recipe.id ?? 1
+                                    let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
                                     NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
                                         BookmarksCell(title: recipe.title ?? "How to sharwama at home",
                                                       subtitle: "Subtitle",
@@ -50,7 +51,7 @@ struct MainHomeView: View {
                                                       autorImage: "author",
                                                       autorName: "Zeelicious foods",
                                                       scoreNumber: 5.0,
-                                                      recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: false),
+                                                      recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
                                                       widthBackground: 280,
                                                       heightBackground: 180
                                         )
