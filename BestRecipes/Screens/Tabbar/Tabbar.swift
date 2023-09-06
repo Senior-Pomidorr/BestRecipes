@@ -4,6 +4,7 @@ struct Tabbar: View {
     
     @StateObject var tabbarRouter = TabbarRouter()
     @State var isShowPopUp = false
+    @State private var inputImage: UIImage?
     
     @ViewBuilder
     var contentView: some View {
@@ -18,10 +19,10 @@ struct Tabbar: View {
             TrendingNowView()
                 .environmentObject(tabbarRouter)
         case .profile:
-            ProfileView()
+            ProfileView(inputImage: $inputImage)
                 .environmentObject(tabbarRouter)
         case .add:
-            AddRecipeView()
+            AddRecipeView(inputImage: $inputImage)
                 .environmentObject(tabbarRouter)
         }
     }
@@ -49,7 +50,7 @@ struct Tabbar: View {
         .sheet(isPresented: $isShowPopUp) {
             // action on dismiss
         } content: {
-            AddRecipeView()
+            AddRecipeView(inputImage: $inputImage)
         }
     }
     

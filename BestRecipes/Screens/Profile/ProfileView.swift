@@ -22,8 +22,8 @@ struct ProfileView: View {
     @State private var myRecipesArray: [MyRecipes] = []
     
     //picker
-    @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
+    @Binding var inputImage: UIImage?
     
     
     var body: some View {
@@ -102,6 +102,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(inputImage: .constant(nil))
     }
 }

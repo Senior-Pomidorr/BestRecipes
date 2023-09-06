@@ -18,8 +18,9 @@ struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
     
     //picker
-    @State private var inputImage: UIImage?
+//    @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
+    @Binding var inputImage: UIImage?
     
     var body: some View {
         ScrollView {
@@ -250,6 +251,6 @@ struct AddRecipeView: View {
 
 struct AddRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRecipeView()
+        AddRecipeView(inputImage: .constant(nil))
     }
 }
