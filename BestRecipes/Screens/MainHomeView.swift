@@ -37,7 +37,6 @@ struct MainHomeView: View {
                         }
                     }
                     
-                    
                     LazyVStack(alignment: .leading) {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 16) {
