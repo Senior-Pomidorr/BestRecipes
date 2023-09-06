@@ -7,11 +7,24 @@
 
 import SwiftUI
 
+struct MyRecipes: Codable, Hashable, Identifiable {
+    let id: Int?
+    let title: String?
+    let image: String?
+    var ingredintsCount: Int?
+    var receptMinutes: Int?
+    var servesCount: Int?
+}
+
 struct ProfileView: View {
+    
+    //create recipe
+    @State private var myRecipesArray: [MyRecipes] = []
     
     //picker
     @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
+    
     
     var body: some View {
         ScrollView {
@@ -64,56 +77,33 @@ struct ProfileView: View {
                             .padding(.leading, 40)
                         Spacer()
                     }
-                    TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                    subtitle: "Subtitle",
-                                    image: "fetasiers",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
-                    TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                    subtitle: "Subtitle",
-                                    image: "receptes",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
-                    TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                    subtitle: "Subtitle",
-                                    image: "bbq2",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
-                    TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                    subtitle: "Subtitle",
-                                    image: "bbq",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
-                    TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                    subtitle: "Subtitle",
-                                    image: "fetasiers",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
-                    TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                    subtitle: "Subtitle",
-                                    image: "receptes",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
-                    TrendingNowCell(title: "How to make yam & vegetable sauce at home",
-                                    subtitle: "Subtitle",
-                                    image: "bbq2",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 9,
-                                    receptMinutes: 25)
+                        if !myRecipesArray.isEmpty {
+                            ForEach(myRecipesArray, id: \.id) { recipe in
+                                TrendingNowCell(title: recipe.title ?? "Not specified",
+                                                subtitle: "Subtitle",
+                                                image: recipe.image ?? "",
+                                                scoreNumber: 5.0,
+                                                ingredintsCount: recipe.ingredintsCount ?? 0,
+                                                receptMinutes: recipe.receptMinutes ?? 0)
+                            }
+                        } else {
+                            VStack(alignment: .center) {
+                                Text("You have not added recipes yet. Try it now! 🍕🍕🍕")
+                                    .font(.custom(Poppins.SemiBold, size: 24))
+                                    .padding(.top, 50)
+                                    .multilineTextAlignment(.center)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .padding(.top, 50)
+                        }
                 }
             }
         }
     }
 }
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
+    
+    struct ProfileView_Previews: PreviewProvider {
+        static var previews: some View {
+            ProfileView()
+        }
     }
-}
