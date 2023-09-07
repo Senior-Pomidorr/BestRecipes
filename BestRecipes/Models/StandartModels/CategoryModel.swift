@@ -13,4 +13,5 @@ let categories = [
     "Appetizer",
     "Noodle",
     "Lunch",
-    "Dinner"]
+    "Pasta",
+    "Cofee"]

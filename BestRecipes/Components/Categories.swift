@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Categories: View {
+    
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     var recipeIndex: Int
     @Binding var selectedIndex: Int
     var body: some View{
@@ -22,10 +24,12 @@ struct Categories: View {
                     .background {
                         RoundedRectangle(cornerRadius: 12).foregroundColor(Color.theme.customPink).opacity(selectedIndex == recipeIndex ? 1 : 0)
                     }
-            }.onTapGesture {
-                withAnimation {
-                    selectedIndex = recipeIndex
+            }
+            .onTapGesture {
+                    withAnimation {
+                        selectedIndex = recipeIndex
+                    }
+                    networkAggregateModel.searchRecipeShort(params: ["query" : categories[recipeIndex].lowercased()], requestTag: .popularCategory)
                 }
             }
         }
-    }
