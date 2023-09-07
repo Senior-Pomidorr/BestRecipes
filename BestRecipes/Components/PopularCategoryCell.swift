@@ -55,29 +55,29 @@ struct PopularCategoryCell: View {
         .frame(width: width, height: height)
     }
     
-    private func addBookmark() {
-        if recipe.isBookmarked {
-            if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
-                networkAggregateModel.bookmarkedRecipes?.remove(at: index)
-                //                remove()
-            }
-        } else {
-            let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image, isBookmarked: true)
-            networkAggregateModel.bookmarkedRecipes?.append(bookmark)
-            print(bookmark)
-            UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
-            
-        }
-        recipe.isBookmarked.toggle()
-        recipe.isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
-        removeBookmark()
-    }
-    
-    private func removeBookmark() {
-        if recipe.isBookmarked == false {
-            UserDefaultService.shared.removeData(forKey: "Bookmarks")
-        }
-    }
+//    private func addBookmark() {
+//        if recipe.isBookmarked {
+//            if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
+//                networkAggregateModel.bookmarkedRecipes?.remove(at: index)
+//                //                remove()
+//            }
+//        } else {
+//            let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image, isBookmarked: true)
+//            networkAggregateModel.bookmarkedRecipes?.append(bookmark)
+//            print(bookmark)
+//            UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
+//            
+//        }
+//        recipe.isBookmarked.toggle()
+//        recipe.isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
+//        removeBookmark()
+//    }
+//    
+//    private func removeBookmark() {
+//        if recipe.isBookmarked == false {
+//            UserDefaultService.shared.removeData(forKey: "Bookmarks")
+//        }
+//    }
 }
 
 struct PopularCategoryCell_Previews: PreviewProvider {
