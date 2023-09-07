@@ -10,10 +10,18 @@ import SwiftUI
 struct TrendingNowView: View {
     @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     
+    var recipeInoutList: [RecipeShort]
+    var screenTitle: String
+    
+    init(recipes: [RecipeShort], screenTitle: String) {
+        self.recipeInoutList = recipes
+        self.screenTitle = screenTitle
+    }
+ 
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
+                ForEach(recipeInoutList, id: \.self) { recipe in
                     let recipeID = recipe.id ?? 0
                     NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
                         LazyVStack {
@@ -28,15 +36,15 @@ struct TrendingNowView: View {
                     }
                 }
                 .padding(.vertical, 16)
-                .task {
-                    networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
-                    print(networkAggregateModel.shortRecipeListTrendingNow)
-                }
+//                .task {
+//                    networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+//                    print(networkAggregateModel.shortRecipeListTrendingNow)
+//                }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         VStack {
-                            Text("Trending Now")
+                            Text(screenTitle)
                                 .font(.custom(Poppins.SemiBold, size: 24))
                                 .foregroundColor(.black)
                         }
@@ -49,10 +57,12 @@ struct TrendingNowView: View {
         }
     }
     
-    struct TrendingNowView_Previews: PreviewProvider {
-        static var previews: some View {
-            TrendingNowView()
-                .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
-        }
-    }
+
 }
+
+//struct TrendingNowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TrendingNowView()
+//            .environmentObject(NetworkAggregateModel(networkService: NetworkService()))
+//    }
+//}

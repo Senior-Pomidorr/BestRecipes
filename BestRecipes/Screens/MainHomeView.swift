@@ -33,7 +33,7 @@ struct MainHomeView: View {
                                 .fontWeight(.semibold)
                                 .padding(.leading)
                             Spacer()
-                            NavigationLink(destination: TrendingNowView()) {
+                            NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListTrendingNow, screenTitle: "Tranding now")) {
                                 SeeAllButton()
                             }
                         }
@@ -103,12 +103,18 @@ struct MainHomeView: View {
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                     .padding(.leading)
+                                
                                 Spacer()
-                                Button {
-                                    print("All recipes")
-                                } label: {
+                                
+                                NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.recentRecipeList, screenTitle: "Recent recipes")) {
                                     SeeAllButton()
                                 }
+//                                Button {
+//                                    print("All recipes")
+//
+//                                } label: {
+//                                    SeeAllButton()
+//                                }
                             }
                             .padding(.top, 16)
                             
