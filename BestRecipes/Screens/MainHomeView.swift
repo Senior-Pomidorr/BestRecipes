@@ -79,8 +79,9 @@ struct MainHomeView: View {
                                 LazyHStack(spacing: 16) {
                                     ForEach(networkAggregateModel.shortRecipeListPopularCategory, id: \.self) { recipe in
                                         let recipeID = recipe.id ?? 1
+                                        let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
                                         NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
-                                            PopularCategoryCell(width: 150, height: 250, imageName: recipe.image ?? "", tabName: recipe.title ?? "",time: "5  мин")
+                                            PopularCategoryCell(width: 150, height: 250, recipe: BookmarkRecipe(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked), imageName: recipe.image ?? "", tabName: recipe.title ?? "",time: "5  мин")
                                         }
                                         .simultaneousGesture(TapGesture().onEnded {
                                             if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
