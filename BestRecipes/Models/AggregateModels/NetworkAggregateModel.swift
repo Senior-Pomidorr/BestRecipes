@@ -23,6 +23,7 @@ class NetworkAggregateModel: ObservableObject {
     @Published var shortRecipeListPopularCategory: [RecipeShort] = []
     @Published var shortRecipeListGeneral: [RecipeShort] = []
     @Published var fullRecipeList: [RecipeFull] = []
+    @Published var categoryIndex = 0
     
     var cancellables: Set<AnyCancellable> = []
     
