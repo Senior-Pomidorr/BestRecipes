@@ -33,7 +33,7 @@ struct MainHomeView: View {
                                 .fontWeight(.semibold)
                                 .padding(.leading)
                             Spacer()
-                            NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListTrendingNow, screenTitle: "Tranding now")) {
+                            NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListTrendingNow, screenTitle: "Tranding now", cuisine: nil)) {
                                 SeeAllButton()
                             }
                         }
@@ -107,7 +107,7 @@ struct MainHomeView: View {
                                 
                                 Spacer()
                                 
-                                NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.recentRecipeList, screenTitle: "Recent recipes")) {
+                                NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.recentRecipeList, screenTitle: "Recent recipes", cuisine: nil)) {
                                     SeeAllButton()
                                 }
                             }
@@ -145,11 +145,8 @@ struct MainHomeView: View {
                             LazyHStack(spacing: 16) {
                                 ForEach(cuisines, id: \.self) {
                                     cuisine in
-                                    NavigationLink (destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListCuisines, screenTitle: "Popular cuisines")) {
-                                        AutorCell(avatar: "img-test", authorName: cuisine)
-                                    }
-                                    .task {
-                                        networkAggregateModel.searchRecipeShort(params: ["cuisine": cuisine], requestTag: .trendingNow)
+                                    NavigationLink (destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListCuisines, screenTitle: "\(cuisine) cuisine", cuisine: cuisine)) {
+                                        AutorCell(avatar: cuisine, authorName: cuisine)
                                     }
                                 }
                             }
@@ -159,7 +156,6 @@ struct MainHomeView: View {
                     }
                     .task {
                         networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
-                        print(networkAggregateModel.shortRecipeListTrendingNow)
                     }
                     .padding(.bottom, geometry.safeAreaInsets.bottom + 50)
                 }

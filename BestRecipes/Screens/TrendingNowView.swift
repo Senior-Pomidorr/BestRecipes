@@ -13,9 +13,12 @@ struct TrendingNowView: View {
     var recipeInoutList: [RecipeShort]
     var screenTitle: String
     
-    init(recipes: [RecipeShort], screenTitle: String) {
+    var cuisine: String?
+    
+    init(recipes: [RecipeShort], screenTitle: String, cuisine: String?) {
         self.recipeInoutList = recipes
         self.screenTitle = screenTitle
+        self.cuisine = cuisine
     }
  
     var body: some View {
@@ -36,10 +39,12 @@ struct TrendingNowView: View {
                     }
                 }
                 .padding(.vertical, 16)
-//                .task {
-//                    networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
-//                    print(networkAggregateModel.shortRecipeListTrendingNow)
-//                }
+                .task({
+                    if cuisine != nil {
+                        networkAggregateModel.searchRecipeShort(params: ["cuisine": cuisine ?? "italian"], requestTag: .cuisines)
+
+                    }
+                })
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
