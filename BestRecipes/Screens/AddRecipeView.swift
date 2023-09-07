@@ -18,9 +18,12 @@ struct AddRecipeView: View {
     @Environment(\.dismiss) var dismiss
     
     //picker
-//    @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
     @Binding var inputImage: UIImage?
+    
+    //create
+    @State private var myRecipesArray: [MyRecipes] = []
+    
     
     var body: some View {
         ScrollView {
@@ -228,6 +231,9 @@ struct AddRecipeView: View {
                 
                 GeometryReader { geometry in
                     Button(action: {
+                        print("Tap change photo recipe")
+
+//                        createButtonPressed()
                         // Сделать сохранение по модели RecipeFull в узер дефаулт
                     }) {
                         Text("Create recipe")
@@ -246,6 +252,38 @@ struct AddRecipeView: View {
     func changeRecipePhoto() {
         print("Tap change photo recipe")
         showingImagePicker = true
+    }
+    //create
+    func createButtonPressed() {
+        // Ensure that the required fields are not empty
+        let title = recipeName
+//        guard  let image = inputImage else {
+//            // Display an alert or handle the case when the required fields are empty
+//            return
+//        }
+        // Create a new MyRecipes instance with the provided data
+        let newRecipe = MyRecipes(
+            id: nil, // You can assign a unique ID if needed
+            title: title,
+            image: "bbq", // You can save the image URL or name here
+            ingredintsCount: ingredients.count,
+            receptMinutes: cookTime,
+            servesCount: serves
+        )
+        myRecipesArray.append(newRecipe)
+        
+        // Optionally, you can reset the form fields for the next recipe
+        recipeName = ""
+        inputImage = nil
+        ingredients = [Ingredient()]
+        serves = 3
+        cookTime = 20
+        
+        // Dismiss the view
+        dismiss()
+        
+        print("CUSTOM RECIPES \(myRecipesArray)")
+
     }
 }
 

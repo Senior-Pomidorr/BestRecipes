@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-struct MyRecipes: Codable, Hashable, Identifiable {
-    let id: Int?
-    let title: String?
-    let image: String?
-    var ingredintsCount: Int?
-    var receptMinutes: Int?
-    var servesCount: Int?
-}
-
 struct ProfileView: View {
     
     //create recipe
