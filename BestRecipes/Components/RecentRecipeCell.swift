@@ -4,49 +4,86 @@
 //
 //  Created by Artem on 29.08.2023.
 //
-
 import SwiftUI
+import Kingfisher
 
-struct RecentRecipeCell: View {
+struct RecentsRecipeCell: View {
     
-    let recipeImage, recipeText, recipeCreator: String
- 
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
+    let title: String
+    let subtitle: String
+    let image: String
+    let autorImage: String
+    let autorName: String
+    let scoreNumber: Double
+    @State var recipe: BookmarkRecipe
+    var widthBackground: CGFloat
+    var heightBackground: CGFloat
+    
     var body: some View {
-        VStack(spacing: 0) {
-            
-            Image(recipeImage)
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-            
-            Text(recipeText)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.leading)
-                .frame(width: 170, height: 70)
-            
-            Text("By \(recipeCreator)")
-                .font(.caption)
-                .foregroundColor(Color.theme.customGray)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 8)
-        }
-    }
-    
-    struct RecentRecipeCell_Previews: PreviewProvider {
-        static var previews: some View {
-            ScrollView(.horizontal, showsIndicators: false) {
+        VStack(alignment: .center) {
+            ZStack(alignment: .top) {
+                KFImage(URL(string: image))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: widthBackground, height: heightBackground)
+                    .background(.red)
+                    .cornerRadius(20)
                 HStack {
+                    Button {
+                    } label: {
+                        RatingView(scoreNumber: scoreNumber)
+                        
+                        Text(String(scoreNumber))
+                            .font(.custom(Poppins.Bold, size: 14))
+                            .foregroundColor(.white)
+                            .offset(x: -1)
+                    }
+                    .frame(width: 62, height: 28)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(8)
+                    Spacer()
+                }
+                .padding(.top, 8)
+                .padding(.horizontal, 12)
+            }
+            
+            VStack(alignment: .leading) {
+                HStack{
+                    Text(title)
+                        .font(.custom(Poppins.SemiBold, size: 16))
+                        .foregroundColor(.black)
+                    Spacer()
                     
-                    RecentRecipeCell(recipeImage: "img-test", recipeText: "Kelewele Ghanian Recipe", recipeCreator: "Zeleecious food")
-                    RecentRecipeCell(recipeImage: "img-test", recipeText: "Kelewele Ghanian Recipe", recipeCreator: "zeleecious food")
-                    RecentRecipeCell(recipeImage: "img-test", recipeText: "Kelewele Ghanian Recipe", recipeCreator: "zeleecious food")
-                    RecentRecipeCell(recipeImage: "img-test", recipeText: "Kelewele Ghanian Recipe", recipeCreator: "zeleecious food")
+                    menuButton
                     
                 }
-                .frame(height: 250)
+                .frame(width: widthBackground - 12, height: 22, alignment: .leading)
+                .padding([.leading, .trailing], 20)
+                
+                HStack() {
+                    Image(autorImage)
+                    Text("By \(autorName)")
+                        .font(.custom(Poppins.Light, size: 14))
+                        .padding(.leading, 5)
+                        .foregroundColor(.gray)
+                }
+                .padding(.leading, 20)
             }
+        }
+        .frame(width: widthBackground)
+    }
+    
+    
+    var menuButton: some View {
+        Menu {
+            Button("Delete",
+                   action: { print("Delete") })
+            Button("Shared",
+                   action: { print("Action 2 triggered") })
+        } label: {
+            Image("Settings")
         }
     }
 }
+
