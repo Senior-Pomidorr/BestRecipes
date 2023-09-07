@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Ingredient: Identifiable {
     var id = UUID()
     var itemName = ""
@@ -15,10 +14,11 @@ struct Ingredient: Identifiable {
 }
 
 struct MyRecipes: Codable, Hashable, Identifiable {
-    let id: Int?
+    var id = UUID()
     let title: String?
     let image: String?
-    var ingredintsCount: Int?
+    var ingredientsCount: Int?
     var receptMinutes: Int?
     var servesCount: Int?
+//    var ingredients: [String]?
 }

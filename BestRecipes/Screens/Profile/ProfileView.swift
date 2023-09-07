@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     
     //create recipe
+//    @State private var myRecipesArray: [MyRecipes] = []
     @State private var myRecipesArray: [MyRecipes] = []
     
     //picker
@@ -28,6 +29,7 @@ struct ProfileView: View {
                         Spacer()
                         Button {
                             print("Tap Settings")
+                            print("CUSTOM \(myRecipesArray)")
                         } label: {
                             Image("SettingsFlat")
                                 .foregroundColor(.black)
@@ -68,13 +70,19 @@ struct ProfileView: View {
                             .padding(.leading, 40)
                         Spacer()
                     }
+                    TrendingNowCell(title: "Not specified",
+                                    subtitle: "Subtitle",
+                                    image: "bbq",
+                                    scoreNumber: 5.0,
+                                    ingredintsCount: 0,
+                                    receptMinutes: 0)
                     if !myRecipesArray.isEmpty {
                         ForEach(myRecipesArray, id: \.id) { recipe in
                             TrendingNowCell(title: recipe.title ?? "Not specified",
                                             subtitle: "Subtitle",
-                                            image: recipe.image ?? "",
+                                            image: recipe.image ?? "fetasiers",
                                             scoreNumber: 5.0,
-                                            ingredintsCount: recipe.ingredintsCount ?? 0,
+                                            ingredintsCount: recipe.ingredientsCount ?? 0,
                                             receptMinutes: recipe.receptMinutes ?? 0)
                         }
                     } else {
@@ -87,6 +95,11 @@ struct ProfileView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            myRecipesArray = UserDefaultService.shared.getStructs(forKey: "myRecipes") ?? []
+            print("Loaded recipes from UserDefaults: \(myRecipesArray)")
+
         }
     }
 }
