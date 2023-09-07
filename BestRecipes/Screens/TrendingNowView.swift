@@ -11,7 +11,7 @@ struct TrendingNowView: View {
     @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     
     var body: some View {
-        GeometryReader{ geometry in
+        GeometryReader { geometry in
             ScrollView {
                 ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
                     let recipeID = recipe.id ?? 0
