@@ -54,9 +54,6 @@ struct RecentsRecipeCell: View {
                         .font(.custom(Poppins.SemiBold, size: 16))
                         .foregroundColor(.black)
                     Spacer()
-                    
-                    menuButton
-                    
                 }
                 .frame(width: widthBackground - 12, height: 22, alignment: .leading)
                 .padding([.leading, .trailing], 20)
@@ -72,18 +69,6 @@ struct RecentsRecipeCell: View {
             }
         }
         .frame(width: widthBackground)
-    }
-    
-    
-    var menuButton: some View {
-        Menu {
-            Button("Delete",
-                   action: { print("Delete") })
-            Button("Shared",
-                   action: { print("Action 2 triggered") })
-        } label: {
-            Image("Settings")
-        }
     }
 }
 

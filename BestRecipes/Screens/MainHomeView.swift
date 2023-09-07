@@ -130,10 +130,9 @@ struct MainHomeView: View {
                                     }
                                 }
                             }
-                             
+                            .padding(.horizontal, 16)
                             }
                             .frame(height: 250)
-                            .padding(.horizontal, 16)
                         }
                         HStack {
                             Text("Popular creators")
