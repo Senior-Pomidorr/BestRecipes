@@ -69,12 +69,17 @@ struct MainHomeView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 16) {
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
+                                ForEach(networkAggregateModel.shortRecipeListPopularCategory) { receipt in
+                                    PopularCategoryCell(width: 150, height: 250, imageName: receipt.image ?? "", tabName: receipt.title ?? "",time: "5  мин")
+                                 }
                             }
                             .padding(.horizontal,16)
+                            .task {
+                                    networkAggregateModel.searchRecipeShort(
+                                        params: ["query" : categories[networkAggregateModel.categoryIndex].lowercased()],
+                                        requestTag: .popularCategory)
+                            }
+                            
                         }
                         HStack {
                             Text("Recent recipes")

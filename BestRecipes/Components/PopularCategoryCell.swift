@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PopularCategoryCell: View {
     
@@ -19,11 +20,11 @@ struct PopularCategoryCell: View {
                 .frame(width: width, height: 0.8 * height)
                 .offset(y: 0.37 * width)
             VStack(spacing: 0) {
-                Image(imageName)
+                KFImage(URL(string:imageName))
                     .resizable()
                     .scaledToFit()
                     .clipShape(Circle())
-                    .frame(width: 0.75 * width, height: 0.75 * width)
+                    .frame(width: 0.8 * width, height: 0.8 * width)
                     .padding(.bottom, 0.02*height)
                 Text(tabName)
                     .font(.body)
@@ -31,7 +32,7 @@ struct PopularCategoryCell: View {
                     .multilineTextAlignment(.center)
                     .minimumScaleFactor(0.6)
                     .padding(.bottom, 16)
-                    .frame(width: width, height: 0.25 * height)
+                    .frame(width: 0.9*width, height: 0.25 * height)
                 Spacer()
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {
