@@ -15,122 +15,123 @@ struct MainHomeView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack(alignment: .leading, spacing: 16) {
-                    
-                    Text("Get amazing recipes for cooking")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .padding(.leading, 16)
-                    
-                    SearchBarView(searchText: $searchFieldText)
-                        .padding(.bottom, -4)
-                    
-                    HStack {
-                        Text("Tranding now🔥")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .padding(.leading)
-                        Spacer()
-                        NavigationLink(destination: TrendingNowView()) {
-                            SeeAllButton()
-                        }
-                    }
-                    
-                    LazyVStack(alignment: .leading) {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 16) {
-                                ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
-                                    let recipeID = recipe.id ?? 1
-                                    let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
-                                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
-                                        BookmarksCell(title: recipe.title ?? "How to sharwama at home",
-                                                      subtitle: "Subtitle",
-                                                      image: recipe.image ?? "",
-                                                      autorImage: "author",
-                                                      autorName: "Zeelicious foods",
-                                                      scoreNumber: 5.0,
-                                                      recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
-                                                      widthBackground: 280,
-                                                      heightBackground: 180
-                                        )
-                                    }
-                                         
-                                                .simultaneousGesture(TapGesture().onEnded {
-                                                    if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
-                                                        UserDefaultService.shared.saveStructs(structs: networkAggregateModel.recentRecipeList, forKey: "Recent")
-                                                    }
-                                        
-                                    })
-                                }
-                            }
-                            .padding([.leading, .trailing], 16)
-                        }
+            GeometryReader { geometry in
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVStack(alignment: .leading, spacing: 16) {
                         
-                        Text("Popular Category")
-                            .font(.title2)
+                        Text("Get amazing recipes for cooking")
+                            .font(.title)
                             .fontWeight(.semibold)
-                            .padding([.leading,.top])
-                        CategoryMenu()
-                            .padding(.vertical,8)
+                            .padding(.leading, 16)
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 16) {
-                                ForEach(networkAggregateModel.shortRecipeListPopularCategory, id: \.self) { recipe in
-                                    let recipeID = recipe.id ?? 1
-                                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
-                                        PopularCategoryCell(width: 150, height: 250, imageName: recipe.image ?? "", tabName: recipe.title ?? "",time: "5  мин")
-                                    }
-                                    .simultaneousGesture(TapGesture().onEnded {
-                                        if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
-                                            UserDefaultService.shared.saveStructs(structs: networkAggregateModel.recentRecipeList, forKey: "Recent")
-                                        }
-                            
-                        })
-                                }
-                            }
-                            .padding(.horizontal,16)
-                            .task {
-                                    networkAggregateModel.searchRecipeShort(
-                                        params: ["query" : categories[networkAggregateModel.categoryIndex].lowercased()],
-                                        requestTag: .popularCategory)
-                            }
-                            
-                        }
+                        SearchBarView(searchText: $searchFieldText)
+                            .padding(.bottom, -4)
+                        
                         HStack {
-                            Text("Recent recipes")
+                            Text("Tranding now🔥")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .padding(.leading)
                             Spacer()
-                            Button {
-                                print("All recipes")
-                            } label: {
+                            NavigationLink(destination: TrendingNowView()) {
                                 SeeAllButton()
                             }
                         }
-                        .padding(.top, 16)
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 16) {
-                                ForEach(networkAggregateModel.recentRecipeList.reversed()) { recipe in
-                                    let recipeID = recipe.id ?? 1
-                                    let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
-                                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
-                                        RecentsRecipeCell(title: recipe.title ?? "How to sharwama at home",
-                                                      subtitle: "Subtitle",
-                                                      image: recipe.image ?? "",
-                                                      autorImage: "author",
-                                                      autorName: "Zeelicious foods",
-                                                      scoreNumber: 5.0,
-                                                      recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
-                                                      widthBackground: 280,
-                                                      heightBackground: 180
-                                        )
+                        LazyVStack(alignment: .leading) {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 16) {
+                                    ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
+                                        let recipeID = recipe.id ?? 1
+                                        let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
+                                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                                            BookmarksCell(title: recipe.title ?? "How to sharwama at home",
+                                                          subtitle: "Subtitle",
+                                                          image: recipe.image ?? "",
+                                                          autorImage: "author",
+                                                          autorName: "Zeelicious foods",
+                                                          scoreNumber: 5.0,
+                                                          recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
+                                                          widthBackground: 280,
+                                                          heightBackground: 180
+                                            )
+                                        }
+                                        
+                                        .simultaneousGesture(TapGesture().onEnded {
+                                            if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
+                                                UserDefaultService.shared.saveStructs(structs: networkAggregateModel.recentRecipeList, forKey: "Recent")
+                                            }
+                                            
+                                        })
                                     }
                                 }
+                                .padding([.leading, .trailing], 16)
                             }
-                            .padding(.horizontal, 16)
+                            
+                            Text("Popular Category")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .padding([.leading,.top])
+                            CategoryMenu()
+                                .padding(.vertical,8)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 16) {
+                                    ForEach(networkAggregateModel.shortRecipeListPopularCategory, id: \.self) { recipe in
+                                        let recipeID = recipe.id ?? 1
+                                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                                            PopularCategoryCell(width: 150, height: 250, imageName: recipe.image ?? "", tabName: recipe.title ?? "",time: "5  мин")
+                                        }
+                                        .simultaneousGesture(TapGesture().onEnded {
+                                            if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
+                                                UserDefaultService.shared.saveStructs(structs: networkAggregateModel.recentRecipeList, forKey: "Recent")
+                                            }
+                                            
+                                        })
+                                    }
+                                }
+                                .padding(.horizontal,16)
+                                .task {
+                                    networkAggregateModel.searchRecipeShort(
+                                        params: ["query" : categories[networkAggregateModel.categoryIndex].lowercased()],
+                                        requestTag: .popularCategory)
+                                }
+                                
+                            }
+                            HStack {
+                                Text("Recent recipes")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                    .padding(.leading)
+                                Spacer()
+                                Button {
+                                    print("All recipes")
+                                } label: {
+                                    SeeAllButton()
+                                }
+                            }
+                            .padding(.top, 16)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 16) {
+                                    ForEach(networkAggregateModel.recentRecipeList.reversed()) { recipe in
+                                        let recipeID = recipe.id ?? 1
+                                        let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
+                                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                                            RecentsRecipeCell(title: recipe.title ?? "How to sharwama at home",
+                                                              subtitle: "Subtitle",
+                                                              image: recipe.image ?? "",
+                                                              autorImage: "author",
+                                                              autorName: "Zeelicious foods",
+                                                              scoreNumber: 5.0,
+                                                              recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
+                                                              widthBackground: 280,
+                                                              heightBackground: 180
+                                            )
+                                        }
+                                    }
+                                }
+                                .padding(.horizontal, 16)
                             }
                             .frame(height: 250)
                         }
@@ -166,10 +167,12 @@ struct MainHomeView: View {
                         networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
                         print(networkAggregateModel.shortRecipeListTrendingNow)
                     }
+                    .padding(.bottom, geometry.safeAreaInsets.bottom + 50)
                 }
             }
         }
     }
+}
 
 struct HomeCustomView_Previews: PreviewProvider {
     static var previews: some View {
