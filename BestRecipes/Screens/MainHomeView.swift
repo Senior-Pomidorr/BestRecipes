@@ -37,12 +37,12 @@ struct MainHomeView: View {
                         }
                     }
                     
-                    
                     LazyVStack(alignment: .leading) {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 16) {
                                 ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
-                                    let recipeID = recipe.id ?? 0
+                                    let recipeID = recipe.id ?? 1
+                                    let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
                                     NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
                                         BookmarksCell(title: recipe.title ?? "How to sharwama at home",
                                                       subtitle: "Subtitle",
@@ -50,7 +50,7 @@ struct MainHomeView: View {
                                                       autorImage: "author",
                                                       autorName: "Zeelicious foods",
                                                       scoreNumber: 5.0,
-                                                      recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq"),
+                                                      recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
                                                       widthBackground: 280,
                                                       heightBackground: 180
                                         )
@@ -69,12 +69,17 @@ struct MainHomeView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 16) {
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
-                                PopularCategoryCell(width: 150, height: 250, imageName: "img-test", tabName: "Blini shawarma wrapped", time: "5 мин")
+                                ForEach(networkAggregateModel.shortRecipeListPopularCategory) { receipt in
+                                    PopularCategoryCell(width: 150, height: 250, imageName: receipt.image ?? "", tabName: receipt.title ?? "",time: "5  мин")
+                                 }
                             }
                             .padding(.horizontal,16)
+                            .task {
+                                    networkAggregateModel.searchRecipeShort(
+                                        params: ["query" : categories[networkAggregateModel.categoryIndex].lowercased()],
+                                        requestTag: .popularCategory)
+                            }
+                            
                         }
                         HStack {
                             Text("Recent recipes")

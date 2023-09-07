@@ -22,4 +22,8 @@ final class UserDefaultService {
         }
         return nil
     }
+    
+    func removeData(forKey key: String) {
+        defaults.removeObject(forKey: key)
+    }
 }

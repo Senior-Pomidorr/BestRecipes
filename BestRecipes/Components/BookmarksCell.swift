@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookmarksCell: View {
-    @State private var isBookmarked = false
+    //    @State private var isBookmarked = false
     @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     let title: String
     let subtitle: String
@@ -17,9 +17,10 @@ struct BookmarksCell: View {
     let autorImage: String
     let autorName: String
     let scoreNumber: Double
-    let recipe: BookmarkRecipe
+    @State var recipe: BookmarkRecipe
     var widthBackground: CGFloat
     var heightBackground: CGFloat
+    
     
     var body: some View {
         VStack(alignment: .center) {
@@ -48,7 +49,7 @@ struct BookmarksCell: View {
                     Button {
                         addBookmark()
                     } label: {
-                        Image(isBookmarked ? "Bookmark" : "BookmarkCancel")
+                        Image(recipe.isBookmarked ? "Bookmark" : "BookmarkCancel")
                             .frame(width: 32, height: 32)
                             .foregroundColor(.red)
                     }
@@ -66,12 +67,9 @@ struct BookmarksCell: View {
                         .font(.custom(Poppins.SemiBold, size: 16))
                         .foregroundColor(.black)
                     Spacer()
-                    Button {
-                        tapShare()
-                    } label: {
-                        Image("Settings")
-                            .foregroundColor(.black)
-                    }
+                    
+                    menuButton
+                    
                 }
                 .frame(width: widthBackground - 12, height: 22, alignment: .leading)
                 .padding([.leading, .trailing], 20)
@@ -88,22 +86,44 @@ struct BookmarksCell: View {
         }
         .frame(width: widthBackground)
     }
-    private func tapShare() {
-        print("Share button tap!")
+    
+    
+    var menuButton: some View {
+        Menu {
+            Button("Delete",
+                   action: { print("Delete") })
+            Button("Shared",
+                   action: { print("Action 2 triggered") })
+        } label: {
+            Image("Settings")
+        }
     }
+    
     private func addBookmark() {
-        if isBookmarked {
+        if recipe.isBookmarked {
             if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
                 networkAggregateModel.bookmarkedRecipes?.remove(at: index)
+                //                remove()
             }
         } else {
-            let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image)
+            let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image, isBookmarked: true)
             networkAggregateModel.bookmarkedRecipes?.append(bookmark)
+            print(bookmark)
             UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
+            
         }
-        isBookmarked.toggle()
-        isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
+        recipe.isBookmarked.toggle()
+        recipe.isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
+        removeBookmark()
     }
+    
+        private func removeBookmark() {
+            if recipe.isBookmarked == false {
+                UserDefaultService.shared.removeData(forKey: "Bookmarks")
+            }
+        }
+    
+    
 }
 
 struct BookmarksCell_Previews: PreviewProvider {
@@ -114,9 +134,10 @@ struct BookmarksCell_Previews: PreviewProvider {
                       autorImage: "author",
                       autorName: "Zeelicious foods",
                       scoreNumber: 3.0,
-                      recipe: BookmarkRecipe.init(id: 0, title: "", image: ""),
+                      recipe: BookmarkRecipe.init(id: 0, title: "", image: "", isBookmarked: false),
                       widthBackground: 384,
-                      heightBackground: 220)
+                      heightBackground: 220
+        )
     }
 }
 
