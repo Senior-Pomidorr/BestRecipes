@@ -15,4 +15,5 @@ enum RequestTag {
     case trendingNow
     case popularCategory
     case general
+    case cuisines
 }

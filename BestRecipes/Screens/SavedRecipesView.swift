@@ -14,25 +14,30 @@ struct SavedRecipesView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(networkAggregateModel.bookmarkedRecipes ?? [], id: \.id) { recipe in
-                    LazyVStack {
-                        BookmarksCell(title: recipe.title ,
-                                      subtitle: "Subtitle",
-                                      image: recipe.image,
-                                      autorImage: "author",
-                                      autorName: "Zeelicious foods",
-                                      scoreNumber: 5.0,
-                                      recipe: BookmarkRecipe(id: recipe.id,  title: recipe.title, image: recipe.image, isBookmarked: true),
-                                      widthBackground: 364,
-                                      heightBackground: 220
-                        )
+            GeometryReader { geometry in
+                ScrollView {
+                    ForEach(networkAggregateModel.bookmarkedRecipes ?? [], id: \.id) { recipe in
+                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipe.id ?? 1))) {
+                            LazyVStack {
+                                BookmarksCell(title: recipe.title ,
+                                              subtitle: "Subtitle",
+                                              image: recipe.image,
+                                              autorImage: "author",
+                                              autorName: "Zeelicious foods",
+                                              scoreNumber: 5.0,
+                                              recipe: BookmarkRecipe(id: recipe.id,  title: recipe.title, image: recipe.image, isBookmarked: true),
+                                              widthBackground: 364,
+                                              heightBackground: 220
+                                )
+                            }
+                            .padding(.vertical, 8)
+                        }
                     }
-                    .padding(.vertical, 8)
+                    .padding(.bottom, geometry.safeAreaInsets.bottom + 20)
                 }
+                .navigationTitle("Saved recipes")
+                .font(.custom(Poppins.SemiBold, size: 24))
             }
-            .navigationTitle("Saved recipes")
-            .font(.custom(Poppins.SemiBold, size: 24))
         }
     }
 }
