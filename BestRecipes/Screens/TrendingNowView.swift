@@ -26,7 +26,15 @@ struct TrendingNowView: View {
             ScrollView {
                 ForEach(recipeInoutList, id: \.self) { recipe in
                     let recipeID = recipe.id ?? 0
-                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                    NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))
+                        .onAppear(perform: {
+                            if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
+                                UserDefaultService.shared.saveStructs(
+                                    structs: networkAggregateModel.recentRecipeList,
+                                    forKey: "Recent")
+                            }
+                        }))
+                    {
                         LazyVStack {
                             TrendingNowCell(title: recipe.title ?? "detailRecipe.nonameofrecipe".localized,
                                             subtitle: "Subtitle",
