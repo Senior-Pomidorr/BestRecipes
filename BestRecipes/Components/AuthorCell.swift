@@ -18,8 +18,8 @@ struct AutorCell: View {
                 .scaledToFit()
                 .clipShape(Circle())
             Text(authorName)
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(.custom(Poppins.SemiBold, size: 16))
+                .foregroundColor(Color.theme.customBlack)
         }
     }
 }

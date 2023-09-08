@@ -27,6 +27,8 @@ class NetworkAggregateModel: ObservableObject {
     @Published var categoryIndex = 0
     @Published var recentRecipeList: [RecipeShort] = []
     
+    @Published var shortRecipeListCuisines: [RecipeShort] = []
+    
     var cancellables: Set<AnyCancellable> = []
     
     func searchRecipeShort(params: [String: Any]? = nil, requestTag: RequestTag) {
@@ -50,6 +52,8 @@ class NetworkAggregateModel: ObservableObject {
                     self?.shortRecipeListPopularCategory = shortRecipeList.results ?? []
                 case .general:
                     self?.shortRecipeListGeneral = shortRecipeList.results ?? []
+                case .cuisines:
+                    self?.shortRecipeListCuisines = shortRecipeList.results ?? []
                 }
             })
             .store(in: &cancellables)

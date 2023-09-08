@@ -33,7 +33,7 @@ struct MainHomeView: View {
                                 .fontWeight(.semibold)
                                 .padding(.leading)
                             Spacer()
-                            NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListTrendingNow, screenTitle: "Tranding now")) {
+                            NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListTrendingNow, screenTitle: "Tranding now", cuisine: nil)) {
                                 SeeAllButton()
                             }
                         }
@@ -107,15 +107,9 @@ struct MainHomeView: View {
                                 
                                 Spacer()
                                 
-                                NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.recentRecipeList, screenTitle: "Recent recipes")) {
+                                NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.recentRecipeList, screenTitle: "Recent recipes", cuisine: nil)) {
                                     SeeAllButton()
                                 }
-//                                Button {
-//                                    print("All recipes")
-//
-//                                } label: {
-//                                    SeeAllButton()
-//                                }
                             }
                             .padding(.top, 16)
                             
@@ -142,29 +136,19 @@ struct MainHomeView: View {
                             }
                             .frame(height: 250)
                         }
-                        HStack {
-                            Text("Popular creators")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                                .padding(.leading)
-                            Spacer()
-                            Button {
-                                print("All authors")
-                            } label: {
-                                SeeAllButton()
-                            }
-                        }
-                        .padding(.top, 16)
+                        Text("Popular cuisines")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding([.leading, .top])
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 16) {
-                                AutorCell(avatar: "img-test", authorName: "Artur O Brian")
-                                AutorCell(avatar: "img-test", authorName: "Artur O Brian")
-                                AutorCell(avatar: "img-test", authorName: "Artur O Brian")
-                                AutorCell(avatar: "img-test", authorName: "Artur O Brian")
-                                AutorCell(avatar: "img-test", authorName: "Artur O Brian")
-                                AutorCell(avatar: "img-test", authorName: "Artur O Brian")
-                                AutorCell(avatar: "img-test", authorName: "Artur O Brian")
+                                ForEach(cuisines, id: \.self) {
+                                    cuisine in
+                                    NavigationLink (destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListCuisines, screenTitle: "\(cuisine) cuisine", cuisine: cuisine)) {
+                                        AutorCell(avatar: cuisine, authorName: cuisine)
+                                    }
+                                }
                             }
                             .padding(.horizontal, 16)
                             .frame(height: 160)
@@ -172,7 +156,6 @@ struct MainHomeView: View {
                     }
                     .task {
                         networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
-                        print(networkAggregateModel.shortRecipeListTrendingNow)
                     }
                     .padding(.bottom, geometry.safeAreaInsets.bottom + 50)
                 }
