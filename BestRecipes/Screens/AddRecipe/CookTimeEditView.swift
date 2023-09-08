@@ -10,8 +10,8 @@ import SwiftUI
 struct CookTimeEditView: View {
     @Binding var cookTime: Int
     @Binding var isPresented: Bool
-    let availableCookTimes: [Int] = Array(0...100)
-    
+    let availableCookTimes: [Int] = Array(stride(from: 0, through: 100, by: 5))
+
     var body: some View {
         NavigationView {
             List {
