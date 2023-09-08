@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct Ingredient: Identifiable {
+struct Ingredient: Identifiable, Codable, Equatable {
     var id = UUID()
     var itemName = ""
     var quantity = ""
 }
 
-struct MyRecipes: Codable, Hashable, Identifiable {
+struct MyRecipes: Identifiable, Codable, Equatable {
     var id = UUID()
     let title: String?
-    let image: String?
     var ingredientsCount: Int?
     var receptMinutes: Int?
     var servesCount: Int?
-//    var ingredients: [String]?
+    var imageData: Data?
+    var ingredients: [Ingredient]?
 }

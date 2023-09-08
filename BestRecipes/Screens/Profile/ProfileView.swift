@@ -69,12 +69,12 @@ struct ProfileView: View {
                     }
                     if networkAggregateModel.customRecipesArray != [] {
                         ForEach(networkAggregateModel.customRecipesArray!, id: \.id) { recipe in
-                            CustomRecipeCell(title: recipe.title ?? "Not specified",
-                                             subtitle: "Subtitle",
-                                             image: recipe.image ?? "fetasiers",
-                                             servesNumber: recipe.servesCount ?? 0,
-                                             ingredintsCount: recipe.ingredientsCount ?? 0,
-                                             receptMinutes: recipe.receptMinutes ?? 0)
+                                CustomRecipeCell(title: recipe.title ?? "Not specified",
+                                                 subtitle: "Subtitle",
+                                                 imageData: recipe.imageData,
+                                                 servesNumber: recipe.servesCount ?? 0,
+                                                 ingredintsCount: recipe.ingredientsCount ?? 0,
+                                                 receptMinutes: recipe.receptMinutes ?? 0)
                         }
                     } else {
                         Text("You have not added recipes yet. Try it now! 🍕🍕🍕")
@@ -87,6 +87,8 @@ struct ProfileView: View {
                 }
                 .onAppear {
                     networkAggregateModel.customRecipesArray = UserDefaultService.shared.getStructs(forKey: "myRecipes") ?? []
+                    print("CUSTOM \(networkAggregateModel.customRecipesArray)")
+
                 }
             }
         }

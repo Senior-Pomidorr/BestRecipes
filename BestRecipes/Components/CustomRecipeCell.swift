@@ -10,20 +10,29 @@ import SwiftUI
 struct CustomRecipeCell: View {
     let title: String
     let subtitle: String
-    let image: String
+    let imageData: Data?
     let servesNumber: Int
     var ingredintsCount: Int
     var receptMinutes: Int
     
     var body: some View {
         ZStack {
-            Image(image)
-                .resizable()
-                .scaledToFill()
-                .background(.thinMaterial)
-                .frame(width: 363, height: 220)
-                .cornerRadius(20)
-                .opacity(0.9)
+            if let uiImage = UIImage(data: imageData ?? Data()) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .background(.thinMaterial)
+                    .frame(width: 363, height: 220)
+                    .cornerRadius(20)
+                    .opacity(0.9)
+            } else {
+                Image("bbq")
+                    .resizable()
+                    .scaledToFill()
+                    .background(.thinMaterial)
+                    .frame(width: 363, height: 220)
+                    .cornerRadius(20)
+            }
             VStack(alignment: .leading) {
                 Spacer().frame(height: 50)
                 VStack(alignment: .leading, spacing: 4) {
@@ -55,10 +64,10 @@ struct CustomRecipeCell: View {
 struct CustomRecipeCell_Previews: PreviewProvider {
     static var previews: some View {
         CustomRecipeCell(title: "How to make yam sdad dfherher eeeehte",
-                        subtitle: "Subtitle",
-                        image: "fetasiers",
-                        servesNumber: 5,
-                        ingredintsCount: 9,
-                        receptMinutes: 25)
+                         subtitle: "Subtitle",
+                         imageData: nil,
+                         servesNumber: 5,
+                         ingredintsCount: 9,
+                         receptMinutes: 25)
     }
 }

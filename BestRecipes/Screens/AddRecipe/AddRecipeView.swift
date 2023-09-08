@@ -22,7 +22,7 @@ struct AddRecipeView: View {
     
     @State private var isEditingCookTime = false
     @State private var isEditingServes = false
-    
+    @State private var showAlert = false
     
     
     @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
@@ -255,31 +255,47 @@ struct AddRecipeView: View {
                 }
             }
         }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Empty Recipe Name"),
+                message: Text("Please enter a recipe name."),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
     func changeRecipePhoto() {
         showingImagePicker = true
     }
     //create
     func createButtonPressed() {
-        let newRecipe = MyRecipes(
-            title: recipeName,
-            image: "bbq", // You can save the image URL or name here
-            ingredientsCount: ingredients.count,
-            receptMinutes: cookTime,
-            servesCount: serves
-        )
         
-        networkAggregateModel.customRecipesArray?.insert(newRecipe, at: 0)
-        UserDefaultService.shared.saveStructs(structs: networkAggregateModel.customRecipesArray ?? [] , forKey: "myRecipes")
+        if recipeName.isEmpty {
+            showAlert = true
+            return
+        }
         
-        
-        recipeName = ""
-        inputImage = nil
-        ingredients = [Ingredient()]
-        serves = 3
-        cookTime = 20
-        
-        dismiss()
+            let newRecipe = MyRecipes(
+                title: recipeName,
+                ingredientsCount: ingredients.count,
+                receptMinutes: cookTime,
+                servesCount: serves,
+                imageData: inputImage?.jpegData(compressionQuality: 0.9),
+                ingredients: ingredients
+            )
+            
+            networkAggregateModel.customRecipesArray?.insert(newRecipe, at: 0)
+        print("CUSTOM \(networkAggregateModel.customRecipesArray)")
+            UserDefaultService.shared.saveStructs(structs: networkAggregateModel.customRecipesArray ?? [], forKey: "myRecipes")
+            
+            recipeName = ""
+            inputImage = nil
+            ingredients = [Ingredient()]
+            serves = 3
+            cookTime = 20
+            ingredientName = ""
+            quanity = ""
+            
+            dismiss()
     }
 }
 
