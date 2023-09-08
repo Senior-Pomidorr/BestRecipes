@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct AddRecipeView: View {
     @State private var ingredients: [Ingredient] = [Ingredient()]
     @State private var recipeName = ""
@@ -16,6 +15,18 @@ struct AddRecipeView: View {
     @State private var ingredientName = ""
     @State private var quanity = ""
     @Environment(\.dismiss) var dismiss
+    
+    //picker
+    @State private var showingImagePicker = false
+    @Binding var inputImage: UIImage?
+    
+    @State private var isEditingCookTime = false
+    @State private var isEditingServes = false
+    @State private var showAlert = false
+    
+    
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
+    
     
     var body: some View {
         ScrollView {
@@ -29,11 +40,20 @@ struct AddRecipeView: View {
                 }
                 VStack() {
                     ZStack(alignment: .top) {
-                        Image("bbq")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 363, height: 220)
-                            .cornerRadius(20)
+                        if inputImage != nil {
+                            Image(uiImage: inputImage!)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 363, height: 220)
+                                .cornerRadius(20)
+                        } else {
+                            Image("bbq")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 363, height: 220)
+                                .cornerRadius(20)
+                        }
+                        
                         HStack {
                             Spacer()
                             Button {
@@ -46,7 +66,9 @@ struct AddRecipeView: View {
                             .background(.ultraThinMaterial)
                             .background(.white)
                             .clipShape(Circle())
-                            
+                            .sheet(isPresented: $showingImagePicker) {
+                                ImagePicker(image: $inputImage)
+                            }
                         }
                         .padding(.top, 8)
                         .padding([.leading, .trailing], 33)
@@ -72,18 +94,22 @@ struct AddRecipeView: View {
                     Text("Serves")
                         .font(.custom(Poppins.Medium, size: 16))
                     Spacer()
+                    
+                    
                     Text("\(serves)")
                         .foregroundColor(.theme.customGray)
                         .font(.custom(Poppins.Medium, size: 14))
                     
                     Button {
-                        
+                        isEditingServes.toggle()
                     } label: {
                         Image("Arrow")
                     }
                     .frame(width: 40, height: 40)
                     .padding(.trailing, 8)
-                    
+                    .sheet(isPresented: $isEditingServes) {
+                        ServesEditView(servesCount: $serves, isPresented: $isEditingServes)
+                    }
                 }
                 .font(.custom(Poppins.Regular, size: 14))
                 .frame(height: 60)
@@ -102,13 +128,15 @@ struct AddRecipeView: View {
                         .foregroundColor(.theme.customGray)
                         .font(.custom(Poppins.Medium, size: 14))
                     Button {
-                        
+                        isEditingCookTime.toggle()
                     } label: {
                         Image("Arrow")
                     }
                     .frame(width: 40, height: 40)
                     .padding(.trailing, 8)
-                    
+                    .sheet(isPresented: $isEditingCookTime) {
+                        CookTimeEditView(cookTime: $cookTime, isPresented: $isEditingCookTime)
+                    }
                 }
                 .font(.custom(Poppins.Regular, size: 14))
                 .frame(height: 60)
@@ -212,7 +240,8 @@ struct AddRecipeView: View {
                 
                 GeometryReader { geometry in
                     Button(action: {
-                        // Сделать сохранение по модели RecipeFull в узер дефаулт
+                        print("Tap create")
+                        createButtonPressed()
                     }) {
                         Text("Create recipe")
                             .font(.custom(Poppins.SemiBold, size: 16))
@@ -226,14 +255,52 @@ struct AddRecipeView: View {
                 }
             }
         }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Empty Recipe Name"),
+                message: Text("Please enter a recipe name."),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
     func changeRecipePhoto() {
-        print("Tap change photo recipe")
+        showingImagePicker = true
+    }
+    //create
+    func createButtonPressed() {
+        
+        if recipeName.isEmpty {
+            showAlert = true
+            return
+        }
+        
+            let newRecipe = MyRecipes(
+                title: recipeName,
+                ingredientsCount: ingredients.count,
+                receptMinutes: cookTime,
+                servesCount: serves,
+                imageData: inputImage?.jpegData(compressionQuality: 0.9),
+                ingredients: ingredients
+            )
+            
+            networkAggregateModel.customRecipesArray?.insert(newRecipe, at: 0)
+        print("CUSTOM \(networkAggregateModel.customRecipesArray)")
+            UserDefaultService.shared.saveStructs(structs: networkAggregateModel.customRecipesArray ?? [], forKey: "myRecipes")
+            
+            recipeName = ""
+            inputImage = nil
+            ingredients = [Ingredient()]
+            serves = 3
+            cookTime = 20
+            ingredientName = ""
+            quanity = ""
+            
+            dismiss()
     }
 }
 
 struct AddRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRecipeView()
+        AddRecipeView(inputImage: .constant(nil))
     }
 }

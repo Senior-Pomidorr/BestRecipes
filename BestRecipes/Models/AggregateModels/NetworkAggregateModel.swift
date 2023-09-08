@@ -25,6 +25,8 @@ class NetworkAggregateModel: ObservableObject {
     @Published var shortRecipeListGeneral: [RecipeShort] = []
     @Published var fullRecipeList: [RecipeFull] = []
     @Published var categoryIndex = 0
+    @Published var customRecipesArray: [MyRecipes]? = []
+
     @Published var recentRecipeList: [RecipeShort] = []
     
     @Published var shortRecipeListCuisines: [RecipeShort] = []
