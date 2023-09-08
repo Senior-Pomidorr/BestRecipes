@@ -38,10 +38,11 @@ struct PopularCategoryCell: View {
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
                         Text("Time")
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                            .font(.custom(Poppins.Medium, size: 14))
+                            .foregroundColor(Color.theme.customBlack)
                         Text(time)
-                            .font(.body)
+                            .font(.custom(Poppins.Medium, size: 14))
+                            .foregroundColor(Color.theme.customBlack)
                     }
                     .padding(.leading, 4)
                     Spacer()

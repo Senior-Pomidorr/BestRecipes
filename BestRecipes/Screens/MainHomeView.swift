@@ -42,9 +42,18 @@ struct MainHomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 16) {
                                     ForEach(networkAggregateModel.shortRecipeListTrendingNow, id: \.self) { recipe in
-                                        let recipeID = recipe.id ?? 1
+                                        let recipeID = recipe.id ?? 0
                                         let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
-                                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))
+                                            .onAppear(perform: {
+                                                if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
+                                                    UserDefaultService.shared.saveStructs(
+                                                        structs: networkAggregateModel.recentRecipeList,
+                                                        forKey: "Recent")
+                                                }
+                                            })
+                                                )
+                                        {
                                             BookmarksCell(title: recipe.title ?? "How to sharwama at home",
                                                           subtitle: "Subtitle",
                                                           image: recipe.image ?? "",
@@ -56,13 +65,6 @@ struct MainHomeView: View {
                                                           heightBackground: 180
                                             )
                                         }
-                                        
-                                        .simultaneousGesture(TapGesture().onEnded {
-                                            if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
-                                                UserDefaultService.shared.saveStructs(structs: networkAggregateModel.recentRecipeList, forKey: "Recent")
-                                            }
-                                            
-                                        })
                                     }
                                 }
                                 .padding([.leading, .trailing], 16)
@@ -80,15 +82,18 @@ struct MainHomeView: View {
                                     ForEach(networkAggregateModel.shortRecipeListPopularCategory, id: \.self) { recipe in
                                         let recipeID = recipe.id ?? 1
                                         let isBookmarked = networkAggregateModel.bookmarkedRecipes?.contains(where: { $0.id == recipeID }) ?? false
-                                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))) {
+                                        NavigationLink(destination: DetailRecipeView(recipeID: String(recipeID))
+                                            .onAppear(perform: {
+                                                if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
+                                                    UserDefaultService.shared.saveStructs(
+                                                        structs: networkAggregateModel.recentRecipeList,
+                                                        forKey: "Recent")
+                                                }
+                                            })
+                                                )
+                                        {
                                             PopularCategoryCell(width: 150, height: 250, recipe: BookmarkRecipe(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked), imageName: recipe.image ?? "", tabName: recipe.title ?? "",time: "5  мин")
-                                        }
-                                        .simultaneousGesture(TapGesture().onEnded {
-                                            if networkAggregateModel.recentRecipeList.last != recipe { networkAggregateModel.recentRecipeList.append(recipe)
-                                                UserDefaultService.shared.saveStructs(structs: networkAggregateModel.recentRecipeList, forKey: "Recent")
-                                            }
-                                            
-                                        })
+                                        }                                      
                                     }
                                 }
                                 .padding(.horizontal,16)
