@@ -29,23 +29,6 @@ struct RecentsRecipeCell: View {
                     .frame(width: widthBackground, height: heightBackground)
                     .background(.red)
                     .cornerRadius(20)
-                HStack {
-                    Button {
-                    } label: {
-                        RatingView(scoreNumber: scoreNumber)
-                        
-                        Text(String(scoreNumber))
-                            .font(.custom(Poppins.Bold, size: 14))
-                            .foregroundColor(.white)
-                            .offset(x: -1)
-                    }
-                    .frame(width: 62, height: 28)
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(8)
-                    Spacer()
-                }
-                .padding(.top, 8)
-                .padding(.horizontal, 12)
             }
             
             VStack(alignment: .leading) {
