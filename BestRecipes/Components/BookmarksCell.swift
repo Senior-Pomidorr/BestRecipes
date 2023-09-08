@@ -9,7 +9,6 @@ import SwiftUI
 import Kingfisher
 
 struct BookmarksCell: View {
-    //    @State private var isBookmarked = false
     @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
     let title: String
     let subtitle: String
@@ -67,11 +66,14 @@ struct BookmarksCell: View {
                         .font(.custom(Poppins.SemiBold, size: 16))
                         .foregroundColor(.black)
                     Spacer()
-                    
-                    menuButton
+                    Button {
+                        
+                    } label: {
+                        menuButton
+                    }
                     
                 }
-                .frame(width: widthBackground - 12, height: 22, alignment: .leading)
+                .frame(width: widthBackground - 2, height: 22, alignment: .leading)
                 .padding([.leading, .trailing], 20)
                 
                 HStack() {
@@ -90,27 +92,26 @@ struct BookmarksCell: View {
     
     var menuButton: some View {
         Menu {
-            Button("Delete",
-                   action: { print("Delete") })
-            Button("Shared",
-                   action: { print("Action 2 triggered") })
+            Button(recipe.isBookmarked ? "Delete recipe" : "Save recipe",
+                   action: {
+                addBookmark()
+            })
         } label: {
             Image("Settings")
+                .frame(width: 20)
         }
     }
+    
     
     private func addBookmark() {
         if recipe.isBookmarked {
             if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
                 networkAggregateModel.bookmarkedRecipes?.remove(at: index)
-                //                remove()
             }
         } else {
             let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image, isBookmarked: true)
             networkAggregateModel.bookmarkedRecipes?.append(bookmark)
-            print(bookmark)
             UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
-            
         }
         recipe.isBookmarked.toggle()
         recipe.isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
