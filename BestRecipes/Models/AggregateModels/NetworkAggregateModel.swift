@@ -24,6 +24,8 @@ class NetworkAggregateModel: ObservableObject {
     @Published var shortRecipeListGeneral: [RecipeShort] = []
     @Published var fullRecipeList: [RecipeFull] = []
     @Published var categoryIndex = 0
+    @Published var customRecipesArray: [MyRecipes]? = []
+
     
     var cancellables: Set<AnyCancellable> = []
     

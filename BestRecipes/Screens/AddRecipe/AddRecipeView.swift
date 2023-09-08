@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct AddRecipeView: View {
     @State private var ingredients: [Ingredient] = [Ingredient()]
     @State private var recipeName = ""
@@ -21,8 +20,13 @@ struct AddRecipeView: View {
     @State private var showingImagePicker = false
     @Binding var inputImage: UIImage?
     
-    //create
-    @State private var myRecipesArray: [MyRecipes]?
+    @State private var isEditingCookTime = false
+    @State private var isEditingServes = false
+    
+    
+    
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
+    
     
     var body: some View {
         ScrollView {
@@ -90,18 +94,22 @@ struct AddRecipeView: View {
                     Text("Serves")
                         .font(.custom(Poppins.Medium, size: 16))
                     Spacer()
+                    
+                    
                     Text("\(serves)")
                         .foregroundColor(.theme.customGray)
                         .font(.custom(Poppins.Medium, size: 14))
                     
                     Button {
-                        
+                        isEditingServes.toggle()
                     } label: {
                         Image("Arrow")
                     }
                     .frame(width: 40, height: 40)
                     .padding(.trailing, 8)
-                    
+                    .sheet(isPresented: $isEditingServes) {
+                        ServesEditView(servesCount: $serves, isPresented: $isEditingServes)
+                    }
                 }
                 .font(.custom(Poppins.Regular, size: 14))
                 .frame(height: 60)
@@ -120,13 +128,15 @@ struct AddRecipeView: View {
                         .foregroundColor(.theme.customGray)
                         .font(.custom(Poppins.Medium, size: 14))
                     Button {
-                        
+                        isEditingCookTime.toggle()
                     } label: {
                         Image("Arrow")
                     }
                     .frame(width: 40, height: 40)
                     .padding(.trailing, 8)
-                    
+                    .sheet(isPresented: $isEditingCookTime) {
+                        CookTimeEditView(cookTime: $cookTime, isPresented: $isEditingCookTime)
+                    }
                 }
                 .font(.custom(Poppins.Regular, size: 14))
                 .frame(height: 60)
@@ -230,9 +240,8 @@ struct AddRecipeView: View {
                 
                 GeometryReader { geometry in
                     Button(action: {
-//                        print("Tap create")
+                        print("Tap create")
                         createButtonPressed()
-                        // Сделать сохранение по модели RecipeFull в узер дефаулт
                     }) {
                         Text("Create recipe")
                             .font(.custom(Poppins.SemiBold, size: 16))
@@ -245,18 +254,13 @@ struct AddRecipeView: View {
                     .padding(.horizontal, 16)
                 }
             }
-            .onAppear {
-                myRecipesArray = UserDefaultService.shared.getStructs(forKey: "myRecipes") ?? []
-            }
         }
     }
     func changeRecipePhoto() {
-        print("Tap change photo recipe")
         showingImagePicker = true
     }
     //create
     func createButtonPressed() {
-        var recipes = myRecipesArray ?? []
         let newRecipe = MyRecipes(
             title: recipeName,
             image: "bbq", // You can save the image URL or name here
@@ -265,22 +269,16 @@ struct AddRecipeView: View {
             servesCount: serves
         )
         
-        recipes.append(newRecipe)
-        myRecipesArray = recipes
-        print("CUSTOM \(myRecipesArray?.count)")
-        UserDefaultService.shared.saveStructs(structs: myRecipesArray ?? [] , forKey: "myRecipes")
+        networkAggregateModel.customRecipesArray?.insert(newRecipe, at: 0)
+        UserDefaultService.shared.saveStructs(structs: networkAggregateModel.customRecipesArray ?? [] , forKey: "myRecipes")
         
-        // Optionally, you can reset the form fields for the next recipe
+        
         recipeName = ""
-//        inputImage = nil
+        inputImage = nil
         ingredients = [Ingredient()]
         serves = 3
         cookTime = 20
         
-        print("CUSTOM RECIPES \(myRecipesArray)")
-
-        
-        // Dismiss the view
         dismiss()
     }
 }

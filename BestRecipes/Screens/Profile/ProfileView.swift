@@ -9,14 +9,11 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    //create recipe
-//    @State private var myRecipesArray: [MyRecipes] = []
-    @State private var myRecipesArray: [MyRecipes] = []
-    
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
+
     //picker
     @State private var showingImagePicker = false
     @Binding var inputImage: UIImage?
-    
     
     var body: some View {
         ScrollView {
@@ -28,8 +25,8 @@ struct ProfileView: View {
                             .padding(.leading, 30)
                         Spacer()
                         Button {
-                            print("Tap Settings")
-                            print("CUSTOM \(myRecipesArray)")
+                            //temporary 
+                            UserDefaultService.shared.removeData(forKey: "myRecipes")
                         } label: {
                             Image("SettingsFlat")
                                 .foregroundColor(.black)
@@ -70,20 +67,14 @@ struct ProfileView: View {
                             .padding(.leading, 40)
                         Spacer()
                     }
-                    TrendingNowCell(title: "Not specified",
-                                    subtitle: "Subtitle",
-                                    image: "bbq",
-                                    scoreNumber: 5.0,
-                                    ingredintsCount: 0,
-                                    receptMinutes: 0)
-                    if !myRecipesArray.isEmpty {
-                        ForEach(myRecipesArray, id: \.id) { recipe in
-                            TrendingNowCell(title: recipe.title ?? "Not specified",
-                                            subtitle: "Subtitle",
-                                            image: recipe.image ?? "fetasiers",
-                                            scoreNumber: 5.0,
-                                            ingredintsCount: recipe.ingredientsCount ?? 0,
-                                            receptMinutes: recipe.receptMinutes ?? 0)
+                    if networkAggregateModel.customRecipesArray != [] {
+                        ForEach(networkAggregateModel.customRecipesArray!, id: \.id) { recipe in
+                            CustomRecipeCell(title: recipe.title ?? "Not specified",
+                                             subtitle: "Subtitle",
+                                             image: recipe.image ?? "fetasiers",
+                                             servesNumber: recipe.servesCount ?? 0,
+                                             ingredintsCount: recipe.ingredientsCount ?? 0,
+                                             receptMinutes: recipe.receptMinutes ?? 0)
                         }
                     } else {
                         Text("You have not added recipes yet. Try it now! 🍕🍕🍕")
@@ -94,18 +85,16 @@ struct ProfileView: View {
                             .padding(.horizontal, 10)
                     }
                 }
+                .onAppear {
+                    networkAggregateModel.customRecipesArray = UserDefaultService.shared.getStructs(forKey: "myRecipes") ?? []
+                }
             }
         }
-        .onAppear {
-            myRecipesArray = UserDefaultService.shared.getStructs(forKey: "myRecipes") ?? []
-            print("Loaded recipes from UserDefaults: \(myRecipesArray)")
-
-        }
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView(inputImage: .constant(nil))
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView(inputImage: .constant(nil))
+//    }
+//}
