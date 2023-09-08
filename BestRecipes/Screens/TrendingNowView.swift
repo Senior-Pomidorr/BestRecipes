@@ -55,10 +55,10 @@ struct TrendingNowView: View {
                         }
                     }
                 }
+                .padding(.bottom, geometry.safeAreaInsets.bottom)
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: CustomBackButton())
-            .padding(.bottom, geometry.safeAreaInsets.bottom)
         }
     }
     

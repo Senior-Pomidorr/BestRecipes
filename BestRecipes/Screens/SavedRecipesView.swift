@@ -33,10 +33,10 @@ struct SavedRecipesView: View {
                             .padding(.vertical, 8)
                         }
                     }
+                    .padding(.bottom, geometry.safeAreaInsets.bottom + 20)
                 }
                 .navigationTitle("Saved recipes")
                 .font(.custom(Poppins.SemiBold, size: 24))
-                .padding(.bottom, geometry.safeAreaInsets.bottom + 20)
             }
         }
     }
