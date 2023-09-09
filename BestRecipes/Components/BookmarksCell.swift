@@ -55,6 +55,7 @@ struct BookmarksCell: View {
                     .background(.ultraThinMaterial)
                     .background(.white)
                     .clipShape(Circle())
+                    .buttonStyle(TapAnimation())
                 }
                 .padding(.top, 8)
                 .padding(.horizontal, 12)
