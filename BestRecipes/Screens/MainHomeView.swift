@@ -59,7 +59,7 @@ struct MainHomeView: View {
                                                           image: recipe.image ?? "",
                                                           autorImage: "author",
                                                           autorName: "Zeelicious foods",
-                                                          scoreNumber: recipe.rating ?? 5.0,
+                                                          scoreNumber: recipe.rating ?? Double.random(in: 3.5...5.0)*100.rounded()/100,
                                                           recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
                                                           widthBackground: 280,
                                                           heightBackground: 180
