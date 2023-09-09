@@ -68,6 +68,9 @@ struct MainHomeView: View {
                                     }
                                 }
                                 .padding([.leading, .trailing], 16)
+                                .task {
+                                    networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+                                }
                             }
                             
                             Text("Popular Category")
@@ -158,9 +161,6 @@ struct MainHomeView: View {
                             .padding(.horizontal, 16)
                             .frame(height: 160)
                         }
-                    }
-                    .task {
-                        networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
                     }
                     .padding(.bottom, geometry.safeAreaInsets.bottom + 50)
                 }

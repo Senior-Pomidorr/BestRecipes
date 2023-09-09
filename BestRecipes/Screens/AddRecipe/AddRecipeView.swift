@@ -66,6 +66,7 @@ struct AddRecipeView: View {
                             .background(.ultraThinMaterial)
                             .background(.white)
                             .clipShape(Circle())
+                            .buttonStyle(TapAnimation())
                             .sheet(isPresented: $showingImagePicker) {
                                 ImagePicker(image: $inputImageForRecipe)
                             }
@@ -218,7 +219,9 @@ struct AddRecipeView: View {
                             .stroke(Color.theme.customGray, lineWidth: 1)
                     )
                     Button {
-                        ingredients.removeLast()
+                        if ingredients.count > 1 {
+                            ingredients.removeLast()
+                        }
                     } label: {
                         Image("Minus")
                     }
@@ -227,7 +230,7 @@ struct AddRecipeView: View {
                 
                 HStack {
                     Button {
-                        ingredients.append(Ingredient())
+                            ingredients.append(Ingredient())
                     } label: {
                         Image("Plus")
                     }
@@ -251,6 +254,7 @@ struct AddRecipeView: View {
                             .cornerRadius(8)
                     }
                     .padding(.horizontal, 16)
+                    .buttonStyle(TapAnimation())
                 }
             }
             .padding(.bottom, 40)
