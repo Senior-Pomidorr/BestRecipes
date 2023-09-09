@@ -12,9 +12,9 @@ struct RecipeShort: Codable, Hashable, Identifiable {
     let title: String?
     let image: String?
     let imageType: ImageType?
-    let rating: Double
+    let rating: Double?
     
-    init(id: Int?, title: String?, image: String?, imageType: ImageType?, rating: Double) {
+    init(id: Int?, title: String?, image: String?, imageType: ImageType?, rating: Double?) {
         self.id = id
         self.title = title
         self.image = image
