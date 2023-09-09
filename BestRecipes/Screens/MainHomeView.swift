@@ -59,7 +59,7 @@ struct MainHomeView: View {
                                                           image: recipe.image ?? "",
                                                           autorImage: "author",
                                                           autorName: "Zeelicious foods",
-                                                          scoreNumber: 5.0,
+                                                          scoreNumber: recipe.rating,
                                                           recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
                                                           widthBackground: 280,
                                                           heightBackground: 180
@@ -166,6 +166,7 @@ struct MainHomeView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

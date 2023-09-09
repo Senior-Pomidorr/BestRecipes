@@ -284,7 +284,7 @@ struct AddRecipeView: View {
             )
             
             networkAggregateModel.customRecipesArray?.insert(newRecipe, at: 0)
-        print("CUSTOM \(networkAggregateModel.customRecipesArray)")
+       // print("CUSTOM \(networkAggregateModel.customRecipesArray )")
             UserDefaultService.shared.saveStructs(structs: networkAggregateModel.customRecipesArray ?? [], forKey: "myRecipes")
             
             recipeName = ""
