@@ -19,6 +19,7 @@
 		0D0FFE462AA3337E0051AC4C /* BookmarkRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FFE452AA3337E0051AC4C /* BookmarkRModel.swift */; };
 		0DA5A4D32A9CDD9A00356C87 /* TrendingNowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */; };
 		0DE363F22AA65F1B00D9D615 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE363F12AA65F1B00D9D615 /* CustomBackButton.swift */; };
+		0DE363F42AACAD2F00D9D615 /* TapAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE363F32AACAD2F00D9D615 /* TapAnimation.swift */; };
 		0DF3ECC92A9B859C006DC73D /* BookmarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */; };
 		756AD8BB2AAA31D700E40F70 /* Cuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AD8BA2AAA31D700E40F70 /* Cuisines.swift */; };
 		758652522A9B29D10015C547 /* BestRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758652512A9B29D10015C547 /* BestRecipesApp.swift */; };
@@ -93,6 +94,7 @@
 		0D0FFE452AA3337E0051AC4C /* BookmarkRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkRModel.swift; sourceTree = "<group>"; };
 		0DA5A4D22A9CDD9A00356C87 /* TrendingNowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingNowCell.swift; sourceTree = "<group>"; };
 		0DE363F12AA65F1B00D9D615 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		0DE363F32AACAD2F00D9D615 /* TapAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapAnimation.swift; sourceTree = "<group>"; };
 		0DF3ECC82A9B859C006DC73D /* BookmarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCell.swift; sourceTree = "<group>"; };
 		756AD8BA2AAA31D700E40F70 /* Cuisines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisines.swift; sourceTree = "<group>"; };
 		7586524E2A9B29D10015C547 /* BestRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,6 +334,7 @@
 				873222562AA5DF380046419B /* OnboardingBackground.swift */,
 				0DE363F12AA65F1B00D9D615 /* CustomBackButton.swift */,
 				8732226E2AAAD51D0046419B /* CustomRecipeCell.swift */,
+				0DE363F32AACAD2F00D9D615 /* TapAnimation.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				758652642A9B2F5E0015C547 /* TrendingNowView.swift in Sources */,
 				A1C35C4E2A9BD0D00062E7F6 /* TabPlusButton.swift in Sources */,
 				ACBC92C22AA480CA00D4A9CE /* CategoryModel.swift in Sources */,
+				0DE363F42AACAD2F00D9D615 /* TapAnimation.swift in Sources */,
 				A1C35C572A9D34D40062E7F6 /* String+Ext.swift in Sources */,
 				A1C35C532A9BE3E40062E7F6 /* ProfileView.swift in Sources */,
 				873222552AA5DE0E0046419B /* OnboardingButton.swift in Sources */,
