@@ -18,7 +18,7 @@ struct AddRecipeView: View {
     
     //picker
     @State private var showingImagePicker = false
-    @Binding var inputImage: UIImage?
+    @Binding var inputImageForRecipe: UIImage?
     
     @State private var isEditingCookTime = false
     @State private var isEditingServes = false
@@ -40,8 +40,8 @@ struct AddRecipeView: View {
                 }
                 VStack() {
                     ZStack(alignment: .top) {
-                        if inputImage != nil {
-                            Image(uiImage: inputImage!)
+                        if inputImageForRecipe != nil {
+                            Image(uiImage: inputImageForRecipe!)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 363, height: 220)
@@ -67,7 +67,7 @@ struct AddRecipeView: View {
                             .background(.white)
                             .clipShape(Circle())
                             .sheet(isPresented: $showingImagePicker) {
-                                ImagePicker(image: $inputImage)
+                                ImagePicker(image: $inputImageForRecipe)
                             }
                         }
                         .padding(.top, 8)
@@ -246,7 +246,6 @@ struct AddRecipeView: View {
                         Text("Create recipe")
                             .font(.custom(Poppins.SemiBold, size: 16))
                             .foregroundColor(.white)
-                        
                             .frame(width: geometry.size.width - 32, height: 56)
                             .background(Color.theme.customPink)
                             .cornerRadius(8)
@@ -254,6 +253,7 @@ struct AddRecipeView: View {
                     .padding(.horizontal, 16)
                 }
             }
+            .padding(.bottom, 40)
         }
         .alert(isPresented: $showAlert) {
             Alert(
@@ -274,33 +274,31 @@ struct AddRecipeView: View {
             return
         }
         
-            let newRecipe = MyRecipes(
-                title: recipeName,
-                ingredientsCount: ingredients.count,
-                receptMinutes: cookTime,
-                servesCount: serves,
-                imageData: inputImage?.jpegData(compressionQuality: 0.9),
-                ingredients: ingredients
-            )
-            
-            networkAggregateModel.customRecipesArray?.insert(newRecipe, at: 0)
-        print("CUSTOM \(networkAggregateModel.customRecipesArray)")
-            UserDefaultService.shared.saveStructs(structs: networkAggregateModel.customRecipesArray ?? [], forKey: "myRecipes")
-            
-            recipeName = ""
-            inputImage = nil
-            ingredients = [Ingredient()]
-            serves = 3
-            cookTime = 20
-            ingredientName = ""
-            quanity = ""
-            
-            dismiss()
+        let newRecipe = MyRecipes(
+            title: recipeName,
+            ingredientsCount: ingredients.count,
+            receptMinutes: cookTime,
+            servesCount: serves,
+            imageData: inputImageForRecipe?.jpegData(compressionQuality: 0.9),
+            ingredients: ingredients
+        )
+        
+        networkAggregateModel.customRecipesArray?.insert(newRecipe, at: 0)
+        UserDefaultService.shared.saveStructs(structs: networkAggregateModel.customRecipesArray ?? [], forKey: "myRecipes")
+        
+        recipeName = ""
+        inputImageForRecipe = nil
+        ingredients = [Ingredient()]
+        serves = 3
+        cookTime = 20
+        ingredientName = ""
+        quanity = ""
+        
+        dismiss()
     }
 }
 
 struct AddRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRecipeView(inputImage: .constant(nil))
-    }
+        AddRecipeView(inputImageForRecipe: .constant(nil))    }
 }
