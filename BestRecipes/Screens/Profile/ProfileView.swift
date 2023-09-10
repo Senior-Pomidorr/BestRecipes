@@ -20,6 +20,7 @@ struct ProfileView: View {
     
     
     var body: some View {
+        GeometryReader { geometry in
             ScrollView {
                 VStack(alignment: .leading) {
                     VStack {
@@ -77,7 +78,7 @@ struct ProfileView: View {
                                     selectedRecipe = recipe
                                     isDetailPresented.toggle()
                                     print("selected \($selectedRecipe)")
-
+                                    
                                 }) {
                                     CustomRecipeCell(title: recipe.title ?? "Not specified",
                                                      subtitle: "Subtitle",
@@ -96,13 +97,17 @@ struct ProfileView: View {
                                 .padding(.horizontal, 10)
                         }
                     }
+                    .padding(.bottom, geometry.safeAreaInsets.bottom + 100)
                     .onAppear {
                         networkAggregateModel.customRecipesArray = UserDefaultService.shared.getStructs(forKey: "myRecipes") ?? []
                     }
                     .sheet(isPresented: $isDetailPresented) {
-                                CustomRecipeDetailView(recipe: $selectedRecipe)
+                        CustomRecipeDetailView(recipe: $selectedRecipe)
                     }
                 }
+                
+            }
+            
         }
     }
 }

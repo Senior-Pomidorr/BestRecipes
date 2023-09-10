@@ -23,9 +23,9 @@ struct PopularCategoryCell: View {
             VStack(spacing: 0) {
                 KFImage(URL(string:imageName))
                     .resizable()
-//                    .scaledToFil()
-                    .clipShape(Circle())
+                    .scaledToFill()
                     .frame(width: 0.8 * width, height: 0.8 * width)
+                    .clipShape(Circle())
                     .padding(.bottom, 0.02*height)
                 Text(tabName)
                     .font(.custom(Poppins.Medium, size: 18))

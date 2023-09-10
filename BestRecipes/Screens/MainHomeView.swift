@@ -26,14 +26,15 @@ struct MainHomeView: View {
                         
                         SearchBarView(searchText: $searchFieldText)
                             .padding(.bottom, -4)
+//MARK: - Trending now
                         
                         HStack {
-                            Text("Tranding now🔥")
+                            Text("Trending now🔥")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .padding(.leading)
                             Spacer()
-                            NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListTrendingNow, screenTitle: "Tranding now", cuisine: nil)) {
+                            NavigationLink(destination: TrendingNowView(recipes: networkAggregateModel.shortRecipeListTrendingNow, screenTitle: "Trending now", cuisine: nil)) {
                                 SeeAllButton()
                             }
                         }
@@ -73,6 +74,7 @@ struct MainHomeView: View {
                                     networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
                                 }
                             }
+//MARK: - Popular Category
                             
                             Text("Popular Category")
                                 .font(.title2)
@@ -106,6 +108,7 @@ struct MainHomeView: View {
                                         params: ["query" : categories[networkAggregateModel.categoryIndex].lowercased()],
                                         requestTag: .popularCategory)
                                 }
+//MARK: - Recent recipes
                                 
                             }
                             HStack {
@@ -145,6 +148,7 @@ struct MainHomeView: View {
                             }
                             .frame(height: 250)
                         }
+//MARK: - Popular cuisines
                         Text("Popular cuisines")
                             .font(.title2)
                             .fontWeight(.semibold)
