@@ -108,6 +108,8 @@ struct BookmarksCell: View {
         if recipe.isBookmarked {
             if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
                 networkAggregateModel.bookmarkedRecipes?.remove(at: index)
+                UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
+                removeBookmark()
             }
         } else {
             let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image, isBookmarked: true)
@@ -116,16 +118,13 @@ struct BookmarksCell: View {
         }
         recipe.isBookmarked.toggle()
         recipe.isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
-        removeBookmark()
     }
     
-        private func removeBookmark() {
-            if recipe.isBookmarked == false {
-                UserDefaultService.shared.removeData(forKey: "Bookmarks")
-            }
+    private func removeBookmark() {
+        if recipe.isBookmarked == false {
+            UserDefaultService.shared.removeData(forKey: "Bookmarks")
         }
-    
-    
+    }
 }
 
 struct BookmarksCell_Previews: PreviewProvider {

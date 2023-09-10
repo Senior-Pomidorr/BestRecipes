@@ -67,17 +67,17 @@ struct PopularCategoryCell: View {
         if recipe.isBookmarked {
             if let index = networkAggregateModel.bookmarkedRecipes?.firstIndex(where: { $0.id == recipe.id }) {
                 networkAggregateModel.bookmarkedRecipes?.remove(at: index)
+                UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
+                removeBookmark()
             }
         } else {
             let bookmark = BookmarkRecipe(id: recipe.id, title: recipe.title, image: recipe.image, isBookmarked: true)
             networkAggregateModel.bookmarkedRecipes?.append(bookmark)
-            print(bookmark)
             UserDefaultService.shared.saveStructs(structs: networkAggregateModel.bookmarkedRecipes ?? [], forKey: "Bookmarks")
 
         }
         recipe.isBookmarked.toggle()
         recipe.isBookmarked ? print("Add bookmark") : print("Cancel bookmark")
-        removeBookmark()
     }
 
     private func removeBookmark() {
@@ -85,9 +85,6 @@ struct PopularCategoryCell: View {
             UserDefaultService.shared.removeData(forKey: "Bookmarks")
         }
     }
-//
-   
-    
 }
 
 struct PopularCategoryCell_Previews: PreviewProvider {

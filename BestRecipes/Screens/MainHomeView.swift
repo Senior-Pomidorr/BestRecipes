@@ -59,7 +59,7 @@ struct MainHomeView: View {
                                                           image: recipe.image ?? "",
                                                           autorImage: "author",
                                                           autorName: "Zeelicious foods",
-                                                          scoreNumber: recipe.rating ?? 5.0,
+                                                          scoreNumber: recipe.rating ?? Double.random(in: 3.5...5.0)*100.rounded()/100,
                                                           recipe: BookmarkRecipe.init(id: recipe.id, title: recipe.title ?? "", image: recipe.image ?? "bbq", isBookmarked: isBookmarked),
                                                           widthBackground: 280,
                                                           heightBackground: 180
@@ -68,6 +68,9 @@ struct MainHomeView: View {
                                     }
                                 }
                                 .padding([.leading, .trailing], 16)
+                                .task {
+                                    networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
+                                }
                             }
                             
                             Text("Popular Category")
@@ -158,9 +161,6 @@ struct MainHomeView: View {
                             .padding(.horizontal, 16)
                             .frame(height: 160)
                         }
-                    }
-                    .task {
-                        networkAggregateModel.searchRecipeShort(params: ["sort":"popularity"], requestTag: .trendingNow)
                     }
                     .padding(.bottom, geometry.safeAreaInsets.bottom + 50)
                 }
