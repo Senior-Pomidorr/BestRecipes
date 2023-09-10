@@ -9,7 +9,7 @@ struct Constants {
 //        static let apiToken = "823b69d6de03422398b29958e6cb178f"
 //        static let apiToken = "59ece5a665f9455c92dad51057fd5100"
 //    static let apiToken = "2970b49d7c754669aece7b55a25ef7b8"
-    static let apiToken = "09f5968f73f54486a22fa15ad1739aaa"
+    static let apiToken = "3ea21aa2dee34d8382cc0c92fa86348d"
 //    static let apiToken = "3df4748a170f45ce9c519d7371a16480"
 }
 

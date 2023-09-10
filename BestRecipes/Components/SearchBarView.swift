@@ -30,7 +30,6 @@ struct SearchBarView: View {
                 .overlay(
                     HStack(spacing: 5) {
                         Image(systemName: "xmark.circle.fill")
-//                            .padding()
                             .offset(x: 10)
                             .foregroundColor(Color.theme.customGray)
                             .opacity(searchText.isEmpty ? 0.0 : 1.0)
@@ -38,9 +37,9 @@ struct SearchBarView: View {
                                 UIApplication.shared.endEditing()
                                 searchText = ""
                             }
-//                        ,alignment: .trailing
                         Button {
                             isPresented.toggle()
+                            
                         } label: {
                             Image(systemName: "arrow.right.circle")
                                 .offset(x: 10)
@@ -50,15 +49,16 @@ struct SearchBarView: View {
                         .buttonStyle(TapAnimation())
                         .sheet(isPresented: $isPresented) {
                             TrendingNowView(recipes: networkAggregateModel.shortRecipeListSearch, screenTitle: searchText, cuisine: nil)
+                                .task {
+                                    print(searchText)
+                                    networkAggregateModel.searchRecipeShort(
+                                        params: ["query" : searchText],
+                                        requestTag: .search)
+                                }
                         }
                         
                     },alignment: .trailing
                 )
-        }
-        .task {
-            networkAggregateModel.searchRecipeShort(
-                params: ["query" : $searchText],
-                requestTag: .search)
         }
         .font(.headline)
         .padding()
