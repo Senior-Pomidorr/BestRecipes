@@ -9,7 +9,11 @@ import SwiftUI
 
 struct SearchBarView: View {
     
+    @EnvironmentObject var networkAggregateModel: NetworkAggregateModel
+    
     @Binding var searchText: String
+    
+    @State var isPresented = false
     
     var body: some View {
         HStack {
@@ -24,17 +28,37 @@ struct SearchBarView: View {
                 .foregroundColor(Color.theme.customBlack)
                 .disableAutocorrection(true)
                 .overlay(
-                    Image(systemName: "xmark.circle.fill")
-                        .padding()
-                        .offset(x: 10)
-                        .foregroundColor(Color.theme.customGray)
-                        .opacity(searchText.isEmpty ? 0.0 : 1.0)
-                        .onTapGesture {
-                            UIApplication.shared.endEditing()
-                            searchText = ""
+                    HStack(spacing: 5) {
+                        Image(systemName: "xmark.circle.fill")
+//                            .padding()
+                            .offset(x: 10)
+                            .foregroundColor(Color.theme.customGray)
+                            .opacity(searchText.isEmpty ? 0.0 : 1.0)
+                            .onTapGesture {
+                                UIApplication.shared.endEditing()
+                                searchText = ""
+                            }
+//                        ,alignment: .trailing
+                        Button {
+                            isPresented.toggle()
+                        } label: {
+                            Image(systemName: "arrow.right.circle")
+                                .offset(x: 10)
+                                .foregroundColor(Color.theme.customGray)
+                                .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         }
-                    ,alignment: .trailing
+                        .buttonStyle(TapAnimation())
+                        .sheet(isPresented: $isPresented) {
+                            TrendingNowView(recipes: networkAggregateModel.shortRecipeListSearch, screenTitle: searchText, cuisine: nil)
+                        }
+                        
+                    },alignment: .trailing
                 )
+        }
+        .task {
+            networkAggregateModel.searchRecipeShort(
+                params: ["query" : $searchText],
+                requestTag: .search)
         }
         .font(.headline)
         .padding()

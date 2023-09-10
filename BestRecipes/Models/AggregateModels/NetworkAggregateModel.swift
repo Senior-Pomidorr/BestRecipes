@@ -30,6 +30,7 @@ class NetworkAggregateModel: ObservableObject {
     @Published var recentRecipeList: [RecipeShort] = []
     
     @Published var shortRecipeListCuisines: [RecipeShort] = []
+    @Published var shortRecipeListSearch: [RecipeShort] = []
     
     var cancellables: Set<AnyCancellable> = []
     
@@ -56,6 +57,8 @@ class NetworkAggregateModel: ObservableObject {
                     self?.shortRecipeListGeneral = shortRecipeList.results ?? []
                 case .cuisines:
                     self?.shortRecipeListCuisines = shortRecipeList.results ?? []
+                case .search:
+                    self?.shortRecipeListSearch = shortRecipeList.results ?? []
                 }
             })
             .store(in: &cancellables)
